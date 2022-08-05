@@ -1,0 +1,12 @@
+html {
+  overflow: hidden;
+}
+
+htlml body {
+  overflow: hidden;
+}
+
+.image {
+  height: 100vh;
+  width: 100vw;
+}
