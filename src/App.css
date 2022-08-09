@@ -1,3 +1,5 @@
+@import url('https://db.onlinewebfonts.com/c/69926ed34c8ebb39bae0db55413f0861?family=Mutant+Academy+BB');
+
 html, body{
   margin: 0;
   padding: 0;
@@ -6,5 +8,5 @@ html, body{
   display: flex;
   height: 100%;
   width: 100%;
-  
+  background-image: url('assets/img/fundo-textura-vermelho.jpg');
 }
