@@ -7,6 +7,17 @@ const modalStyle = () => css`
 	color: ${colors.textColorRed};
 `;
 
+const buttonSmall = () => css`
+	width: 150px;
+	height: 37px;
+	font-size: 30px;
+	border-radius: 3px;
+	font-weight: 400;
+	font-family: ${constants.bodyFontFamily};
+	border: none;
+`;
+
 export const mixins = {
 	modalStyle,
+	buttonSmall,
 };

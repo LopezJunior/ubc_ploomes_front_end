@@ -1,0 +1,110 @@
+import styled, { css } from 'styled-components';
+
+export const BoxLogin = styled.section`
+	${({ theme }) => css`
+		color: ${theme.colors.textColorRed};
+		font-family: ${theme.constants.bodyFontFamily};
+		background-color: #fff;
+		width: 567px;
+		height: 590px;
+		border-radius: 0.5rem;
+	`}
+`;
+
+export const BoxLoginTitle = styled.div`
+	${() => css`
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		height: 28%;
+		justify-content: center;
+		align-items: center;
+	`}
+`;
+
+export const BoxLoginH2 = styled.h2`
+	${() => css`
+		font-size: 42px;
+		font-weight: 400;
+	`}
+`;
+
+export const BoxLoginH3 = styled.h3`
+	${({ theme }) => css`
+		margin-top: -2rem;
+		font-size: 18px;
+		font-weight: 400;
+
+		a {
+			text-decoration: none;
+			color: ${theme.colors.textColorRed};
+		}
+
+		a:hover {
+			color: ${theme.colors.primaryColorOpacity};
+		}
+	`}
+`;
+
+export const BoxLoginForm = styled.div`
+	${() => css`
+		width: 100%;
+		height: 58%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 4rem;
+	`}
+`;
+
+export const BoxLoginSubmit = styled.div`
+	${({ theme }) => css`
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		align-items: center;
+		margin-top: 1rem;
+
+		a {
+			text-decoration: none;
+			color: ${theme.colors.textColorRed};
+		}
+
+		a:hover {
+			color: ${theme.colors.primaryColorOpacity};
+		}
+	`}
+`;
+
+export const BoxLoginDivInput = styled.div`
+	${({ theme }) => css`
+		width: 75%;
+		border-bottom: 4px solid ${theme.colors.primaryColor};
+		display: flex;
+		align-items: center;
+
+		svg {
+			width: 25px;
+			height: 25px;
+		}
+
+		label {
+			margin: 0 10px 0 10px;
+		}
+	`}
+`;
+
+export const BoxLoginInput = styled.input`
+	${({ theme }) => css`
+		border: 1px solid;
+		width: 70%;
+		height: 25px;
+		border: none;
+		outline: 0;
+		color: #000;
+		font-size: 18px;
+		margin: 3px;
+	`}
+`;
