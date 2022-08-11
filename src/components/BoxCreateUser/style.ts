@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const BoxLogin = styled.section`
+export const BoxCreateUser = styled.section`
   ${({ theme }) => css`
     color: ${theme.colors.textColorRed};
     font-family: ${theme.constants.bodyFontFamily};
@@ -14,7 +14,7 @@ export const BoxLogin = styled.section`
   `}
 `;
 
-export const BoxLoginTitle = styled.div`
+export const BoxCreateUserTitle = styled.div`
   ${() => css`
     width: 100%;
     display: flex;
@@ -25,14 +25,14 @@ export const BoxLoginTitle = styled.div`
   `}
 `;
 
-export const BoxLoginH2 = styled.h2`
+export const BoxCreateUserH2 = styled.h2`
   ${() => css`
-    font-size: 42px;
+    font-size: 50px;
     font-weight: 400;
   `}
 `;
 
-export const BoxLoginH3 = styled.h3`
+export const BoxCreateUserH3 = styled.h3`
   ${({ theme }) => css`
     margin-top: -2rem;
     font-size: 18px;
@@ -49,7 +49,7 @@ export const BoxLoginH3 = styled.h3`
   `}
 `;
 
-export const BoxLoginForm = styled.div`
+export const BoxCreateUserForm = styled.div`
   ${() => css`
     width: 100%;
     height: 58%;
@@ -61,7 +61,7 @@ export const BoxLoginForm = styled.div`
   `}
 `;
 
-export const BoxLoginSubmit = styled.div`
+export const BoxCreateUserSubmit = styled.div`
   ${({ theme }) => css`
     width: 100%;
     display: flex;
@@ -81,7 +81,7 @@ export const BoxLoginSubmit = styled.div`
   `}
 `;
 
-export const BoxLoginDivInput = styled.div`
+export const BoxCreateUserDivInput = styled.div`
   ${({ theme }) => css`
     width: 75%;
     border-bottom: 4px solid ${theme.colors.primaryColor};
@@ -94,12 +94,13 @@ export const BoxLoginDivInput = styled.div`
     }
 
     label {
+      max-width: 75px;
       margin: 0 10px 0 10px;
     }
   `}
 `;
 
-export const BoxLoginInput = styled.input`
+export const BoxCreateUserInput = styled.input`
   ${({ theme }) => css`
     border: 1px solid;
     width: 70%;
