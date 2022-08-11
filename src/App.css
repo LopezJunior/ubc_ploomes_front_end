@@ -8,5 +8,6 @@ html, body{
   display: flex;
   height: 100%;
   width: 100%;
-  background-image: url('assets/img/fundo-textura-vermelho.jpg');
+  /*background-image: url('assets/img/fundo-textura-vermelho.jpg');*/
+  background-color: '#fff';
 }
