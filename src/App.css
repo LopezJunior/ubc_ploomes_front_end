@@ -8,6 +8,13 @@ html, body{
   display: flex;
   height: 100%;
   width: 100%;
-  background-image: url('assets/img/fundo-textura-vermelho.jpg');
+
+  /*
+  DUVIDA: 
+    - Ver com equipe qual o background correto para o app!
+    - Estou utilizando o background "fundo-textura-vermelho.jpg" nas telas para criar o realce correto!
+    
+    background-image: url('assets/img/fundo-textura-vermelho.jpg');
+  */
   background-color: '#fff';
 }

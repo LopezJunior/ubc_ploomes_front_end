@@ -1,14 +1,13 @@
 import styled, { css } from "styled-components";
 import Modal from "styled-react-modal";
 import { BaseModalBackground } from "styled-react-modal";
-import './style.css';
 
 export const Conteiner = styled.div`
-	${({theme}) => css`
+	${() => css`
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-        align-items: center;
+		align-items: center;
 	`}
 `;
 
@@ -63,7 +62,7 @@ export const ImageBox = styled.div`
 `;
 
 export const Image = styled.img`
-	${({theme}) => css`
+	${() => css`
 		width: 100%;
   		height: 100%;
 		object-fit: cover;
@@ -78,10 +77,10 @@ export const Title = styled.h2`
 		width: 100%;
 		height: 20%;
 		color: ${theme.colors.textColorRed};
-		font-family: 'Teko'; 
+		font-family: ${theme.constants.bodyFontFamily}; 
 	`}
 `;
-/*${constants.bodyFontFamily};*/
+/*teko*/
 
 export const Form = styled.form`
 	${({theme}) => css`
@@ -92,26 +91,14 @@ export const Form = styled.form`
 		width: 40%;
 		height: 80%;
 		background-color: white;
-		font-family: 'Teko'; 
-		font-size: 14px;
 		border: 0px solid blue;
 		gap: 15px;
 		input {
 			width: 80%;
 			height: 54px;
-			font-family: 'Teko'; 
+			font-family: ${theme.constants.bodyFontFamily};  
 			font-size: 14px;
 		}
-	`}
-`;
-
-export const FormGroup = styled.div`
-	${({theme}) => css`
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
-		width: 100%;	
 	`}
 `;
 
@@ -134,20 +121,9 @@ export const Button = styled.button`
 		border-radius: 0;
 		color: ${theme.colors.textColor};
 		background-color: ${theme.colors.primaryColor};
-		font-family: 'TEKO'; 
+		font-family: ${theme.constants.bodyFontFamily}; 
 		font-size: 14px;
 		cursor: pointer;
-	`}
-`;
-
-export const footer = styled.div`
-	${({theme}) => css`
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-		width:100%;
-		height: 20%;
-		gap: 05px;
 	`}
 `;
 

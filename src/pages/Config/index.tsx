@@ -1,70 +1,70 @@
-import { useState, useEffect } from 'react';
-import Modal from 'react-modal';
-import "./style.css";
-
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#root');
+import React, { useState } from "react";
+import * as S from "./style"
 
 function Config() {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [opacity, setOpacity] = useState(0);
 
-  function openModal() {
-    setIsOpen(!modalIsOpen);
+  function toggleModal() {
+    setOpacity(0);
+    setIsOpen(!isOpen);
   }
 
-  function afterOpenModal() {
+  function afterOpen() {
+    setTimeout(() => {
+      setOpacity(1);
+    }, 100);
   }
 
-  function closeModal() {
-    setIsOpen(false);
+  function beforeClose() {
+    return new Promise((resolve) => {
+      setOpacity(0);
+      setTimeout(resolve, 300);
+    });
   }
 
   return (
-    <div className={"container"}>
-      <button onClick={openModal}> Click </button>
-      <Modal
-          isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          contentLabel={"Tela De Configuração"}
-          className={"modal"}
-          overlayClassName={"overlay"}
-          >
+    <div>
+      <button onClick={toggleModal}>Open modal</button>
+      <S.StyledModal
+        isOpen={isOpen}
+        afterOpen={afterOpen}
+        beforeClose={beforeClose}
+        onBackgroundClick={toggleModal}
+        onEscapeKeydown={toggleModal}
+        /*opacity={opacity}*/
+        backgroundProps={{ opacity }} 
+        >
+        <S.Content>
 
-          <div className={"title"}> <h2>UBC</h2> </div>
+          <S.ImageBox>
+            <S.Image src="assets/img/ufc-cinturao.png" />
+          </S.ImageBox>
 
-          <div className={'content'}> 
-            <div className={'content-img'}>
-              <img 
-                src="https://m.media-amazon.com/images/I/91GfFQ8gubL._AC_SX425_.jpg" 
-                width={"100%"} 
-                height={"100%"} 
-                object-fit="cover" 
-              />
-            </div>
-            <div className={'content-data'}>
-              <div className={'content-data-group'}>
-                <label>Número de Cartelas</label>
-                <input></input>
-              </div>
-              <div className={'content-data-group'}>
-                <label>Tempo para Próxima Bola</label>
-                <input></input>
-              </div>
-              <div className={'content-data-group'}>
-                <label>Limite Sorteios</label>
-                <input></input>
-              </div>
-            </div>
-          </div>
+          <S.Form>
+            <S.Title> CONFIGURAÇÃO </S.Title>
 
-          <div className={'footer'}>
-            <button onClick={closeModal}>Compartilhar</button>
-            <button>Iniciar Jogo</button>
-          </div>
-      </Modal>
+            <input id="num_cartelas" placeholder="Número De Cartelas"></input>
+            <input id="prox_bola" placeholder="Tempo para Próxima Bola"></input>
+            <input id="lim_sorteio" placeholder="Número De Sorteios"></input>
+            
+            <S.ButtonBox>
+              <S.Button> Compartilhar </S.Button>
+              <S.Button> Iniciar Jogo </S.Button>
+            </S.ButtonBox>
+            
+          </S.Form>
+
+        </S.Content>
+
+      </S.StyledModal>
     </div>
   );
 }
 
 export default Config;
+
+/*
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+*/

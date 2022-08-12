@@ -6,6 +6,7 @@ export enum RoutePath {
 	USERFORGOTPASSWORD = '/userforgotpassword',
 	MYACCOUNT = '/myaccount',
 	LOGOUT = '/logout',
+	CONFIG = '/config',
 	FILTERBYMONEY = '/filterbymoney',
 	MYBINGO = '/mybingo',
 	RESETSECTION = '/resetsection',

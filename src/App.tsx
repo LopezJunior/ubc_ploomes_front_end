@@ -1,11 +1,11 @@
-import "./App.css";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ModalProvider } from "styled-react-modal";
 import Router from 'router';
 import theme from 'assets/styles/theme';
-import { ModalProvider } from "styled-react-modal";
-import * as S from "pages/ConfigStyled/style"
+import * as S from "pages/Config/style"
+import "./App.css";
 
 const queryClient = new QueryClient();
 
