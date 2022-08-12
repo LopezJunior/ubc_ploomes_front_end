@@ -9,7 +9,7 @@ export const StartButton = styled.a`
 
   img {
     height: 220px;
-    width: 400px;
+    width: 420px;
   }
 
   :hover {
