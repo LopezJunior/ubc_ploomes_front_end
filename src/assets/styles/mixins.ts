@@ -17,7 +17,18 @@ const buttonSmall = () => css`
   border: none;
 `;
 
+const buttonWhite = () => css`
+  width: 230px;
+  height: 70px;
+  font-size: 60px;
+  border-radius: 3px;
+  font-weight: 400;
+  font-family: ${constants.bodyFontFamily};
+  border: none;
+`;
+
 export const mixins = {
   modalStyle,
   buttonSmall,
+  buttonWhite,
 };
