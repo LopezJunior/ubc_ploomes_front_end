@@ -1,11 +1,25 @@
-import * as S from './style';
-import ButtonRedSmall from 'components/ButtonRedSmall';
-import { Link } from 'react-router-dom';
-import { RoutePath } from 'types/routes';
-import { FaRegUserCircle as UserCicle } from 'react-icons/fa';
-import { RiLock2Line as Lock } from 'react-icons/ri';
+import * as S from "./style";
+import ButtonRedSmall from "components/ButtonRedSmall";
+import { Link } from "react-router-dom";
+import { RoutePath } from "types/routes";
+import { FaRegUserCircle as UserCicle } from "react-icons/fa";
+import { RiLock2Line as Lock } from "react-icons/ri";
+import { HTMLAttributes, useState } from 'react';
 
-const BoxLogin = () => {
+type BoxLoginType = HTMLAttributes<HTMLDivElement>;
+
+export type BoxLoginProps = {
+	onSubmitData: (data: { nickname: string; password: string }) => void;
+} & BoxLoginType;
+
+const BoxLogin = ({ onSubmitData }: BoxLoginProps) => {
+	const [nickname, setNickname] = useState('');
+	const [password, setPassword] = useState('');
+
+	const handleSubmit = (): void => {
+		const data = { nickname, password };
+		onSubmitData(data);
+	};
 	return (
 		<S.BoxLogin>
 			<S.BoxLoginTitle>
@@ -21,16 +35,27 @@ const BoxLogin = () => {
 				<S.BoxLoginDivInput>
 					<UserCicle />
 					<label> username: </label>
-					<S.BoxLoginInput type={'text'} />
+					<S.BoxLoginInput
+						type="text"
+						value={nickname}
+						onChange={({ target }) => setNickname(target.value)}
+					/>
 				</S.BoxLoginDivInput>
 				<S.BoxLoginDivInput>
 					<Lock />
 					<label> password: </label>
-					<S.BoxLoginInput type={'password'} />
+					<S.BoxLoginInput
+						type="password"
+						value={password}
+						onChange={({ target }) => setPassword(target.value)}
+					/>
 				</S.BoxLoginDivInput>
 				<S.BoxLoginSubmit>
-					<ButtonRedSmall value={'login'} type={'submit'} />
-					<Link to={RoutePath.USERFORGOTPASSWORD}>Esqueceu a senha?</Link>
+					<ButtonRedSmall
+						value={'login'}
+						type={'button'}
+						onClick={handleSubmit}
+					/>
 				</S.BoxLoginSubmit>
 			</S.BoxLoginForm>
 		</S.BoxLogin>

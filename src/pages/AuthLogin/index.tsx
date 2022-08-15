@@ -1,13 +1,21 @@
 import BoxLogin from 'components/BoxLogin';
 import * as S from './style';
-import logo from '../../assets/img/logo_cinturao.png';
+import Logo from 'components/Logo';
+import { RoutePath } from 'types/routes';
+import { useNavigate } from 'react-router-dom';
 
 const AuthLogin = () => {
+	const navigate = useNavigate();
+
+	const handleSubmit = () => {
+		navigate(RoutePath.HOMEPAGE);
+	};
+
 	return (
 		<S.AuthLogin>
 			<S.LoginContent>
-				<img src={logo} alt="" />
-				<BoxLogin />
+				<Logo />
+				<BoxLogin onSubmitData={handleSubmit} />
 			</S.LoginContent>
 		</S.AuthLogin>
 	);
