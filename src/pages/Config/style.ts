@@ -1,16 +1,9 @@
 import styled, { css } from "styled-components";
 import Modal from "styled-react-modal";
 import { BaseModalBackground } from "styled-react-modal";
+import { MdClose } from 'react-icons/md'
 
-export const Conteiner = styled.div`
-	${() => css`
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-	`}
-`;
-
+/*
 export const Overlay = styled.div`
 	${({theme}) => css`
 		position: fixed;
@@ -32,14 +25,36 @@ export const StyledModal = Modal.styled`
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		width: 50%;
+		width: 70%;
 		height: 360px;
 		transform: translate(-50%, -50%);
 		background-color: white;
 	`}
 `;
 
-export const Content = styled.div`
+export const Conteiner = styled.div`
+	${() => css`
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	`}
+`;
+*/
+
+export const StyledModal = Modal.styled`
+	${({}) => css`
+		position: absolute;
+		width: 60%;
+		height: 480px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: white;
+	`}
+`;
+
+export const ModalContent = styled.div`
 	${() => css`
 		display: flex;
 		justify-content: center;
@@ -47,7 +62,7 @@ export const Content = styled.div`
   		background-image: url('assets/img/fundo-textura-vermelho.jpg');
   		width: 100%;
 		height: 100%;
-		gap: 15px;
+		gap: calc(100% - 90%);
   	`}
 `;
 
@@ -80,10 +95,10 @@ export const Title = styled.h2`
 		font-family: ${theme.constants.bodyFontFamily}; 
 	`}
 `;
-/*teko*/
 
 export const Form = styled.form`
 	${({theme}) => css`
+		
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
@@ -94,12 +109,9 @@ export const Form = styled.form`
 		border: 0px solid blue;
 		gap: 15px;
 		input {
-			width: 80%;
-			height: 54px;
-			font-family: ${theme.constants.bodyFontFamily};  
-			font-size: 14px;
+			${theme.mixins.input()};
 		}
-	`}
+ 	`}
 `;
 
 export const ButtonBox = styled.div`
@@ -108,7 +120,7 @@ export const ButtonBox = styled.div`
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		width: 80%;	
+		width: 90%;
 		height: 40%;
 		gap:05px;
   `}
@@ -121,11 +133,23 @@ export const Button = styled.button`
 		border-radius: 0;
 		color: ${theme.colors.textColor};
 		background-color: ${theme.colors.primaryColor};
-		font-family: ${theme.constants.bodyFontFamily}; 
+		font-family: ${theme.constants.bodyFontFamily};
 		font-size: 14px;
 		cursor: pointer;
 	`}
 `;
+
+export const CloseModalButton = styled(MdClose)`
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	z-index: 10;
+	cursor: pointer;
+`;
+
 
 /*
 const FadingBackground = styled(BaseModalBackground)`
@@ -134,6 +158,6 @@ const FadingBackground = styled(BaseModalBackground)`
 `;
 */
 
-export const FadingBackground = styled(BaseModalBackground)`
+export const Background = styled(BaseModalBackground)`
   transition: all 0.3s ease-in-out;
 `;

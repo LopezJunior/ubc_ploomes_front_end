@@ -35,10 +35,10 @@ function Config() {
         /*opacity={opacity}*/
         backgroundProps={{ opacity }} 
         >
-        <S.Content>
+        <S.ModalContent>
 
           <S.ImageBox>
-            <S.Image src="assets/img/ufc-cinturao.png" />
+            <S.Image src="assets/img/cinturao.png" />
           </S.ImageBox>
 
           <S.Form>
@@ -50,12 +50,17 @@ function Config() {
             
             <S.ButtonBox>
               <S.Button> Compartilhar </S.Button>
-              <S.Button> Iniciar Jogo </S.Button>
+              <S.Button> Confirmar </S.Button>
             </S.ButtonBox>
             
           </S.Form>
 
-        </S.Content>
+          <S.CloseModalButton
+            aria-label='Close modal'
+            onClick={() => setIsOpen(false)}
+          />          
+
+        </S.ModalContent>
 
       </S.StyledModal>
     </div>
