@@ -2,6 +2,7 @@ import * as S from './style';
 import LineButtons from 'components/LineButtons';
 import StartButton from 'components/StartButton';
 import ButtonWhite from 'components/ButtonWhite';
+import InfoModal from 'components/InfoModal';
 
 const HomePage = () => {
 	return (
@@ -9,7 +10,7 @@ const HomePage = () => {
 			<S.HomeContent>
 				<LineButtons />
 				<StartButton />
-				<ButtonWhite value={'Info'} type="button" />
+				<InfoModal />
 			</S.HomeContent>
 		</S.HomePage>
 	);

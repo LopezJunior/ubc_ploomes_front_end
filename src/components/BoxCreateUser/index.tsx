@@ -96,13 +96,25 @@ const BoxCreateUser = () => {
         <S.BoxCreateUserDivInput>
           <Lock />
           <label> password: </label>
-          <S.BoxCreateUserInput type={"password"} />
+          <S.BoxCreateUserInput
+            type="password"
+            name="password"
+            id="password"
+            required
+            onChange={handleChangesValues}
+          />
         </S.BoxCreateUserDivInput>
 
         <S.BoxCreateUserDivInput>
           <Lock />
           <label>confirm password: </label>
-          <S.BoxCreateUserInput type={"password"} />
+          <S.BoxCreateUserInput
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            required
+            onChange={handleChangesValues}
+          />
         </S.BoxCreateUserDivInput>
 
         <S.BoxCreateUserSubmit>
