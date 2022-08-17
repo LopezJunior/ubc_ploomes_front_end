@@ -2,17 +2,19 @@ import * as S from "./style";
 import ButtonRedSmall from "components/ButtonRedSmall";
 import { FaRegUserCircle as UserCicle } from "react-icons/fa";
 import { RiLock2Line as Lock } from "react-icons/ri";
-import React, { useState } from "react";
-import { RegisterUser } from "types/interfaces";
+import { AiOutlineMail } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { RegisterService } from "services/authService";
+import { RegisterUser } from "types/interfaces";
 import swal from "sweetalert";
 
 const BoxCreateUser = () => {
   const navigate = useNavigate();
 
   const [values, setValues] = useState<RegisterUser>({
-    username: "",
+    name: "",
+    email: "",
     password: "",
     confirmPassword: "",
   });
@@ -68,14 +70,25 @@ const BoxCreateUser = () => {
           <S.BoxCreateUserH2>Insira seus dados:</S.BoxCreateUserH2>
         </div>
       </S.BoxCreateUserTitle>
-      <S.BoxCreateUserForm>
+      <S.BoxCreateUserForm onSubmit={handleRegisterUser}>
         <S.BoxCreateUserDivInput>
           <UserCicle />
-          <label> username: </label>
+          <label> nickname: </label>
           <S.BoxCreateUserInput
             type="text"
-            name="username"
-            id="username"
+            name="name"
+            id="name"
+            required
+            onChange={handleChangesValues}
+          />
+        </S.BoxCreateUserDivInput>
+        <S.BoxCreateUserDivInput>
+          <AiOutlineMail />
+          <label> email: </label>
+          <S.BoxCreateUserInput
+            type="string"
+            name="email"
+            id="email"
             required
             onChange={handleChangesValues}
           />

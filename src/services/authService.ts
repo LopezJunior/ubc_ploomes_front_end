@@ -5,7 +5,7 @@ import { UserLogin, RegisterUser } from "../types/interfaces";
 export const loginService = {
   Login: async (values: UserLogin) => {
     try {
-      const res = await Api.post("/auth", values);
+      const res = await Api.post("/login", values);
       return res;
     } catch (error: any) {
       swal({
@@ -21,7 +21,7 @@ export const loginService = {
 export const RegisterService = {
   Register: async (values: RegisterUser) => {
     try {
-      const res = await Api.post("/user", values);
+      const res = await Api.post("/login/register", values);
       return res;
     } catch (error: any) {
       swal({

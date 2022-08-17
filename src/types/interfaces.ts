@@ -1,10 +1,12 @@
 export interface UserLogin {
-  username: string;
+
+  email: string;
   password: string;
 }
 
 export interface RegisterUser {
-  username: string;
+  name: string;
+  email: string;
   password: string;
   confirmPassword: string;
 }
@@ -13,5 +15,5 @@ export interface ProfilesTypes {
   id?: string;
   title: string;
   imageUrl: string;
-  nickname: string;
+  name: string;
 }
