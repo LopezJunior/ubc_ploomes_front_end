@@ -2,6 +2,7 @@ import * as S from "./style";
 import ButtonRedSmall from "components/ButtonRedSmall";
 import { FaRegUserCircle as UserCicle } from "react-icons/fa";
 import { RiLock2Line as Lock } from "react-icons/ri";
+import { AiOutlineMail } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { RegisterService } from "services/authService";
@@ -72,7 +73,7 @@ const BoxCreateUser = () => {
       <S.BoxCreateUserForm onSubmit={handleRegisterUser}>
         <S.BoxCreateUserDivInput>
           <UserCicle />
-          <label> name: </label>
+          <label> nickname: </label>
           <S.BoxCreateUserInput
             type="text"
             name="name"
@@ -82,7 +83,7 @@ const BoxCreateUser = () => {
           />
         </S.BoxCreateUserDivInput>
         <S.BoxCreateUserDivInput>
-          <UserCicle />
+          <AiOutlineMail />
           <label> email: </label>
           <S.BoxCreateUserInput
             type="string"

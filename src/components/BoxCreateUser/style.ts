@@ -57,7 +57,7 @@ export const BoxCreateUserForm = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
   `}
 `;
 
