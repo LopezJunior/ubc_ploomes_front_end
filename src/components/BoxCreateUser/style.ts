@@ -49,7 +49,7 @@ export const BoxCreateUserH3 = styled.h3`
   `}
 `;
 
-export const BoxCreateUserForm = styled.div`
+export const BoxCreateUserForm = styled.form`
   ${() => css`
     width: 100%;
     height: 58%;
