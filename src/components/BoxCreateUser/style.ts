@@ -49,7 +49,7 @@ export const BoxCreateUserH3 = styled.h3`
   `}
 `;
 
-export const BoxCreateUserForm = styled.div`
+export const BoxCreateUserForm = styled.form`
   ${() => css`
     width: 100%;
     height: 58%;
@@ -57,7 +57,7 @@ export const BoxCreateUserForm = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
   `}
 `;
 
