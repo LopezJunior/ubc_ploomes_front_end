@@ -54,16 +54,15 @@ export const Content = styled.div`
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		width: 100%;
 		height: 100%;
-		font-family: ${theme.constants.bodyFontFamily};
+		font-family: ${theme.constants.infoFontFamily};
 		color: ${theme.colors.primaryColor};
 		padding: 10px;
 		text-align: center;
 	`}
 
 	h2 {
-		font-size: 34px;
+		font-size: 36px;
 	}
 
 	article {
@@ -85,6 +84,7 @@ export const Footer = styled.div`
 	svg {
 		width: 60px;
 		height: 60px;
+		cursor: pointer;
 	}
 `;
 

@@ -35,12 +35,13 @@ const InfoModal = () => {
 				backgroundProps={{ opacity }}
 			>
 				<S.Content>
-					<h2>INFORMAÇÕES sobre o Bingo:</h2>
+					<h2>INFORMAÇÕES SOBRE O BINGO:</h2>
 					<article>
 						No Jogo, Bolas numeradas dentro de um globo são sorteadas
-						individualmente. O bingo possui uma grande variedade de regras e
-						diferentes formas de vencer, pradões e marcações de pontuação, mas é
-						muito simples e fácil de jogar.
+						individualmente.
+						<br />O bingo possui uma grande variedade de regras e diferentes
+						formas de vencer, pradões e marcações de pontuação, mas é muito
+						simples e fácil de jogar.
 					</article>
 					<h2>DEFINIÇÕES:</h2>
 					<article>Jogadores: sem Limite de usuários</article>
@@ -59,7 +60,7 @@ const InfoModal = () => {
 					<p>Falaremos mais deles adiante.</p>
 					<S.Footer>
 						<Logo />
-						<Exit />
+						<Exit onClick={toggleModal} />
 					</S.Footer>
 				</S.Content>
 			</S.StyledModal>
