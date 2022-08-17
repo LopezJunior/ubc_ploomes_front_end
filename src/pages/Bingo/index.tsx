@@ -1,4 +1,5 @@
 import BallHistory from "components/BallHistory";
+import Card from "components/Card";
 import FooterBingo from "components/FooterBingo";
 import * as S from "./style";
 
@@ -7,6 +8,7 @@ const MyBingo = () => {
     <S.myBingo>
       <FooterBingo />
       <BallHistory />
+      <Card />
     </S.myBingo>
   );
 };

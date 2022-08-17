@@ -10,7 +10,7 @@ export const TitleBingo = styled.div`
     background-color: white;
     border-radius: 10px;
     width: 80%;
-    height: 15%;
+    height: 110px;
     margin-left: 10%;
   `}
 `;
