@@ -24,7 +24,7 @@ const InfoModal = () => {
 		});
 	}
 	return (
-		<>
+		<S.InfoModal>
 			<S.Button onClick={toggleModal}>Info</S.Button>
 			<S.StyledModal
 				isOpen={isOpen}
@@ -64,7 +64,7 @@ const InfoModal = () => {
 					</S.Footer>
 				</S.Content>
 			</S.StyledModal>
-		</>
+		</S.InfoModal>
 	);
 };
 

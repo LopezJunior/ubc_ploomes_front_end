@@ -6,15 +6,14 @@ import HomePage from "pages/Home";
 import MyBingo from "pages/Bingo";
 
 const Router = () => {
-  return (
-    <Routes>
-      {/* <Route path={RoutePath.ROOT} element={<ConfigStyled />} /> */}
-      <Route path={RoutePath.HOMEPAGE} element={<HomePage />} />
-      <Route path={RoutePath.AUTHLOGIN} element={<AuthLogin />} />
-      <Route path={RoutePath.CREATEUSER} element={<CreateUser />} />
-      <Route path={RoutePath.MYBINGO} element={<MyBingo />} />
-    </Routes>
-  );
+	return (
+		<Routes>
+			<Route path={RoutePath.HOMEPAGE} element={<HomePage />} />
+			<Route path={RoutePath.AUTHLOGIN} element={<AuthLogin />} />
+			<Route path={RoutePath.CREATEUSER} element={<CreateUser />} />
+			<Route path={RoutePath.MYBINGO} element={<MyBingo />} />
+		</Routes>
+	);
 };
 
 export default Router;
