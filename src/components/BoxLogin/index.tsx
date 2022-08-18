@@ -57,7 +57,7 @@ const BoxLogin = () => {
         icon: "success",
         timer: 3000,
       });
-      navigation("/home");
+      navigation("/");
     }
   };
   return (
