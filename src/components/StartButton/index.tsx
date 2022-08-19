@@ -29,6 +29,7 @@ const StartButton = () => {
 			<S.StartButton onClick={toggleModal}>
 				<img src={logo} />
 			</S.StartButton>
+
 			<S.StyledModal
 				isOpen={isOpen}
 				afterOpen={afterOpen}
@@ -54,11 +55,17 @@ const StartButton = () => {
 						<input id="limite_sorteio" placeholder="Número De Sorteios"></input>
 
 						<S.ButtonBox>
-							<Buttons value={'Compartilhar'} type={'button'} />
+							<Buttons value={'compartilhar'} type={'button'} />
 							<Buttons value={'Iniciar Jogo'} type={'button'} />
 						</S.ButtonBox>
 					</S.Form>
+
+					<S.CloseModalButton
+						aria-label='Close modal'
+						onClick={() => setIsOpen(false)}
+					/>
 				</S.Content>
+
 			</S.StyledModal>
 		</div>
 	);
