@@ -1,21 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./style"
 import { RoomServices } from 'services/roomServices'
 
-function Config() {
-  const [isOpen, setIsOpen] = useState(false);
+interface DefeatParams  {
+  drawn_numbers: number;
+  game_time: number;
+  callRestart: () => void;
+  callGetout: () => void;
+}
+
+
+const Defeat = ( {drawn_numbers, game_time, callRestart, callGetout} : DefeatParams) => {
+  const [isOpen, setIsOpen] = useState(true);
   const [opacity, setOpacity] = useState(0);
-
-  function restart() {
-
-    // RoomServices.start()
-
-    setIsOpen(false);
-  }
-
-  function sair() {
-    setIsOpen(false);
-  }
 
   function toggleModal() {
     setOpacity(0);
@@ -35,16 +32,40 @@ function Config() {
     });
   }
 
+  async function roomLoad() {
+    //const response = await RoomServices.getRoom( game.roomId );
+    //setGame( response );
+  };
+
+  function restart() {
+    setIsOpen(false);
+
+    callRestart();
+  }
+
+  function sair() {
+    setIsOpen(false);
+
+    callGetout();
+  }
+
+
+  useEffect( () => {
+    // room entity load
+    //roomLoad();
+  }, [] );
+
   return (
     <div>
-      <button onClick={toggleModal}> Open modal </button>
+
+      {/* <button onClick={toggleModal}> Open modal </button> */}
+
       <S.StyledModal
         isOpen={isOpen}
         afterOpen={afterOpen}
         beforeClose={beforeClose}
         onBackgroundClick={toggleModal}
         onEscapeKeydown={toggleModal}
-        /*opacity={opacity}*/
         backgroundProps={{ opacity }} 
         >
         <S.ModalContent>
@@ -52,9 +73,9 @@ function Config() {
           <S.Header>
 
             <S.WhiteSmallBox> 
-                <S.Text> 32 </S.Text> 
+                <S.Text> {drawn_numbers} </S.Text> 
                 <S.Text> número  </S.Text> 
-                <S.Text> sorteios </S.Text> 
+                <S.Text> sorteados </S.Text> 
             </S.WhiteSmallBox> 
 
             <S.WhiteLargeBox>
@@ -62,7 +83,7 @@ function Config() {
             </S.WhiteLargeBox>
 
             <S.WhiteSmallBox> 
-              <S.Text> 10:32 </S.Text> 
+              <S.Text> {game_time} </S.Text> 
               <S.Text> tempo  </S.Text> 
               <S.Text> partida </S.Text> 
             </S.WhiteSmallBox> 
@@ -90,5 +111,5 @@ function Config() {
   );
 }
 
-export default Config;
+export default Defeat;
 
