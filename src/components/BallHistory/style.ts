@@ -22,4 +22,6 @@ export const BallDraw = styled.span`
 `;
 export const Ball = styled.span`
   font-size: 80px;
+  position: absolute;
+  left: 48%;
 `;

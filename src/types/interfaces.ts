@@ -16,3 +16,7 @@ export interface ProfilesTypes {
   imageUrl: string;
   name: string;
 }
+
+export interface Numbers {
+  number: number;
+}
