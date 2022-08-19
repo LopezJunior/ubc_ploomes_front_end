@@ -49,7 +49,7 @@ export const BoxLoginH3 = styled.h3`
   `}
 `;
 
-export const BoxLoginForm = styled.div`
+export const BoxLoginForm = styled.form`
   ${() => css`
     width: 100%;
     height: 58%;

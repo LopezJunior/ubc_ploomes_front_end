@@ -16,3 +16,4 @@ export interface UserLogin {
     imageUrl: string;
     name: string;
   }
+
