@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { RoutePath } from "types/routes";
+
 import AuthLogin from "pages/Login";
 import CreateUser from "pages/Cadastro";
 import HomePage from "pages/Home";
