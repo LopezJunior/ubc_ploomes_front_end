@@ -1,4 +1,5 @@
 import * as S from './style';
+import fighter from '../../assets/img/fighter.png';
 
 const VictoryModal = () => {
 	return (
@@ -23,7 +24,7 @@ const VictoryModal = () => {
 					<h2>33</h2>
 					<h3>Numeros Sorteados</h3>
 				</S.Numeros>
-				<S.Image src={''} alt="" />
+				<S.Image src={fighter} alt="" />
 			</S.Content>
 			<S.Footer>
 				<S.Buttons>Restart</S.Buttons>

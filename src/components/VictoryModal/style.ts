@@ -28,8 +28,7 @@ export const Content = styled.section`
 		color: ${theme.colors.primaryColor};
 		display: flex;
 		width: 100%;
-		align-items: flex-start;
-		justify-content: flex-start;
+
 		position: absolute;
 		bottom: 10px;
 	`}
@@ -38,9 +37,9 @@ export const Content = styled.section`
 export const Image = styled.img`
 	justify-self: center;
 	align-self: center;
-	width: 35%;
+	width: 30%;
 	position: relative;
-	bottom: 50px;
+	bottom: 25px;
 	left: 22%;
 `;
 
@@ -52,7 +51,7 @@ export const Footer = styled.div`
 		align-items: flex-end;
 		width: 90%;
 		height: 40%;
-		bottom: 6px;
+		bottom: 2rem;
 		position: absolute;
 		left: 5rem;
 	`}
@@ -104,13 +103,11 @@ export const Tempo = styled.div`
 `;
 
 export const Numeros = styled.div`
-	justify-self: center;
-	align-self: center;
 	position: relative;
 	background-color: #fff;
 	border-radius: 5px;
-	width: 140px;
-	height: 140px;
+	width: 160px;
+	height: 160px;
 	left: 6%;
 	text-align: center;
 
