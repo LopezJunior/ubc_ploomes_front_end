@@ -17,3 +17,6 @@ export interface UserLogin {
     name: string;
   }
 
+export interface Numbers {
+  number: number;
+}
