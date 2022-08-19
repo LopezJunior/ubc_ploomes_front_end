@@ -1,4 +1,4 @@
-export enum RoutePath {
+export  enum RoutePath {
 	HOMEPAGE = '/',
 	AUTHLOGIN = '/login',
 	CREATEUSER = '/novousuarrio',
