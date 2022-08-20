@@ -24,6 +24,7 @@
 		"react-query": "^4.0.0",
 		"react-router-dom": "6",
 		"react-scripts": "5.0.1",
+		"socket.io": "^4.5.1",
 		"styled-components": "^5.3.5",
 		"styled-react-modal": "^3.0.0",
 		"sweetalert": "^2.1.2",
