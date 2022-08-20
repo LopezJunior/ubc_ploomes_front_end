@@ -77,13 +77,8 @@ const StartButton = () => {
 						<input id="limite_sorteio" placeholder="Número De Sorteios"></input>
 
 						<S.ButtonBox>
-<<<<<<< Updated upstream
-							<Buttons value={'Compartilhar'} type={'button'} />
-							<Buttons value={'Iniciar Jogo'} type={'button'} />
-=======
 							<Buttons value={'compartilhar'} type={'button'} />
 							<Buttons value={'Jogar'} type={'button'} onClick={jogar} />
->>>>>>> Stashed changes
 						</S.ButtonBox>
 					</S.Form>
 				</S.Content>
