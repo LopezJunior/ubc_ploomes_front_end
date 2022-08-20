@@ -1,11 +1,14 @@
 import * as S from "./style";
 import logo from "../../assets/img/cinturao_iniciar.png";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Buttons from 'components/ButtonRedLarge';
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "types/routes";
 
 const StartButton = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [opacity, setOpacity] = useState(0);
+	const navigate = useNavigate();
 
 	function toggleModal() {
 		//setOpacity(0);
@@ -24,6 +27,26 @@ const StartButton = () => {
 			setTimeout(resolve, 300);
 		});
 	}
+
+	function jogar() {
+		navigate('/bingo');
+		return;
+	}
+
+	async function tokenVerify() {
+        const token = localStorage.getItem('jwt');
+        if(!token) {
+            navigate( RoutePath.AUTHLOGIN );
+            return;
+        }		
+	}
+
+	useEffect( () => {
+
+		tokenVerify();
+
+	} , [] );
+
 	return (
 		<div>
 			<S.StartButton onClick={toggleModal}>
@@ -54,8 +77,13 @@ const StartButton = () => {
 						<input id="limite_sorteio" placeholder="Número De Sorteios"></input>
 
 						<S.ButtonBox>
+<<<<<<< Updated upstream
 							<Buttons value={'Compartilhar'} type={'button'} />
 							<Buttons value={'Iniciar Jogo'} type={'button'} />
+=======
+							<Buttons value={'compartilhar'} type={'button'} />
+							<Buttons value={'Jogar'} type={'button'} onClick={jogar} />
+>>>>>>> Stashed changes
 						</S.ButtonBox>
 					</S.Form>
 				</S.Content>
