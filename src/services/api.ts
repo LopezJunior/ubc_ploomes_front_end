@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-  baseURL: "http://localhost:3333",
+  baseURL: "https://ubc-backend.herokuapp.com",
 });
 
 Api.interceptors.request.use((config: any) => {
