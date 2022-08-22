@@ -15,11 +15,9 @@ const LineButtons = () => {
       confirmButtonText: "Sim, deslogar!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Desconectado!", "Você acabou de deslogar!", "success");
+        // Swal.fire("Desconectado!", "Você acabou de deslogar!", "success");
         localStorage.clear();
-        setTimeout(function () {
-          window.location.href = "/";
-        }, 1500);
+        window.location.href = "/";
       }
     });
   };
