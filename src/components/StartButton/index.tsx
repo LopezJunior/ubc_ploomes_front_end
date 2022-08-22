@@ -52,6 +52,7 @@ const StartButton = () => {
 			<S.StartButton onClick={toggleModal}>
 				<img src={logo} />
 			</S.StartButton>
+
 			<S.StyledModal
 				isOpen={isOpen}
 				afterOpen={afterOpen}
@@ -81,7 +82,13 @@ const StartButton = () => {
 							<Buttons value={'Jogar'} type={'button'} onClick={jogar} />
 						</S.ButtonBox>
 					</S.Form>
+
+					<S.CloseModalButton
+						aria-label='Close modal'
+						onClick={() => setIsOpen(false)}
+					/>
 				</S.Content>
+
 			</S.StyledModal>
 		</div>
 	);

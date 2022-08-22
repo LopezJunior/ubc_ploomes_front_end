@@ -2,7 +2,11 @@ import styled, { css } from 'styled-components';
 import Modal from 'styled-react-modal';
 import { BaseModalBackground } from 'styled-react-modal';
 
-export const InfoModal = styled.section``;
+export const InfoModal = styled.section`
+	${({ theme }) => css`
+		font-family: ${theme.constants.infoFontFamily};
+	`}
+`;
 
 export const Button = styled.button`
 	${({ theme }) => css`
@@ -20,7 +24,7 @@ export const Button = styled.button`
 `;
 
 export const Overlay = styled.div`
-	${({ theme }) => css`
+	${() => css`
 		position: fixed;
 		display: block;
 		width: 100%;
@@ -50,20 +54,18 @@ export const StyledModal = Modal.styled`
 
 export const Content = styled.div`
 	${({ theme }) => css`
+		color: ${theme.colors.primaryColor};
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		width: 100%;
 		height: 100%;
-		font-family: ${theme.constants.bodyFontFamily};
-		color: ${theme.colors.primaryColor};
 		padding: 10px;
 		text-align: center;
 	`}
 
 	h2 {
-		font-size: 34px;
+		font-size: 36px;
 	}
 
 	article {
@@ -85,6 +87,7 @@ export const Footer = styled.div`
 	svg {
 		width: 60px;
 		height: 60px;
+		cursor: pointer;
 	}
 `;
 

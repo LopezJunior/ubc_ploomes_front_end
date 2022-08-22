@@ -37,9 +37,26 @@ const buttonWhite = () => css`
   border: none;
 `;
 
+const input = () => css` 
+    width: 90%;
+    height: 54px;
+    font-family: ${constants.bodyFontFamily};  
+    color: ${colors.textColorRed};  
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px solid red;
+		:focus {
+  	  outline: 0;
+		}
+		::placeholder {
+      color: ${colors.textColorRed};  
+		}
+`;
+
 export const mixins = {
-	modalStyle,
-	buttonSmall,
-	buttonWhite,
+  modalStyle,
+  buttonSmall,
+  buttonWhite,
 	buttonLarge,
+  input,
 };
