@@ -62,12 +62,12 @@ export const Image = styled.img`
 export const WhiteLargeBox = styled.div`
 	${() => css`
 		width: 360px;
-		height: calc( 100% - 10px );
+		height: calc( 100% - 30px );
 		border-radius: 3px;
 		background-color: white;
 		border: none;
 		text-align: center;
-		padding-top: 16px;
+		padding-top: 20px;
 	`}
 `;
 
@@ -115,15 +115,15 @@ export const Footer = styled.div`
 		align-items: center;
 		width: 100%;
 		height: 20%;
-		padding-left: 25px;
-		padding-right: 25px;
+		padding-left: 45px;
+		padding-right: 45px;
 	`}
 `;
 
 export const buttonWhite = styled.button`
 	${({theme}) => css`
 		width: 180px;
-		height: 90px;
+		height: 70px;
 		border-radius: 3px;
 		background-color: ${theme.colors.textColor};
 		border: none;

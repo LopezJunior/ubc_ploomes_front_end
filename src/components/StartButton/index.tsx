@@ -35,6 +35,7 @@ const StartButton = () => {
 	}
 
 	async function tokenVerify() {
+
 		const token = localStorage.getItem('jwt');
 		if (!token) {
 			navigate(RoutePath.AUTHLOGIN);
@@ -78,7 +79,8 @@ const StartButton = () => {
 
 						<S.ButtonBox>
 							<Buttons value={'compartilhar'} type={'button'} />
-							<Buttons value={'Iniciar Jogo'} type={'button'} onClick={jogar} />
+							<Buttons value={'Jogar'} type={'button'} onClick={jogar} />
+
 						</S.ButtonBox>
 					</S.Form>
 
