@@ -1,17 +1,16 @@
-import * as S from "./style";
-import logo from "../../assets/img/logo_cinturao.png";
-import BoxCreateUser from "components/BoxCreateUser";
-
+import * as S from './style';
+import BoxCreateUser from 'components/BoxCreateUser';
+import Logo from 'components/Logo';
 
 const CreateUser = () => {
-  return (
-    <S.CreateUser>
-      <S.CreateUserContent>
-        <img src={logo} alt="" />
-        <BoxCreateUser />
-      </S.CreateUserContent>
-    </S.CreateUser>
-  );
+	return (
+		<S.CreateUser>
+			<S.CreateUserContent>
+				<Logo />
+				<BoxCreateUser />
+			</S.CreateUserContent>
+		</S.CreateUser>
+	);
 };
 
 export default CreateUser;
