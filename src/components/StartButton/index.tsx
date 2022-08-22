@@ -2,8 +2,9 @@ import * as S from "./style";
 import logo from "../../assets/img/cinturao_iniciar.png";
 import { useEffect, useState } from 'react';
 import Buttons from 'components/ButtonRedLarge';
-import { useNavigate } from "react-router-dom";
-import { RoutePath } from "types/routes";
+import Logo from 'components/Logo';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'types/routes';
 
 const StartButton = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -34,18 +35,17 @@ const StartButton = () => {
 	}
 
 	async function tokenVerify() {
-        const token = localStorage.getItem('jwt');
-        if(!token) {
-            navigate( RoutePath.AUTHLOGIN );
-            return;
-        }		
+
+		const token = localStorage.getItem('jwt');
+		if (!token) {
+			navigate(RoutePath.AUTHLOGIN);
+			return;
+		}
 	}
 
-	useEffect( () => {
-
+	useEffect(() => {
 		tokenVerify();
-
-	} , [] );
+	}, []);
 
 	return (
 		<div>
@@ -64,31 +64,31 @@ const StartButton = () => {
 			>
 				<S.Content>
 					<S.ImageBox>
-						<S.Image src="assets/img/cinturao.png" />
+						<Logo />
 					</S.ImageBox>
 
 					<S.Form>
-						<S.Title> CONFIGURAÇÃO </S.Title>
+						<S.Title> CONFIGURACAO </S.Title>
 
-						<input id="n_cartelas" placeholder="Número De Cartelas"></input>
+						<input id="n_cartelas" placeholder="Numero De Cartelas"></input>
 						<input
 							id="proxima_bola"
-							placeholder="Tempo para Próxima Bola"
+							placeholder="Tempo para Proxima Bola"
 						></input>
-						<input id="limite_sorteio" placeholder="Número De Sorteios"></input>
+						<input id="limite_sorteio" placeholder="Numero De Sorteios"></input>
 
 						<S.ButtonBox>
 							<Buttons value={'compartilhar'} type={'button'} />
 							<Buttons value={'Jogar'} type={'button'} onClick={jogar} />
+
 						</S.ButtonBox>
 					</S.Form>
 
 					<S.CloseModalButton
-						aria-label='Close modal'
+						aria-label="Close modal"
 						onClick={() => setIsOpen(false)}
 					/>
 				</S.Content>
-
 			</S.StyledModal>
 		</div>
 	);
