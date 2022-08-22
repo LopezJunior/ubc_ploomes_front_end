@@ -29,6 +29,106 @@ export const Ball = styled.div`
 		grid-row-gap: 20px;
 		font-size: 55px;
 	}
+
+	div.Number1 {
+		grid-area: 1 / 1 / 2 / 2;
+	}
+
+	div.Number2 {
+		grid-area: 2 / 1 / 3 / 2;
+	}
+
+	div.Number3 {
+		grid-area: 3 / 1 / 4 / 2;
+	}
+
+	div.Number4 {
+		grid-area: 4 / 1 / 5 / 2;
+	}
+
+	div.Number5 {
+		grid-area: 5 / 1 / 6 / 2;
+	}
+
+	div.Number6 {
+		grid-area: 1 / 2 / 2 / 3;
+	}
+
+	div.Number7 {
+		grid-area: 2 / 2 / 3 / 3;
+	}
+
+	div.Number8 {
+		grid-area: 3 / 2 / 4 / 3;
+	}
+
+	div.Number9 {
+		grid-area: 4 / 2 / 5 / 3;
+	}
+
+	div.Number10 {
+		grid-area: 5 / 2 / 6 / 3;
+	}
+
+	div.Number11 {
+		grid-area: 1 / 3 / 2 / 4;
+	}
+
+	div.Number12 {
+		grid-area: 2 / 3 / 3 / 4;
+	}
+
+	div.Number13 {
+		grid-area: 3 / 3 / 4 / 4;
+	}
+
+	div.Number14 {
+		grid-area: 4 / 3 / 5 / 4;
+	}
+
+	div.Number15 {
+		grid-area: 5 / 3 / 6 / 4;
+	}
+
+	div.Number16 {
+		grid-area: 1 / 4 / 2 / 5;
+	}
+
+	div.Number17 {
+		grid-area: 2 / 4 / 3 / 5;
+	}
+
+	div.Number18 {
+		grid-area: 3 / 4 / 4 / 5;
+	}
+
+	div.Number19 {
+		grid-area: 4 / 4 / 5 / 5;
+	}
+
+	div.Number20 {
+		grid-area: 5 / 4 / 6 / 5;
+	}
+
+	div.Number21 {
+		grid-area: 1 / 5 / 2 / 6;
+	}
+
+	div.Number22 {
+		grid-area: 2 / 5 / 3 / 6;
+	}
+
+	div.Number23 {
+		grid-area: 3 / 5 / 4 / 6;
+	}
+
+	div.Number24 {
+		grid-area: 4 / 5 / 5 / 6;
+	}
+
+	div.Number25 {
+		grid-area: 5 / 5 / 6 / 6;
+	}
 `;
 
 export const Title = styled.div`
