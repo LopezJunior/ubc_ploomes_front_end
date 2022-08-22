@@ -63,7 +63,7 @@ const StartButton = () => {
 			>
 				<S.Content>
 					<S.ImageBox>
-						<S.Image src="assets/img/ufc-cinturao.png" />
+						<S.Image src="assets/img/cinturao.png" />
 					</S.ImageBox>
 
 					<S.Form>
