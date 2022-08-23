@@ -39,12 +39,12 @@ const buttonWhite = () => css`
 
 const input = () => css` 
     width: 90%;
-    height: 54px;
+    height: 28px;
     font-family: ${constants.bodyFontFamily};  
     color: ${colors.textColorRed};  
-    font-size: 14px;
+    font-size: 16px;
     border: none;
-    border-bottom: 1px solid red;
+    border-bottom: 3px solid ${colors.primaryColor};
 		:focus {
   	  outline: 0;
 		}
