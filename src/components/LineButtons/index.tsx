@@ -25,7 +25,7 @@ const LineButtons = () => {
     <S.LineButtons>
       <ButtonWhite value={"perfil"} type={"button"} />
       <ButtonWhite value={"ranking"} type={"button"} />
-      <ButtonWhite value={"loja"} type={"button"} />
+      {/* <ButtonWhite value={"loja"} type={"button"} /> */}
       <a onClick={teste}>
         <ButtonWhite value={"log out"} type={"button"} />
       </a>
