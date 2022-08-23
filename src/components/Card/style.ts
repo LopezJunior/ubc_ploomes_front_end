@@ -129,7 +129,16 @@ export const Ball = styled.div`
 	div.Number25 {
 		grid-area: 5 / 5 / 6 / 6;
 	}
+
+	div.select {
+	}
+
+	div.selected {
+		background-color: #00ff0050;
+		border-radius: 50%;
+	}
 `;
+
 
 export const Title = styled.div`
 	${({ theme }) => css`
