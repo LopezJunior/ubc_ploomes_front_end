@@ -73,6 +73,6 @@ const Card = () => {
 			</S.Parent>
 		</>
 	);
-};;;;;;
+};
 
 export default Card;
