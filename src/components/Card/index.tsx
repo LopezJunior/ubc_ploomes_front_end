@@ -4,27 +4,29 @@ import * as S from "./style";
 import { Room, RoomConfig } from "components/StartButton/type"
 
 const Card = () => {
+	const [numbersSort, setNumberSort] = useState<number[]>([
+		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5,
+	]);
+	/* let numbersSort: number[] = [
+		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+		22, 23, 24, 25,
+	]; */
 	const [isSelect, setIsSelect] = useState(() => numbersSort.map(() => false));
 	const [numberList, setNumberList] = useState<any[]>([]);
-  const [room, setRoom] = useState<Room>();
-  const [numbersSort, setNumberSort] = useState<number[]>([
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-		22, 23, 24, 25,]
-  );
-  const status = useLocation();
+	const [room, setRoom] = useState<Room>();
 
-  async function getState() {
-    let roomParams = status.state as RoomConfig;
+	const status = useLocation();
 
-    setRoom( roomParams.room );
-    setNumberSort( roomParams.vetor );
-  }
+	async function getState() {
+		let roomParams = status.state as RoomConfig;
 
-  useEffect( () => {
+		setRoom(roomParams.room);
+		setNumberSort(roomParams.vetor);
+	}
 
-    getState();
-
-  }, []);
+	useEffect(() => {
+		getState();
+	}, []);
 
 	return (
 		<>
@@ -71,6 +73,6 @@ const Card = () => {
 			</S.Parent>
 		</>
 	);
-};
+};;;;;;
 
 export default Card;
