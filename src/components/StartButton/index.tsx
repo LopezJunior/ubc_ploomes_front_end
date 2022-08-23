@@ -1,8 +1,8 @@
 import * as S from "./style";
 import logo from "../../assets/img/cinturao_iniciar.png";
-import { useEffect, useState } from 'react';
-import Buttons from 'components/ButtonRedLarge';
-import Logo from 'components/Logo';
+import { useEffect, useState } from "react";
+import Buttons from "components/ButtonRedLarge";
+import Logo from "components/Logo";
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "types/routes";
 import { RoomServices, RoomServicesStartParams  } from "services/roomServices";

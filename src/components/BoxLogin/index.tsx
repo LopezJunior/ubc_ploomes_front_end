@@ -4,6 +4,7 @@ import { RoutePath } from "types/routes";
 import { RiLock2Line as Lock } from "react-icons/ri";
 import { AiOutlineMail } from "react-icons/ai";
 import { HTMLAttributes, useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { UserLogin } from "types/interfaces";
 import { useNavigate } from "react-router-dom";
 import { loginService } from "services/authService";
@@ -46,15 +47,15 @@ const BoxLogin = () => {
     }
 
     const jwt = response.data.token;
-    // const userId = response.data.user.id;
 
     if (jwt) {
       localStorage.setItem("jwt", jwt);
-      //   localStorage.setItem("userId", userId);
-      swal({
-        title: "Bem vindo",
+      Swal.fire({
+        position: "center",
         icon: "success",
-        timer: 3000,
+        title: "Logado com sucesso!",
+        showConfirmButton: false,
+        timer: 1500,
       });
       navigation("/");
     }
