@@ -3,16 +3,29 @@ import logo from "../../assets/img/cinturao_iniciar.png";
 import { useEffect, useState } from 'react';
 import Buttons from 'components/ButtonRedLarge';
 import Logo from 'components/Logo';
-import { useNavigate } from 'react-router-dom';
-import { RoutePath } from 'types/routes';
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "types/routes";
+import { RoomServices, RoomServicesStartParams  } from "services/roomServices";
+import { Room } from "./type";
+
 
 const StartButton = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [opacity, setOpacity] = useState(0);
+	const [values, setValues] = useState<Room>({
+						id: '',
+						number: null,
+						maxCards: '3',
+						limitPrizeDraw: '75',
+						limitRecord: '',
+						limitUsers: '2',
+						price: '10',
+						frequency: '10',
+						historic: [],
+	});
 	const navigate = useNavigate();
 
 	function toggleModal() {
-		//setOpacity(0);
 		setIsOpen(!isOpen);
 	}
 
@@ -29,8 +42,32 @@ const StartButton = () => {
 		});
 	}
 
-	function jogar() {
-		navigate('/bingo');
+
+    const handleChangesValues = (event: React.ChangeEvent<HTMLInputElement>)  => {
+        setValues((values: Room) => ({
+            ...values,
+            [event.target.name]: event.target.value
+        }))
+        console.log(event.target.value)
+    } 
+
+	async function play() {
+		const _params: RoomServicesStartParams = {
+			limitPrizeDraw: +values.limitPrizeDraw,
+			maxCards : +values.maxCards,
+			frequency: +values.frequency
+		};
+		
+		// tenta iniciar uma sala
+		const resp = await RoomServices.start( _params );
+
+		if( resp.room ) {
+			const postData = {
+				room: resp.room,
+				vetor: resp.card.vetor
+			}
+			navigate('/bingo', { state: postData } );
+		}
 		return;
 	}
 
@@ -70,16 +107,34 @@ const StartButton = () => {
 					<S.Form>
 						<S.Title> CONFIGURACAO </S.Title>
 
-						<input id="n_cartelas" placeholder="Numero De Cartelas"></input>
-						<input
-							id="proxima_bola"
-							placeholder="Tempo para Proxima Bola"
-						></input>
-						<input id="limite_sorteio" placeholder="Numero De Sorteios"></input>
+						<S.FormGroup>
+							<label> Número Cartelas: </label>
+							<input 
+								name="maxCards" 
+								value={values.maxCards}
+								required
+								onChange={handleChangesValues} />
+						</S.FormGroup>
+
+						<S.FormGroup>
+							<label> Tempo Próxima Bola (segundos) </label>
+							<input
+								name="frequency"
+								value={values.frequency}
+								onChange={handleChangesValues} />
+						</S.FormGroup>
+
+						<S.FormGroup>
+							<label> Limite Sorteios </label>
+							<input 
+								name="limitPrizeDraw" 
+								value={values.limitPrizeDraw}
+								onChange={handleChangesValues} />
+						</S.FormGroup>
 
 						<S.ButtonBox>
 							<Buttons value={'compartilhar'} type={'button'} />
-							<Buttons value={'Jogar'} type={'button'} onClick={jogar} />
+							<Buttons value={'Jogar'} type={'button'} onClick={play} />
 
 						</S.ButtonBox>
 					</S.Form>

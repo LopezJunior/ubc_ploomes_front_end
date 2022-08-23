@@ -1,15 +1,14 @@
-import * as S from "./style";
 import ButtonRedSmall from "components/ButtonRedSmall";
 import { Link } from "react-router-dom";
 import { RoutePath } from "types/routes";
-import { FaRegUserCircle as UserCicle } from "react-icons/fa";
 import { RiLock2Line as Lock } from "react-icons/ri";
 import { AiOutlineMail } from "react-icons/ai";
-import { HTMLAttributes, useState } from "react";
+import { HTMLAttributes, useEffect, useState } from "react";
 import { UserLogin } from "types/interfaces";
 import { useNavigate } from "react-router-dom";
 import { loginService } from "services/authService";
 import swal from "sweetalert";
+import * as S from "./style";
 
 type BoxLoginType = HTMLAttributes<HTMLDivElement>;
 
@@ -60,6 +59,7 @@ const BoxLogin = () => {
       navigation("/");
     }
   };
+
   return (
     <S.BoxLogin>
       <S.BoxLoginTitle>

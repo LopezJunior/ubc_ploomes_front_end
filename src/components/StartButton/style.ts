@@ -96,7 +96,7 @@ export const Title = styled.h2`
 		justify-content: center;
 		align-items: center;
 		width: 100%;
-		height: 20%;
+		height: 10%;
 		color: ${theme.colors.textColorRed};
 		font-family: ${theme.constants.bodyFontFamily}; 	
 	`}
@@ -112,7 +112,29 @@ export const Form = styled.form`
 		height: 80%;
 		background-color: white;
 		border: 0px solid blue;
-		gap: 15px;
+		gap: 25px;
+		label {
+			font-family: ${theme.constants.bodyFontFamily};  
+			color: ${theme.colors.textColorRed};  
+			font-size: 16px;
+		}
+		input {
+			${theme.mixins.input()};
+		}
+	`}
+`;
+
+export const FormGroup = styled.div`
+	${({ theme }) => css`
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		width: 90%;
+		label {
+			font-family: ${theme.constants.bodyFontFamily};  
+			color: ${theme.colors.textColorRed};  
+			font-size: 16px;
+		}
 		input {
 			${theme.mixins.input()};
 		}
@@ -145,4 +167,41 @@ export const CloseModalButton = styled(MdClose)`
 
 export const FadingBackground = styled(BaseModalBackground)`
 	transition: all 0.3s ease-in-out;
+`;
+
+
+/*------------------------------------*/
+// PADRONIZAÇÃO DE COMPONENTS
+/*------------------------------------*/
+
+export const BoxCreateUserDivInput = styled.div`
+  ${({ theme }) => css`
+    width: 75%;
+    border-bottom: 4px solid ${theme.colors.primaryColor};
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    label {
+      max-width: 75px;
+      margin: 0 10px 0 10px;
+    }
+  `}
+`;
+
+export const BoxCreateUserInput = styled.input`
+  ${({ theme }) => css`
+    border: 1px solid;
+    width: 70%;
+    height: 25px;
+    border: none;
+    outline: 0;
+    color: #000;
+    font-size: 18px;
+    margin: 3px;
+  `}
 `;
