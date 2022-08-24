@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
-import { BingoContext  } from "Contexts/bingo";
+import { RoomContext  } from "Contexts/room";
 
 const BingoButton = () => {
-    const context = useContext( BingoContext );
+    const context = useContext( RoomContext );
 
     const handleClick = () => {
         const card01 ={
@@ -11,6 +11,7 @@ const BingoButton = () => {
             'marcacao': context?.selecteds,
         }
         console.log('card 01:', card01 );
+
     }
 
     useEffect( () => {

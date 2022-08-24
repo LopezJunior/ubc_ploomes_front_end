@@ -12,12 +12,12 @@ type BingoType ={
     setSelecteds: (num: number) => void;
 }
 
-export const BingoContext = createContext<BingoType | null>({ 
+export const RoomContext = createContext<BingoType | null>({ 
     getNumbers:() => {return []}, 
     selecteds: [], 
     setSelecteds:() => {}} );
 
-function BingoProvider ({children}: Props) {
+function RoomProvider ({children}: Props) {
 	const [numbers, setNumbers] = useState<number[]>([]);	
     const [numberList, setNumberList] = useState<number[]>([]);
     //const [room, setRoom] = useState<Room>();
@@ -45,13 +45,13 @@ function BingoProvider ({children}: Props) {
     }, [])
 
     return (
-        <BingoContext.Provider value={ { 
+        <RoomContext.Provider value={ { 
                         getNumbers: getStateNumbers, 
                         selecteds: numberList, 
                         setSelecteds: setNumberSelecteds } }>
             {children}
-        </BingoContext.Provider> 
+        </RoomContext.Provider> 
     )
 }
 
-export default BingoProvider;
+export default RoomProvider;

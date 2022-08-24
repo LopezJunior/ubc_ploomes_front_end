@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useContext } from 'react'
 import * as S from "./style";
-import { BingoContext  } from "Contexts/bingo";
+import { RoomContext  } from "Contexts/room";
 
 const Card = () => {
 	const [numbersSort, setNumberSort] = useState<number[]>([
@@ -10,7 +10,7 @@ const Card = () => {
 	]);
 	const [isSelect, setIsSelect] = useState(() => numbersSort.map(() => false));
 	//const [numberList, setNumberList] = useState<any[]>([]);
-	const context  = useContext( BingoContext );
+	const context  = useContext( RoomContext );
 
 	async function setNumbers() {
 		setNumberSort(context?.getNumbers()!);
@@ -69,4 +69,3 @@ const Card = () => {
 };
 
 export default Card;
-
