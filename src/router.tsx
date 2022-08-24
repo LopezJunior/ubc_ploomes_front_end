@@ -7,6 +7,7 @@ import HomePage from "pages/Home";
 import MyBingo from "pages/Bingo";
 import VictoryModal from "components/VictoryModal";
 import Teste from "pages/Teste";
+import Socket from "pages/Socket";
 
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
       <Route path={RoutePath.AUTHLOGIN} element={<AuthLogin />} />
       <Route path={RoutePath.CREATEUSER} element={<CreateUser />} />
       <Route path={RoutePath.MYBINGO} element={<MyBingo />} />
+      <Route path={RoutePath.SOCKET} element={<Socket />} />
     </Routes>
   );
 };

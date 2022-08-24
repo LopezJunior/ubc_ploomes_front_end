@@ -9,4 +9,5 @@ export enum RoutePath {
   FILTERBYMONEY = "/maisricos",
   MYBINGO = "/bingo",
   RESETSECTION = "/resetarjogo",
+  SOCKET = "/socket",
 }
