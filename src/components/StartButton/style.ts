@@ -48,6 +48,24 @@ export const Overlay = styled.div`
 `;
 */
 
+export const LineTitle = styled.div`
+  ${({ theme }) => css`
+    font-family: ${theme.constants.bodyFontFamily};
+    display: flex;
+    align-items: center;
+  `}
+`;
+export const Info = styled.a`
+  color: tomato;
+  /* padding: 10px; */
+  /* border-bottom: 1px solid black; */
+  font-size: 35px;
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 export const StyledModal = Modal.styled`
 	${({}) => css`
     position: absolute;
@@ -97,49 +115,49 @@ export const Title = styled.h2`
     align-items: center;
     width: 100%;
     height: 20%;
+    margin-left: 10px;
     color: ${theme.colors.textColorRed};
     font-family: ${theme.constants.bodyFontFamily};
   `}
 `;
 
-
 export const Form = styled.form`
-	${({ theme }) => css`
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: center;
-		width: 40%;
-		height: 80%;
-		background-color: white;
-		border: 0px solid blue;
-		gap: 25px;
-		label {
-			font-family: ${theme.constants.bodyFontFamily};  
-			color: ${theme.colors.textColorRed};  
-			font-size: 16px;
-		}
-		input {
-			${theme.mixins.input()};
-		}
-	`}
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%;
+    height: 80%;
+    background-color: white;
+    border: 0px solid blue;
+    gap: 25px;
+    label {
+      font-family: ${theme.constants.bodyFontFamily};
+      color: ${theme.colors.textColorRed};
+      font-size: 16px;
+    }
+    input {
+      ${theme.mixins.input()};
+    }
+  `}
 `;
 
 export const FormGroup = styled.div`
-	${({ theme }) => css`
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		width: 90%;
-		label {
-			font-family: ${theme.constants.bodyFontFamily};  
-			color: ${theme.colors.textColorRed};  
-			font-size: 16px;
-		}
-		input {
-			${theme.mixins.input()};
-		}
-	`}
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    label {
+      font-family: ${theme.constants.bodyFontFamily};
+      color: ${theme.colors.textColorRed};
+      font-size: 16px;
+    }
+    input {
+      ${theme.mixins.input()};
+    }
+  `}
 `;
 
 export const ButtonBox = styled.div`
@@ -168,7 +186,6 @@ export const CloseModalButton = styled(MdClose)`
 export const FadingBackground = styled(BaseModalBackground)`
   transition: all 0.3s ease-in-out;
 `;
-
 
 /*------------------------------------*/
 // PADRONIZAÇÃO DE COMPONENTS
