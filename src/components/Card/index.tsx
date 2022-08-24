@@ -4,9 +4,7 @@ import * as S from "./style";
 import { Room, RoomConfig } from "components/StartButton/type"
 
 const Card = () => {
-	const [numbersSort, setNumberSort] = useState<number[]>([
-		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5,
-	]);
+	const [numbersSort, setNumberSort] = useState<number[]>([]);
 	/* let numbersSort: number[] = [
 		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
 		22, 23, 24, 25,
@@ -43,7 +41,7 @@ const Card = () => {
 						return (
 							<div
 								key={index}
-								className={`Number${n}`}
+								className={`Number${index + 1}`}
 								onClick={() => {
 									setIsSelect(
 										isSelect.map((bool, j) => {
