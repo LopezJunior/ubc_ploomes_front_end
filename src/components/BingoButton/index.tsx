@@ -12,10 +12,13 @@ const BingoButton = () => {
       marcacao: context?.selecteds,
       numeros: context?.getNumbers(),
     };
-    console.log("card 01:", RoomContext);
+    console.log("card 01:", context);
 
     try {
-      const res = await Api.post(`/Room/room/checkBingo`, card01);
+      const res = await Api.patch(
+        `/Room/room/:${card01.id}}/checkBingo`,
+        card01
+      );
 
       return res.data;
     } catch (error: any) {
