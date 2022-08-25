@@ -3,35 +3,39 @@ import * as S from './style';
 
 const BallHistory = () => {
 	const maxSort = 30;
-	/* const numberHistory2: number[] = [1, 2, 3, 4, 5, 6]; */
+	let [lastNumberHistory, setLastNumberHistory] = useState<number[]>([
+		0, 0, 0, 0, 0, 0,
+	]);
 	const [numberHistory, setNumberHistory] = useState<number[]>([]);
-
-	const numberBackSort: number[] = [
-		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+	const backSort: number[] = [
+		75, 62, 13, 64, 5, 46, 7, 18, 29, 10, 21, 52, 73, 14, 16, 18, 25, 34, 45,
+		65,
 	];
 	const tempBackEnd = 2;
 	const [time, setTime] = useState(tempBackEnd);
 	const [control, setControl] = useState<number>(0);
 
-	let result = numberBackSort.splice(0, maxSort);
+	let result = backSort.splice(0, maxSort);
 	/*  console.log(result); */
 
 	setTimeout(() => {
-		setControl(control + 1);
-		console.log(control);
+		if (control < result.length) {
+			setControl(control + 1);
+		}
 	}, time * 1000);
 
 	useEffect(() => {
-		setNumberHistory(() => [...numberHistory, control]);
+		setNumberHistory(() => [...numberHistory, result[control]]);
+		for (let i = 0; i < 6; i++) {
+			lastNumberHistory[i] = numberHistory[numberHistory.length - (i + 1)];
+		}
 	}, [control]);
-
-	console.log(numberHistory, control);
 
 	return (
 		<S.HistoryContainer>
 			<>
 				<S.Ball>{result[control]}</S.Ball>
-				{numberHistory.map<React.ReactNode>((n, index) => {
+				{lastNumberHistory.map<React.ReactNode>((n, index) => {
 					return <S.BallDraw key={index}>{n}</S.BallDraw>;
 				})}
 			</>
