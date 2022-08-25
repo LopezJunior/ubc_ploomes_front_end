@@ -28,17 +28,18 @@ function RoomProvider ({children}: Props) {
 
 		//setRoom(roomParams.room);
 		//setNumbers(roomParams.vetor);
-	};
+		console.log(roomParams.vetor[0].vetor);
+	}
 
-    async function setNumberSelecteds( num: number) {
-        setNumberList((numberList) => [...numberList, num]);
-    }
+	async function setNumberSelecteds(num: number) {
+		setNumberList((numberList) => [...numberList, num]);
+	}
 
-    function getStateNumbers() {
+	function getStateNumbers() {
 		let roomParams = status.state as RoomConfig;
 
-		return roomParams.vetor;
-    }
+		return roomParams.vetor[0].vetor;
+	}
     
     useEffect( () => {
         getState();

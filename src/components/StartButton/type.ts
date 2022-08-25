@@ -10,7 +10,11 @@ export interface Room {
   historic: [];
 }
 
+export interface Vetor {
+	vetor: number[];
+}
+
 export interface RoomConfig {
-  room: Room;
-  vetor: number[];
+	room: Room;
+	vetor: Vetor[];
 }
