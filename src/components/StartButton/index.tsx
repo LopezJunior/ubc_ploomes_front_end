@@ -64,8 +64,8 @@ const StartButton = () => {
 		if( resp.room ) {
 			const postData = {
 				room: resp.room,
-				vetor: resp.card.vetor
-			}
+				vetor: resp.cards,
+			};
 			navigate('/bingo', { state: postData } );
 		}
 		return;
