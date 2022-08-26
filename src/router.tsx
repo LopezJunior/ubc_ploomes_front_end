@@ -7,6 +7,7 @@ import HomePage from "pages/Home";
 import MyBingo from "pages/Bingo";
 import VictoryModal from "components/VictoryModal";
 import Teste from "pages/Teste";
+import Defeat from "pages/Defeat";
 
 const Router = () => {
   return (
@@ -17,6 +18,8 @@ const Router = () => {
       <Route path={RoutePath.AUTHLOGIN} element={<AuthLogin />} />
       <Route path={RoutePath.CREATEUSER} element={<CreateUser />} />
       <Route path={RoutePath.MYBINGO} element={<MyBingo />} />
+      <Route path={RoutePath.VICTORYMODAL} element={<VictoryModal />} />
+      {/* <Route path={RoutePath.DEFEAT} element={<Defeat drawn_numbers:4  game_time, callRestart, callGetout />} /> */}
     </Routes>
   );
 };
