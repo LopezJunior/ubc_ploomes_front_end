@@ -21,9 +21,6 @@ const BingoButton = () => {
 
     return (
       <>
-        <div style={{display:"flex",justifyContent:"flex-end"}}>
-            <button onClick={handleClick}>Bingo</button>
-        </div>
       </>
     );
   };
