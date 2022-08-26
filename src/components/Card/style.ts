@@ -1,16 +1,26 @@
 import styled, { css } from "styled-components";
 
+export const Content = styled.div`
+	${({ theme }) => css`
+		display: flex;
+		flex-direction: row;
+		justify-content:center;
+		align-items: center;
+		width: 90%;
+		height: 80%;
+		gap: 25px;
+		margin: 0 auto;
+	`}
+`;
+
 export const Parent = styled.div`
 	${({ theme }) => css`
 		color: ${theme.colors.textColorRed};
 		font-family: ${theme.constants.bodyFontFamily};
 		background-color: white;
-		width: 22%;
-		height: 48%;
+		width: 26%;
+		height: 70%;
 		border-radius: 10px;
-		position: relative;
-		bottom: -17%;
-		margin-left: 20px;
 	`}
 `;
 

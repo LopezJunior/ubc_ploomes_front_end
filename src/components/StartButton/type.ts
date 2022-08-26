@@ -5,6 +5,7 @@ export interface Room {
     limitPrizeDraw: string;
     limitRecord: string;
     limitUsers: string;
+    prizeOrders: number[];
     price: string;
     frequency: string;
     historic: [];
@@ -12,6 +13,9 @@ export interface Room {
   
   export interface Vetor {
       vetor: number[];
+      selecteds: number[];
+      addSelected: (num: number) => void;
+      
   }
   
   export interface RoomConfig {

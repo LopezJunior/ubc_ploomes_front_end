@@ -5,10 +5,12 @@ const BingoButton = () => {
     const context = useContext( RoomContext );
 
     const handleClick = () => {
+        const card = context?.getCards()[0];
+        
         const card01 ={
             id: '01',
-            'numeros': context?.getNumbers(),
-            'marcacao': context?.selecteds,
+            'numeros': card?.vetor,
+            'marcacao': card?.selecteds,
         }
         console.log('card 01:', card01 );
 
