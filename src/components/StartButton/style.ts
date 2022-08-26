@@ -109,8 +109,8 @@ export const Form = styled.form`
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: center;
-		width: 50%;
-		height: 90%;
+		width: 40%;
+		height: 80%;
 		background-color: white;
 		border: 0px solid blue;
 		gap: 25px;
