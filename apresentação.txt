@@ -1,0 +1,56 @@
+
+2- PAINEL BOTÕES Terminar Jogo (Bingo) e Desistir
+
+  -TERMINAR JOGO: 
+  Este botão irá interromper as marcações no(s) card(s) e irá envia-los para o back-end para verificação.
+
+  O client irá enviar alguns dados da room (id, números dos cards e marcações dos cards)
+
+  Como resposta irá receber um booleano informando derrota ou vitória e a respectiva tela para o usuário
+
+
+  -DESISTIR: 
+  Este botão irá interromper o jogo, exibirá a tela de derrota para o usuário e sairá da room , 
+ voltando para a tela principal
+
+  Apartir da tela principal ele terá opção de sair do app ou reiniciar uma nova partida
+
+  
+3- RANKING VITÓRIAS (single player)
+
+  Lista dos 4 maiores vitoriosos do jogo
+  
+
+4- FUNCIONAL
+  Estamos cientes q o app não esta plenamente funcional ,mas estaremos finalizando os requisitos em 5 dias
+
+
+
+
+1- Cores , Fundo, Thema
+
+Escolhemos a Cor Vermelha como fundo porque esta associada a luta e guerra
+
+E o tema q escolhemos , UFC , também esta relacionado a luta e jogos e estas lutas são também conhecidas como CARDS. 
+
+O UFC também possui também as moças com placas informando os número da rodada
+
+Outro elemento q existe em ambos é o ranking , e no nosso caso os individuos q mais pontuarão no jogo aparecerão listados , uma vez que já
+estão cadastrados no aplicativo como o email.
+
+Então ele possui quase todos elementos de um jogo de bingo e por isso foi escolhido como tema.
+
+Acho q o temma esta muito relacionado ao jogo mesme estando ainda em single player
+
+Utilizamos o mesmo fundo em todo applicativo e nas telas de jogo
+
+
+2- PLOOMES
+
+  Sobre a empresa e verifiquei q possui um canal de vídeo sobre temas relacionados a gestão de relacionamento com cliente, 
+Automação de Propostas, vendas, marketing e Pedidos de Vendas 
+ 
+  Os vídeos possuem apresentação muito boa e fica fácil entender o negócio da empresa através da informação audiovisual do canal.
+
+  A empresa tem avaliação de 4,9 no google q é um termómetro muito utilizado.
+  

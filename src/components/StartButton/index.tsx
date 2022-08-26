@@ -1,14 +1,31 @@
 import * as S from "./style";
 import logo from "../../assets/img/cinturao_iniciar.png";
-import { useState } from 'react';
-import Buttons from 'components/ButtonRedLarge';
+import { useEffect, useState } from "react";
+import Buttons from "components/ButtonRedLarge";
+import Logo from "components/Logo";
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "types/routes";
+import { RoomServices, RoomServicesStartParams  } from "services/roomServices";
+import { Room } from "./type";
+
 
 const StartButton = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [opacity, setOpacity] = useState(0);
+	const [values, setValues] = useState<Room>({
+						id: '',
+						number: null,
+						maxCards: '3',
+						limitPrizeDraw: '75',
+						limitRecord: '',
+						limitUsers: '2',
+						price: '10',
+						frequency: '10',
+						historic: [],
+	});
+	const navigate = useNavigate();
 
 	function toggleModal() {
-		//setOpacity(0);
 		setIsOpen(!isOpen);
 	}
 
@@ -24,11 +41,55 @@ const StartButton = () => {
 			setTimeout(resolve, 300);
 		});
 	}
+
+
+    const handleChangesValues = (event: React.ChangeEvent<HTMLInputElement>)  => {
+        setValues((values: Room) => ({
+            ...values,
+            [event.target.name]: event.target.value
+        }))
+        console.log(event.target.value)
+    } 
+
+	async function play() {
+		const _params: RoomServicesStartParams = {
+			limitPrizeDraw: +values.limitPrizeDraw,
+			maxCards : +values.maxCards,
+			frequency: +values.frequency
+		};
+		
+		// tenta iniciar uma sala
+		const resp = await RoomServices.start( _params );
+
+		if( resp.room ) {
+			const postData = {
+				room: resp.room,
+				vetor: resp.cards,
+			};
+			navigate('/bingo', { state: postData } );
+		}
+		return;
+	}
+
+	async function tokenVerify() {
+
+		const token = localStorage.getItem('jwt');
+		if (!token) {
+			navigate(RoutePath.AUTHLOGIN);
+			return;
+		}
+	}
+
+	useEffect(() => {
+		tokenVerify();
+	}, []);
+
 	return (
 		<div>
 			<S.StartButton onClick={toggleModal}>
 				<img src={logo} />
 			</S.StartButton>
+
 			<S.StyledModal
 				isOpen={isOpen}
 				afterOpen={afterOpen}
@@ -40,24 +101,48 @@ const StartButton = () => {
 			>
 				<S.Content>
 					<S.ImageBox>
-						<S.Image src="assets/img/ufc-cinturao.png" />
+						<Logo />
 					</S.ImageBox>
 
 					<S.Form>
-						<S.Title> CONFIGURAÇÃO </S.Title>
+						<S.Title> CONFIGURACAO </S.Title>
 
-						<input id="n_cartelas" placeholder="Número De Cartelas"></input>
-						<input
-							id="proxima_bola"
-							placeholder="Tempo para Próxima Bola"
-						></input>
-						<input id="limite_sorteio" placeholder="Número De Sorteios"></input>
+						<S.FormGroup>
+							<label> Número Cartelas: </label>
+							<input 
+								name="maxCards" 
+								value={values.maxCards}
+								required
+								onChange={handleChangesValues} />
+						</S.FormGroup>
+
+						<S.FormGroup>
+							<label> Tempo Próxima Bola (segundos) </label>
+							<input
+								name="frequency"
+								value={values.frequency}
+								onChange={handleChangesValues} />
+						</S.FormGroup>
+
+						<S.FormGroup>
+							<label> Limite Sorteios </label>
+							<input 
+								name="limitPrizeDraw" 
+								value={values.limitPrizeDraw}
+								onChange={handleChangesValues} />
+						</S.FormGroup>
 
 						<S.ButtonBox>
-							<Buttons value={'Compartilhar'} type={'button'} />
-							<Buttons value={'Iniciar Jogo'} type={'button'} />
+							<Buttons value={'compartilhar'} type={'button'} />
+							<Buttons value={'Jogar'} type={'button'} onClick={play} />
+
 						</S.ButtonBox>
 					</S.Form>
+
+					<S.CloseModalButton
+						aria-label="Close modal"
+						onClick={() => setIsOpen(false)}
+					/>
 				</S.Content>
 			</S.StyledModal>
 		</div>

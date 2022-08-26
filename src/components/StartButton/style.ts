@@ -1,25 +1,27 @@
 import styled, { css } from "styled-components";
-import Modal from 'styled-react-modal';
-import { BaseModalBackground } from 'styled-react-modal';
+import Modal from "styled-react-modal";
+import { BaseModalBackground } from "styled-react-modal";
+import { MdClose } from "react-icons/md";
 
 export const StartButton = styled.a`
-	display: flex;
-	justify-content: center;
-	height: 220px;
-	width: 400px;
-	transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  height: 220px;
+  width: 400px;
+  transition: all 0.2s;
 
-	img {
-		height: 220px;
-		width: 420px;
-	}
+  img {
+    height: 220px;
+    width: 420px;
+  }
 
-	:hover {
-		cursor: pointer;
-		transform: scale(1.02);
-	}
+  :hover {
+    cursor: pointer;
+    transform: scale(1.02);
+  }
 `;
 
+/*
 export const Conteiner = styled.div`
 	${({ theme }) => css`
 		display: flex;
@@ -44,61 +46,62 @@ export const Overlay = styled.div`
 		cursor: pointer;
 	`}
 `;
+*/
 
 export const StyledModal = Modal.styled`
-	${() => css`
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 50%;
-		height: 360px;
-		transform: translate(-50%, -50%);
-		background-color: white;
-	`}
+	${({}) => css`
+    position: absolute;
+    width: 60%;
+    height: 480px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+  `}
 `;
 
 export const Content = styled.div`
-	${() => css`
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-image: url('assets/img/fundo-textura-vermelho.jpg');
-		width: 100%;
-		height: 100%;
-		gap: 10%;
-	`}
+  ${() => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("assets/img/fundo-textura-vermelho.jpg");
+    width: 100%;
+    height: 100%;
+    gap: calc(100% - 90%);
+  `}
 `;
 
 export const ImageBox = styled.div`
-	${() => css`
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 30%;
-	`}
+  ${() => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 50%;
+  `}
 `;
 
 export const Image = styled.img`
-	${({ theme }) => css`
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	`}
+  ${({ theme }) => css`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  `}
 `;
 
 export const Title = styled.h2`
-	${({ theme }) => css`
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		font-size: 35px;
-		color: ${theme.colors.textColorRed};
-		font-family: 'teko';
-		margin-bottom: 1px;
-	`}
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    color: ${theme.colors.textColorRed};
+    font-family: ${theme.constants.bodyFontFamily};
+  `}
 `;
-/*${constants.bodyFontFamily};*/
+
 
 export const Form = styled.form`
 	${({ theme }) => css`
@@ -109,17 +112,12 @@ export const Form = styled.form`
 		width: 50%;
 		height: 90%;
 		background-color: white;
-		font-family: ${theme.constants.bodyFontFamily};
-		font-size: 14px;
 		border: 0px solid blue;
-		gap: 15px;
-		border-radius: 4px;
-		input {
-			width: 80%;
-			height: 54px;
-			font-family: 'teko';
-			font-size: 18px;
-			padding: 3px;
+		gap: 25px;
+		label {
+			font-family: ${theme.constants.bodyFontFamily};  
+			color: ${theme.colors.textColorRed};  
+			font-size: 16px;
 		}
 	`}
 `;
@@ -128,42 +126,91 @@ export const FormGroup = styled.div`
 	${({ theme }) => css`
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		align-items: flex-start;
-		width: 100%;
+		width: 90%;
+		label {
+			font-family: ${theme.constants.bodyFontFamily};  
+			color: ${theme.colors.textColorRed};  
+			font-size: 16px;
+		}
+		input {
+			width: 90%;
+			height: 28px;
+			font-family: ${theme.constants.bodyFontFamily};  
+			color: ${theme.colors.textColorRed};  
+			font-size: 16px;
+			border: none;
+			border-bottom: 3px solid ${theme.colors.primaryColor};
+			:focus {
+				outline: 0;
+			}
+			::placeholder {
+				color: ${theme.colors.textColorRed};  
+			}
+		}
 	`}
 `;
 
 export const ButtonBox = styled.div`
-	${() => css`
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		width: 80%;
-		height: 40%;
-		gap: 05px;
-	`}
+  ${() => css`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 40%;
+    gap: 05px;
+  `}
 `;
 
-export const footer = styled.div`
-	${({ theme }) => css`
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-		width: 100%;
-		height: 20%;
-		gap: 05px;
-	`}
+export const CloseModalButton = styled(MdClose)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  z-index: 10;
+  cursor: pointer;
 `;
-
-/*
-const FadingBackground = styled(BaseModalBackground)`
-  //opacity: ${(props) => props.opacity};
-  transition: all 0.3s ease-in-out;
-`;
-*/
 
 export const FadingBackground = styled(BaseModalBackground)`
-	transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+`;
+
+
+/*------------------------------------*/
+// PADRONIZAÇÃO DE COMPONENTS
+/*------------------------------------*/
+
+export const BoxCreateUserDivInput = styled.div`
+  ${({ theme }) => css`
+    width: 75%;
+    border-bottom: 4px solid ${theme.colors.primaryColor};
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    label {
+      max-width: 75px;
+      margin: 0 10px 0 10px;
+    }
+  `}
+`;
+
+export const BoxCreateUserInput = styled.input`
+  ${({ theme }) => css`
+    border: 1px solid;
+    width: 70%;
+    height: 25px;
+    border: none;
+    outline: 0;
+    color: #000;
+    font-size: 18px;
+    margin: 3px;
+  `}
 `;

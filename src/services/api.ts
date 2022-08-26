@@ -5,6 +5,7 @@ const Api = axios.create({
 });
 
 Api.interceptors.request.use((config: any) => {
+  Api.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
   try {
     const token = localStorage.getItem("jwt");
 
