@@ -25,7 +25,7 @@ export const RoomServices = {
         frequency: params.frequency || 7 
       };
 
-      const res = await Api.post( "/room/room", 
+      const res = await Api.post( "/room", 
                             _data,  );
 
       return res.data;
