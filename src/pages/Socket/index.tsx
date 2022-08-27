@@ -8,11 +8,13 @@ interface Message {
   id: string;
   name: string;
   text: string;
+  teste: string;
 }
 
 interface Payload {
   name: string;
   text: string;
+  teste: string;
 }
 
 const socket = io("http://localhost:3333");
@@ -21,6 +23,7 @@ const TesteSocket: React.FC = () => {
   const [title] = useState("Chat Web");
   const [name, setName] = useState("");
   const [text, setText] = useState("");
+  const [teste, setTeste] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
@@ -29,6 +32,7 @@ const TesteSocket: React.FC = () => {
         id: uuid.v4(),
         name: message.name,
         text: message.text,
+        teste: "Hello World",
       };
 
       setMessages([...messages, newMessage]);
@@ -37,7 +41,7 @@ const TesteSocket: React.FC = () => {
     socket.on("msgToClient", (message: Payload) => {
       receivedMessage(message);
     });
-  }, [messages, name, text]);
+  }, [messages, name, text, teste]);
 
   function validateInput() {
     return name.length > 0 && text.length > 0;
@@ -48,6 +52,7 @@ const TesteSocket: React.FC = () => {
       const message: Payload = {
         name,
         text,
+        teste,
       };
 
       socket.emit("msgToServer", message);
@@ -75,8 +80,8 @@ const TesteSocket: React.FC = () => {
                       {message.name}
                       {" diz:"}
                     </span>
-
                     <p>{message.text}</p>
+                    <p>{message.teste}</p>
                   </MyMessage>
                 );
               }
