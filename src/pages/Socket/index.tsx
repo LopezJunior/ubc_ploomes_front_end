@@ -17,7 +17,7 @@ interface Payload {
   teste: string;
 }
 
-const socket = io("http://localhost:3333");
+const socket = io("https://ubc-backend.herokuapp.com");
 
 const TesteSocket: React.FC = () => {
   const [title] = useState("Chat Web");
