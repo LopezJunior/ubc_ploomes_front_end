@@ -81,7 +81,7 @@ const TesteSocket: React.FC = () => {
                       {" diz:"}
                     </span>
                     <p>{message.text}</p>
-                    <p>{message.teste}</p>
+                    {/* <p>{message.teste}</p> */}
                   </MyMessage>
                 );
               }
