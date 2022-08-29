@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-  baseURL: "https://ubc.up.railway.app",
+  baseURL: "https://ubc-backend.herokuapp.com",
 });
 
 Api.interceptors.request.use((config: any) => {
