@@ -10,12 +10,14 @@ export interface Room {
 	historic: [];
 	prizeOrder: [];
 }
-
-export interface Vetor {
-	vetor: number[];
-}
-
-export interface RoomConfig {
-	room: Room;
-	vetor: Vetor[];
-}
+  export interface Vetor {
+      vetor: number[];
+      selecteds: number[];
+      addSelected: (num: number) => void;
+      
+  }
+  
+  export interface RoomConfig {
+      room: Room;
+      vetor: Vetor[];
+  }

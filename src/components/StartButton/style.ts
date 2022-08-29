@@ -137,6 +137,19 @@ export const FormGroup = styled.div`
 			font-size: 16px;
 		}
 		input {
+			width: 90%;
+			height: 28px;
+			font-family: ${theme.constants.bodyFontFamily};  
+			color: ${theme.colors.textColorRed};  
+			font-size: 16px;
+			border: none;
+			border-bottom: 3px solid ${theme.colors.primaryColor};
+			:focus {
+				outline: 0;
+			}
+			::placeholder {
+				color: ${theme.colors.textColorRed};  
+			}
 			${theme.mixins.input()};
 		}
 	`}

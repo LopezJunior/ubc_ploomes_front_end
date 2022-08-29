@@ -26,7 +26,11 @@ export const RoomServices = {
 				prizeOrder: [params.prizeOrder],
 			};
 
+<<<<<<< HEAD
 			const res = await Api.post('/room', _data);
+=======
+      const res = await Api.post( "/room", _data,  );
+>>>>>>> 257644d9b4b9800bfdd507d1074663bf53a9370a
 
 			return res.data;
 		} catch (error: any) {
@@ -40,6 +44,7 @@ export const RoomServices = {
 		}
 	},
 
+<<<<<<< HEAD
 	getRoom: async (id: string) => {
 		try {
 			const res = await Api.get(`/room/${id}`, { method: 'GET' });
@@ -55,4 +60,34 @@ export const RoomServices = {
 			return error;
 		}
 	},
+=======
+    } catch (error: any) {
+      swal({
+        title: "Error",
+        text: `${error.message}`,
+        icon: "error",
+        timer: 6000,
+      });
+      return error;
+    }
+  },
+
+  getRoom: async (id: string) => {
+    try {
+      const res = await Api.get(`/room/${id}`, { method: "GET" });
+
+      return res.data;
+
+    } catch (error: any) {
+      swal({
+        title: "Error",
+        text: `${error.message}`,
+        icon: "error",
+        timer: 6000,
+      });
+      return error;
+    }
+  },
+>>>>>>> 257644d9b4b9800bfdd507d1074663bf53a9370a
 };
+
