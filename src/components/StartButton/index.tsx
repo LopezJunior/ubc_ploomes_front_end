@@ -19,6 +19,7 @@ const StartButton = () => {
 						limitPrizeDraw: '75',
 						limitRecord: '',
 						limitUsers: '2',
+						prizeOrders: [],
 						price: '10',
 						frequency: '10',
 						historic: [],
