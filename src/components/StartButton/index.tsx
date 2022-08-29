@@ -13,15 +13,16 @@ const StartButton = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [opacity, setOpacity] = useState(0);
 	const [values, setValues] = useState<Room>({
-						id: '',
-						number: null,
-						maxCards: '3',
-						limitPrizeDraw: '75',
-						limitRecord: '',
-						limitUsers: '2',
-						price: '10',
-						frequency: '10',
-						historic: [],
+		id: '',
+		number: null,
+		maxCards: '3',
+		limitPrizeDraw: '75',
+		limitRecord: '',
+		limitUsers: '2',
+		price: '10',
+		frequency: '10',
+		historic: [],
+		prizeOrder: [],
 	});
 	const navigate = useNavigate();
 
@@ -42,31 +43,31 @@ const StartButton = () => {
 		});
 	}
 
-
-    const handleChangesValues = (event: React.ChangeEvent<HTMLInputElement>)  => {
-        setValues((values: Room) => ({
-            ...values,
-            [event.target.name]: event.target.value
-        }))
-        console.log(event.target.value)
-    } 
+	const handleChangesValues = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setValues((values: Room) => ({
+			...values,
+			[event.target.name]: event.target.value,
+		}));
+		console.log(event.target.value);
+	};
 
 	async function play() {
 		const _params: RoomServicesStartParams = {
 			limitPrizeDraw: +values.limitPrizeDraw,
-			maxCards : +values.maxCards,
-			frequency: +values.frequency
+			maxCards: +values.maxCards,
+			frequency: +values.frequency,
+			prizeOrder: +values.prizeOrder,
 		};
-		
-		// tenta iniciar uma sala
-		const resp = await RoomServices.start( _params );
 
-		if( resp.room ) {
+		// tenta iniciar uma sala
+		const resp = await RoomServices.start(_params);
+
+		if (resp.room) {
 			const postData = {
 				room: resp.room,
 				vetor: resp.cards,
 			};
-			navigate('/bingo', { state: postData } );
+			navigate('/bingo', { state: postData });
 		}
 		return;
 	}
