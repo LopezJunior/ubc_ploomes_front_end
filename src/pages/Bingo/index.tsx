@@ -5,11 +5,16 @@ import * as S from "./style";
 
 const MyBingo = () => {
   return (
-    <S.myBingo>
-      <FooterBingo />
-      <BallHistory />
-      <Card />
-    </S.myBingo>
+    <RoomProvider>
+      <S.myBingo>
+        <FooterBingo />
+        <BallHistory />
+        <S.Desk>
+          <Card />
+          <BingoButton />
+        </S.Desk>
+      </S.myBingo>
+    </RoomProvider>
   );
 };
 

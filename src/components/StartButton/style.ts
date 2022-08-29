@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import Modal from 'styled-react-modal';
 import { BaseModalBackground } from 'styled-react-modal';
+import { MdClose } from "react-icons/md";
 
 export const StartButton = styled.a`
 	display: flex;
@@ -166,4 +167,15 @@ const FadingBackground = styled(BaseModalBackground)`
 
 export const FadingBackground = styled(BaseModalBackground)`
 	transition: all 0.3s ease-in-out;
+`;
+
+export const CloseModalButton = styled(MdClose)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  z-index: 10;
+  cursor: pointer;
 `;

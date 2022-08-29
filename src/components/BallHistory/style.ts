@@ -2,14 +2,15 @@ import styled, { css } from "styled-components";
 
 export const HistoryContainer = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.textColorRed};
-    font-family: ${theme.constants.bodyFontFamily};
-    margin-top: 10px;
-    background-color: white;
-    height: 60px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    color: ${theme.colors.textColorRed};
+    font-family: ${theme.constants.bodyFontFamily};
+    background-color: white;
+    margin-top: 10px;
+    height: 60px;
+    width: 90%;
   `}
 `;
 
