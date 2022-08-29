@@ -3,6 +3,7 @@ import * as S from "./style";
 import { RoomContext } from "Contexts/room";
 import { Vetor } from "components/StartButton/type";
 
+
 const Card = () => {
   const [cards, setCards] = useState<Vetor[]>();
   const [numbersSort, setNumberSort] = useState<number[]>([

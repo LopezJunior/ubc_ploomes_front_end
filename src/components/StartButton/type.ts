@@ -22,3 +22,7 @@ export interface Room {
       room: Room;
       vetor: Vetor[];
   }
+
+ 
+
+

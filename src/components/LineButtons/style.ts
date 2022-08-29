@@ -5,4 +5,5 @@ export const LineButtons = styled.div`
   height: 110px;
   display: flex;
   justify-content: space-around;
+  margin: 2rem;
 `;

@@ -8,13 +8,13 @@ const AuthLogin = () => {
   //   navigate(RoutePath.HOMEPAGE);
   // };
   return (
-    <S.AuthLogin>
-      <S.LoginContent>
-        <Logo />
-        <BoxLogin />
-      </S.LoginContent>
-    </S.AuthLogin>
-  );
+		<S.AuthLogin>
+			<S.LoginContent>
+				<Logo />
+				<BoxLogin />
+			</S.LoginContent>
+		</S.AuthLogin>
+	);
 };
 
 export default AuthLogin;
