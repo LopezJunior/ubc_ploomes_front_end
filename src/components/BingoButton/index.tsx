@@ -3,28 +3,30 @@ import { RoomContext  } from "Contexts/room";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import * as S  from "./style"
-import { RoomServices } from "services/roomServices";
+import { RoomServices, RoomServicesCheckBingoParams } from "services/roomServices";
+
 
 const BingoButton = () => {
     const context = useContext( RoomContext );
     const navigate =useNavigate();
 
-    function handleBingoClick() {
+    async function handleBingoClick() {
       const room =context?.room();
       const cards = context?.getCards();
+      const postCards: RoomServicesCheckBingoParams[] = [];
 
-      cards?.map( async ( card, index ) => {
+      cards?.map( ( card, index ) => {
         let _card ={
             'id': card.id,
             'vetor': card.vetor,
             'markings': card.selecteds,
-        }
+        };
+        postCards.push( _card );
+      })
 
-        const resp = await RoomServices.checkBingo( room?.id!,  _card );
+      const resp = await RoomServices.checkBingo( room?.id!, postCards );
+      console.log('resp', resp);
 
-        console.log('resp', resp);
-
-      })      
       return;
     }
 

@@ -11,6 +11,12 @@ export interface RoomServicesStartParams {
     frequency: number, 
 }
 
+export interface RoomServicesCheckBingoParams {
+  'id': string,
+  'vetor': number[],
+  'markings': number[],
+}
+
 export const RoomServices = {
   start: async (params: RoomServicesStartParams  )  => {
     
@@ -39,15 +45,10 @@ export const RoomServices = {
     }
   },
 
-  checkBingo: async (idRoom: string, card: Vetor )  => {
+  checkBingo: async (idRoom: string, data: RoomServicesCheckBingoParams[] )  => {
     try {
-      const _data = {
-        id: card.id, 
-        vetor: card.vetor, 
-        markings: card.selecteds, 
-      };
 
-      const res = await Api.patch( `/room/${idRoom}/checkBingo`, _data,  );
+      const res = await Api.patch( `/room/${idRoom}/checkBingo`, data,  );
 
       return res.data;
 

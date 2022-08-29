@@ -45,8 +45,8 @@ function RoomProvider ({children}: Props) {
 		let roomParams = status.state as RoomConfig;
 
 		return roomParams.room;
-
     }
+    
 	function getStatePrizeOrders() {
 		let roomParams = status.state as RoomConfig;
 
