@@ -1,9 +1,11 @@
 import ButtonWhite from "components/ButtonWhite";
 import * as S from "./style";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 const LineButtons = () => {
+  const navigation = useNavigate();
   let teste = () => {
     Swal.fire({
       title: "Você Tem certeza?",
