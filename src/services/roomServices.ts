@@ -15,6 +15,7 @@ export interface RoomServicesCheckBingoParams {
   'id': string,
   'vetor': number[],
   'markings': number[],
+  'historic': number[],
 }
 
 export const RoomServices = {

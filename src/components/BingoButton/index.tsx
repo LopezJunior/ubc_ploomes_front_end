@@ -15,16 +15,17 @@ const BingoButton = () => {
       const cards = context?.getCards();
       const postCards: RoomServicesCheckBingoParams[] = [];
 
-      cards?.map( ( card, index ) => {
-        let _card ={
-            'id': card.id,
-            'vetor': card.vetor,
-            'markings': card.selecteds,
-        };
-        postCards.push( _card );
-      })
+    cards?.map((card, index) => {
+      let _card = {
+        id: card.id,
+        vetor: card.vetor,
+        markings: card.selecteds,
+        historic: context?.getPrizeOrder()!,
+      };
+      postCards.push(_card);
+    });
 
-      console.log( 'getPrizeOrders:', context?.getPrizeOrders() );
+      console.log( 'getPrizeOrders:', context?.getPrizeOrder() );
 
       const resp = await RoomServices.checkBingo( room?.id!, postCards );
       console.log('resp', resp);

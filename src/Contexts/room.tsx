@@ -8,7 +8,7 @@ type Props = {
 
 type RoomContextType ={
     room: () => Room;
-    getPrizeOrders: () => number[],
+    getPrizeOrder: () => number[],
     getCards: () => Vetor[],
 }
 
@@ -25,7 +25,7 @@ export const RoomContext = createContext<RoomContextType | null>({
                 frequency: 7,
                 historic: []
             } },
-        getPrizeOrders:() => {return []}, 
+        getPrizeOrder:() => {return []}, 
         getCards: () => {return []},
         /*
         selectedNumbers: [], 
@@ -43,7 +43,7 @@ function RoomProvider ({children}: Props) {
 		return roomParams.room;
     }
     
-	function getStatePrizeOrders() {
+	function getStatePrizeOrder() {
 		let roomParams = status.state as RoomConfig;
 
         console.log('roomParams:', roomParams);
@@ -66,7 +66,7 @@ function RoomProvider ({children}: Props) {
     return (
         <RoomContext.Provider value={ { 
             room: getRoom,
-            getPrizeOrders: getStatePrizeOrders, 
+            getPrizeOrder: getStatePrizeOrder, 
             getCards: getStateCards,
             } }>
             {children}
@@ -75,3 +75,4 @@ function RoomProvider ({children}: Props) {
 }
 
 export default RoomProvider;
+
