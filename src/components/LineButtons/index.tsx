@@ -2,6 +2,7 @@ import ButtonWhite from "components/ButtonWhite";
 import * as S from "./style";
 import Swal from "sweetalert2";
 import "./style.css";
+import icon from "../../assets/img/icon.png";
 
 const LineButtons = () => {
   let teste = () => {
@@ -21,9 +22,25 @@ const LineButtons = () => {
       }
     });
   };
+  let nome = "Ranatinho alexandro vascaino";
+  let profileUser = () => {
+    Swal.fire({
+      title: `Nome: ${nome}`,
+      width: 600,
+      // padding: "1em",
+      color: "rgb(158,56,40)",
+      imageUrl: "https://i.imgur.com/JtSKbxe.png",
+      // background: "#fff url(../../assets/img/icon.png)",
+      backdrop: `
+        rgba(186,95,95,0.4)
+      `,
+    });
+  };
   return (
     <S.LineButtons>
-      <ButtonWhite value={"perfil"} type={"button"} />
+      <a onClick={profileUser}>
+        <ButtonWhite value={"perfil"} type={"button"} />
+      </a>
       <ButtonWhite value={"ranking"} type={"button"} />
       {/* <ButtonWhite value={"loja"} type={"button"} /> */}
       <a onClick={teste}>
