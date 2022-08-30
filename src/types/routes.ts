@@ -10,5 +10,6 @@ export enum RoutePath {
   MYBINGO = "/bingo",
   RESETSECTION = "/resetarjogo",
   VICTORYMODAL = "/vitoria",
-  DEFEAT = "/defeat",
+  DEFEATMODAL = "/defeat",
+  STARTBUTTON = '/start'
 }
