@@ -13,18 +13,18 @@ type RoomContextType ={
 }
 
 export const RoomContext = createContext<RoomContextType | null>({ 
-        room: () => {return { 
-                id: '',
-                number: null,
-                maxCards: 3,
-                limitPrizeDraw: 75,
-                limitRecord: 3,
-                limitUsers: 0,
-                prizeOrders: [],
-                price: 2,
-                frequency: 7,
-                historic: []
-            } },
+        room: () => {return {
+					id: '',
+					number: null,
+					maxCards: 3,
+					limitPrizeDraw: 75,
+					limitRecord: 3,
+					limitUsers: 0,
+					prizeOrder: [],
+					price: 2,
+					frequency: 7,
+					historic: [],
+				}; },
         getPrizeOrders:() => {return []}, 
         getCards: () => {return []},
         /*
