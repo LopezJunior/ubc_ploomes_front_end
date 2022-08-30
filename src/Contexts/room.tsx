@@ -10,10 +10,6 @@ type RoomContextType ={
     room: () => Room;
     getPrizeOrders: () => number[],
     getCards: () => Vetor[],
-    /*
-    selectedNumbers: number[],
-    setSelecteds: (num: number) => void;
-    */
 }
 
 export const RoomContext = createContext<RoomContextType | null>({ 

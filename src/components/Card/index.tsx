@@ -1,9 +1,14 @@
+import React, { useState, useEffect, useContext } from "react";
 import * as S from "./style";
+import { RoomContext } from "Contexts/room";
+import { Vetor } from "components/StartButton/type";
+
 
 import { RoomContext } from "Contexts/room";
 import { useContext, useState } from "react";
 
 const Card = () => {
+  const [cards, setCards] = useState<Vetor[]>();
   const [numbersSort, setNumberSort] = useState<number[]>([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25,
@@ -12,7 +17,17 @@ const Card = () => {
   //const [numberList, setNumberList] = useState<any[]>([]);
   const context = useContext(RoomContext);
 
-  return (
+  /*
+  async function initialize() {
+    setCards(context?.getCards()!);
+  }
+
+  useEffect(() => {
+    initialize();
+  }, []);
+  */
+
+return (
     <>
       <S.Content>
         {context?.getCards()!.map<React.ReactNode>( (card, cardIndex) => (

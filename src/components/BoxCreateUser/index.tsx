@@ -64,65 +64,63 @@ const BoxCreateUser = () => {
   console.log(values);
 
   return (
-    <S.BoxCreateUser>
-      <S.BoxCreateUserTitle>
-        <div>
-          <S.BoxCreateUserH2>Insira seus dados:</S.BoxCreateUserH2>
-        </div>
-      </S.BoxCreateUserTitle>
-      <S.BoxCreateUserForm onSubmit={handleRegisterUser}>
-        <S.BoxCreateUserDivInput>
-          <UserCicle />
-          <label> nickname: </label>
-          <S.BoxCreateUserInput
-            type="text"
-            name="name"
-            id="name"
-            required
-            onChange={handleChangesValues}
-          />
-        </S.BoxCreateUserDivInput>
-        <S.BoxCreateUserDivInput>
-          <AiOutlineMail />
-          <label> email: </label>
-          <S.BoxCreateUserInput
-            type="string"
-            name="email"
-            id="email"
-            required
-            onChange={handleChangesValues}
-          />
-        </S.BoxCreateUserDivInput>
-        <S.BoxCreateUserDivInput>
-          <Lock />
-          <label> password: </label>
-          <S.BoxCreateUserInput
-            type="password"
-            name="password"
-            id="password"
-            required
-            onChange={handleChangesValues}
-          />
-        </S.BoxCreateUserDivInput>
+		<S.BoxCreateUser>
+			<S.BoxCreateUserTitle>
+				<S.BoxCreateUserH2>Insira seus dados:</S.BoxCreateUserH2>
+			</S.BoxCreateUserTitle>
+			<S.BoxCreateUserForm onSubmit={handleRegisterUser}>
+				<S.BoxCreateUserDivInput>
+					<UserCicle />
+					<label> nickname: </label>
+					<S.BoxCreateUserInput
+						type="text"
+						name="name"
+						id="name"
+						required
+						onChange={handleChangesValues}
+					/>
+				</S.BoxCreateUserDivInput>
+				<S.BoxCreateUserDivInput>
+					<AiOutlineMail />
+					<label> email: </label>
+					<S.BoxCreateUserInput
+						type="string"
+						name="email"
+						id="email"
+						required
+						onChange={handleChangesValues}
+					/>
+				</S.BoxCreateUserDivInput>
+				<S.BoxCreateUserDivInput>
+					<Lock />
+					<label> password: </label>
+					<S.BoxCreateUserInput
+						type="password"
+						name="password"
+						id="password"
+						required
+						onChange={handleChangesValues}
+					/>
+				</S.BoxCreateUserDivInput>
 
-        <S.BoxCreateUserDivInput>
-          <Lock />
-          <label>confirm password: </label>
-          <S.BoxCreateUserInput
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-            required
-            onChange={handleChangesValues}
-          />
-        </S.BoxCreateUserDivInput>
+				<S.BoxCreateUserDivInput>
+					<Lock />
+					<label>confirm password: </label>
+					<S.BoxCreateUserInput
+						type="password"
+						name="confirmPassword"
+						id="confirmPassword"
+						required
+						onChange={handleChangesValues}
+					/>
+				</S.BoxCreateUserDivInput>
 
-        <S.BoxCreateUserSubmit>
-          <ButtonRedSmall value={"registre-se"} type={"submit"} />
-        </S.BoxCreateUserSubmit>
-      </S.BoxCreateUserForm>
-    </S.BoxCreateUser>
-  );
+				<S.BoxCreateUserSubmit>
+					<ButtonRedSmall value={'registre-se'} type={'submit'} />
+				</S.BoxCreateUserSubmit>
+			</S.BoxCreateUserForm>
+		</S.BoxCreateUser>
+	);
 };
 
 export default BoxCreateUser;

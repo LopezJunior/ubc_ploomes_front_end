@@ -17,6 +17,5 @@ export const Desk = styled.div`
   width: 90%;
   height: 75%;
   border: 0px solid yellow;
-
 `;
   

@@ -11,6 +11,7 @@ export const Content = styled.div`
 		gap: 25px;
 		margin: 0 auto;
 		border: 0px solid blue;
+
 	`}
 `;
 
