@@ -15,8 +15,6 @@ export interface Room {
       id: string;
       vetor: number[];
       selecteds: number[];
-      addSelected: (num: number) => void;
-      
   }
   
   export interface RoomConfig {
