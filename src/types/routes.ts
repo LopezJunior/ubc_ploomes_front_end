@@ -11,4 +11,5 @@ export enum RoutePath {
   RESETSECTION = "/resetarjogo",
   VICTORYMODAL = "/vitoria",
   DEFEAT = "/defeat",
+  RANKING = "/ranking",
 }
