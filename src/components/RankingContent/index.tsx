@@ -19,16 +19,27 @@ const RankingContent = () => {
   useEffect(() => {
     createRanking();
   }, []);
+
+  let icons = [
+    "https://i.imgur.com/3Yx31xp.png",
+    "https://i.imgur.com/aj8vSyh.png",
+    "https://i.imgur.com/yUWDAwN.png",
+    "https://i.imgur.com/v6j4Csi.png",
+  ];
+
   return (
     <S.FullRanking>
       {list.map((i: any, index) => {
-        console.log(i);
+        let randon = Math.floor(Math.random() * 4);
         return (
           <S.RankingFrame>
-            <S.RankingName>
-              {index}º {i.name}
-            </S.RankingName>
-            <S.RankingMoney>R$: {i.wallet}</S.RankingMoney>
+            <S.ContentLeft>
+              <S.Img src={icons[randon]} />
+              <S.RankingName>- {i.name}</S.RankingName>
+            </S.ContentLeft>
+            <S.ContentRight>
+              <S.RankingMoney>R$: {i.wallet}</S.RankingMoney>
+            </S.ContentRight>
           </S.RankingFrame>
         );
       })}
