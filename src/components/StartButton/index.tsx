@@ -3,10 +3,14 @@ import logo from "../../assets/img/cinturao_iniciar.png";
 import { useEffect, useState } from 'react';
 import Buttons from 'components/ButtonRedLarge';
 import { Room } from "./type";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { RoomServices, RoomServicesStartParams } from "services/roomServices";
 import { RoutePath } from "types/routes";
 import Logo from "components/Logo";
+
+interface StartButtonParams  {
+	begin: boolean;
+}
 
 const StartButton = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +28,7 @@ const StartButton = () => {
 						historic: [],
 	});
 	const navigate = useNavigate();
+  const status = useLocation()
 
 	function toggleModal() {
 		//setOpacity(0);
@@ -40,6 +45,7 @@ const StartButton = () => {
 		return new Promise((resolve) => {
 			setOpacity(0);
 			setTimeout(resolve, 300);
+      navigate( RoutePath.HOMEPAGE );
 		});
 	}
 
@@ -91,15 +97,33 @@ const StartButton = () => {
 		}
 	}
 
+  function isBegin() {
+		let StartParams = status.state as StartButtonParams;
+
+		if( ! status.state )  {
+			return true; 
+		}
+
+		return StartParams.begin;
+    }	
+
 	useEffect(() => {
 		tokenVerify();
+
+		if( ! isBegin() ) {
+			setIsOpen(true);
+		}
+
 	}, []);
 
 	return (
-		<div>
+
+		<>
+			{isBegin() && 	
 			<S.StartButton onClick={toggleModal}>
 				<img src={logo} />
 			</S.StartButton>
+			}
 
 			<S.StyledModal
 				isOpen={isOpen}
@@ -156,7 +180,8 @@ const StartButton = () => {
 					/>
 				</S.Content>
 			</S.StyledModal>
-		</div>
+		</>
+
 	);
 };
 

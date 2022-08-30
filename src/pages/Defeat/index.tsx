@@ -43,12 +43,13 @@ const Defeat = () => {
   function restart() {
     setIsOpen(false);
 
-    navigate( RoutePath.STARTBUTTON );
+    navigate(RoutePath.HOMEPAGE, { state: { begin: false } } );
   }
 
   function sair() {
     setIsOpen(false);
 
+    navigate(RoutePath.HOMEPAGE );
   }
 
 

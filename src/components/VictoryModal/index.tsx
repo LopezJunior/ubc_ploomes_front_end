@@ -1,7 +1,21 @@
 import * as S from './style';
 import fighter from '../../assets/img/fighter.png';
+import { RoutePath } from 'types/routes';
+import { useNavigate } from 'react-router-dom';
 
 const VictoryModal = () => {
+	const navigate = useNavigate();
+
+	function restart() {
+	
+		navigate(RoutePath.HOMEPAGE, { state: { begin: false } } );
+	  }
+	
+	  function sair() {
+	
+		navigate(RoutePath.HOMEPAGE );
+	  }
+
 	return (
 		<S.VictoryModal>
 			<S.Top>
@@ -27,8 +41,8 @@ const VictoryModal = () => {
 				<S.Image src={fighter} alt="" />
 			</S.Content>
 			<S.Footer>
-				<S.Buttons>Restart</S.Buttons>
-				<S.Buttons>Sair</S.Buttons>
+				<S.Buttons onClick={restart}>Restart</S.Buttons>
+				<S.Buttons onClick={sair}>Sair</S.Buttons>
 			</S.Footer>
 		</S.VictoryModal>
 	);

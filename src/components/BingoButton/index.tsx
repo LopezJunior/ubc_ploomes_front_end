@@ -31,7 +31,7 @@ const BingoButton = () => {
       const resp = await RoomServices.checkBingo( room?.id!, postCards );
       console.log('resp', resp);
 
-      if( !resp ) {
+      if( resp ) {
 
         navigate( RoutePath.VICTORYMODAL );
 
