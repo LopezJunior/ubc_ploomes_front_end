@@ -12,37 +12,42 @@ type RoomContextType ={
     getCards: () => Vetor[],
 }
 
-export const RoomContext = createContext<RoomContextType | null>({ 
-        room: () => {return {
-					id: '',
-					number: null,
-					maxCards: 3,
-					limitPrizeDraw: 75,
-					limitRecord: 3,
-					limitUsers: 0,
-					prizeOrder: [],
-					price: 2,
-					frequency: 7,
-					historic: [],
-				}; },
-        getPrizeOrders:() => {return []}, 
-        getCards: () => {return []},
-        /*
+export const RoomContext = createContext<RoomContextType | null>({
+	room: () => {
+		return {
+			id: '',
+			number: null,
+			maxCards: 3,
+			limitPrizeDraw: 75,
+			limitRecord: 3,
+			limitUsers: 0,
+			prizeOrder: [],
+			price: 2,
+			frequency: 7,
+			historic: [],
+		};
+	},
+	getPrizeOrders: () => {
+		return [];
+	},
+	getCards: () => {
+		return [];
+	},
+	/*
         selectedNumbers: [], 
         setSelecteds:() => {}
         */
-    } 
-);
+});
 
-function RoomProvider ({children}: Props) {
+function RoomProvider({ children }: Props) {
 	const status = useLocation();
 
-    function getRoom() {
+	function getRoom() {
 		let roomParams = status.state as RoomConfig;
 
 		return roomParams.room;
-    }
-    
+	}
+
 	function getStatePrizeOrders() {
 		let roomParams = status.state as RoomConfig;
 
@@ -54,22 +59,24 @@ function RoomProvider ({children}: Props) {
 
 		return roomParams.vetor;
 	}
-    
-    /*
+
+	/*
     useEffect( () => {
         getState();
     }, [])
     */
 
-    return (
-        <RoomContext.Provider value={ { 
-            room: getRoom,
-            getPrizeOrders: getStatePrizeOrders, 
-            getCards: getStateCards,
-            } }>
-            {children}
-        </RoomContext.Provider> 
-    )
+	return (
+		<RoomContext.Provider
+			value={{
+				room: getRoom,
+				getPrizeOrders: getStatePrizeOrders,
+				getCards: getStateCards,
+			}}
+		>
+			{children}
+		</RoomContext.Provider>
+	);
 }
 
 export default RoomProvider;

@@ -15,7 +15,10 @@ const BallHistory = () => {
 	let backSort: any[] = [];
 	backSort.push(room?.prizeOrder.map((e) => e));
 
+	console.log(backSort);
 	console.log(backSort[0]?.splice(0, 5));
+	console.log('room', room);
+	let result = backSort[0]?.splice(0, 5);
 
 	async function getState() {
 		let roomParams = status.state as RoomConfig;
@@ -30,8 +33,6 @@ const BallHistory = () => {
 		}
 		getState();
 	}, [control]);
-
-	let result = backSort[0]?.splice(0, maxSort);
 
 	setTimeout(() => {
 		if (control < result.length) {

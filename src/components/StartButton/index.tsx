@@ -71,7 +71,7 @@ const StartButton = () => {
 					limitPrizeDraw: resp.room.limitPrizeDraw,
 					limitRecord: resp.room.limitRecord,
 					limitUsers: resp.room.limitUsers,
-					prizeOrders: resp.room.prizeOrders,
+					prizeOrder: resp.room.prizeOrder,
 					price: resp.room.price,
 					frequency: resp.room.frequency,
 				},
