@@ -112,4 +112,3 @@ const Defeat = ( {drawn_numbers, game_time, callRestart, callGetout} : DefeatPar
 }
 
 export default Defeat;
-

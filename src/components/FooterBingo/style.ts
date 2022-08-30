@@ -9,11 +9,12 @@ export const TitleBingo = styled.div`
     justify-content: space-around;
     background-color: white;
     border-radius: 10px;
-    width: 80%;
+    width: 90%;
     height: 110px;
-    margin-left: 10%;
   `}
 `;
+/*margin-left: 10%;*/
+
 export const StopWatch = styled.span`
   display: flex;
   flex-direction: column;

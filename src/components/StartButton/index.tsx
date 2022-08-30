@@ -1,13 +1,12 @@
 import * as S from "./style";
 import logo from "../../assets/img/cinturao_iniciar.png";
-import { useEffect, useState } from "react";
-import Buttons from "components/ButtonRedLarge";
-import Logo from "components/Logo";
-import { useNavigate } from "react-router-dom";
-import { RoutePath } from "types/routes";
-import { RoomServices, RoomServicesStartParams  } from "services/roomServices";
+import { useEffect, useState } from 'react';
+import Buttons from 'components/ButtonRedLarge';
 import { Room } from "./type";
-
+import { useNavigate } from "react-router-dom";
+import { RoomServices, RoomServicesStartParams } from "services/roomServices";
+import { RoutePath } from "types/routes";
+import Logo from "components/Logo";
 
 const StartButton = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +26,7 @@ const StartButton = () => {
 	const navigate = useNavigate();
 
 	function toggleModal() {
+		//setOpacity(0);
 		setIsOpen(!isOpen);
 	}
 
@@ -64,7 +64,17 @@ const StartButton = () => {
 
 		if( resp.room ) {
 			const postData = {
-				room: resp.room,
+				room: {
+					id: resp.room.id,
+					number: resp.room.number,
+					maxCards: resp.room.maxCards,
+					limitPrizeDraw: resp.room.limitPrizeDraw,
+					limitRecord: resp.room.limitRecord,
+					limitUsers: resp.room.limitUsers,
+					prizeOrders: resp.room.prizeOrders,
+					price: resp.room.price,
+					frequency: resp.room.frequency,
+				},
 				vetor: resp.cards,
 			};
 			navigate('/bingo', { state: postData } );

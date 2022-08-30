@@ -3,19 +3,28 @@ import React , { useState, useEffect, createContext, } from 'react';
 import { useLocation } from 'react-router-dom';
 
 type Props = {
-    children: JSX.Element[],
+    children: JSX.Element,
 };
 
 type RoomContextType ={
+    room: () => Room;
     getPrizeOrders: () => number[],
     getCards: () => Vetor[],
-    /*
-    selectedNumbers: number[],
-    setSelecteds: (num: number) => void;
-    */
 }
 
 export const RoomContext = createContext<RoomContextType | null>({ 
+        room: () => {return { 
+                id: '',
+                number: null,
+                maxCards: 3,
+                limitPrizeDraw: 75,
+                limitRecord: 3,
+                limitUsers: 0,
+                prizeOrders: [],
+                price: 2,
+                frequency: 7,
+                historic: []
+            } },
         getPrizeOrders:() => {return []}, 
         getCards: () => {return []},
         /*
@@ -26,24 +35,15 @@ export const RoomContext = createContext<RoomContextType | null>({
 );
 
 function RoomProvider ({children}: Props) {
-	const [numbers, setNumbers] = useState<number[]>([]);	
-    const [numberList, setNumberList] = useState<number[]>([]);
-    //const [room, setRoom] = useState<Room>();
 	const status = useLocation();
-    
-	async function getState() {
+
+    function getRoom() {
 		let roomParams = status.state as RoomConfig;
 
-		//setRoom(roomParams.room);
-		//setNumbers(roomParams.vetor);
-		//console.log(roomParams.vetor[0].vetor);
-	}
-
-	async function setNumbersSelected(num: number) {
-		setNumberList((numberList) => [...numberList, num]);
-	}
-
-	function getStatePrizeorders() {
+		return roomParams.room;
+    }
+    
+	function getStatePrizeOrders() {
 		let roomParams = status.state as RoomConfig;
 
 		return roomParams.room.prizeOrder;
@@ -53,31 +53,19 @@ function RoomProvider ({children}: Props) {
 		let roomParams = status.state as RoomConfig;
 
 		return roomParams.vetor;
-		console.log(roomParams.vetor[0].vetor);
-	}
-
-	async function setNumberSelecteds(num: number) {
-		setNumberList((numberList) => [...numberList, num]);
-	}
-
-	function getStateNumbers() {
-		let roomParams = status.state as RoomConfig;
-
-		return roomParams.vetor[0].vetor;
 	}
     
+    /*
     useEffect( () => {
         getState();
     }, [])
+    */
 
     return (
         <RoomContext.Provider value={ { 
-            getPrizeOrders: getStatePrizeorders, 
+            room: getRoom,
+            getPrizeOrders: getStatePrizeOrders, 
             getCards: getStateCards,
-            /*
-            selectedNumbers: numberList, 
-            setSelectedNumbers: setNumbersSelected 
-            */
             } }>
             {children}
         </RoomContext.Provider> 

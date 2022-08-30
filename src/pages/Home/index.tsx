@@ -1,7 +1,6 @@
 import * as S from './style';
 import LineButtons from 'components/LineButtons';
 import StartButton from 'components/StartButton';
-import ButtonWhite from 'components/ButtonWhite';
 import InfoModal from 'components/InfoModal';
 
 const HomePage = () => {

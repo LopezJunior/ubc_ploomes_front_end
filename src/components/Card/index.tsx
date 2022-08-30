@@ -24,7 +24,7 @@ const Card = () => {
   }, []);
   */
 
-  return (
+return (
     <>
       <S.Content>
         {context?.getCards()!.map<React.ReactNode>( (card, cardIndex) => (
@@ -46,12 +46,17 @@ const Card = () => {
                       setIsSelect(
                         isSelect.map((bool, j) => {
                           if (j === index) {
-                            const isDuplicate = card.selecteds.findIndex(
-                              (num) => num === n
-                            );
+                            // array de numeros selecionados ainda não inicializado
+                            if ( !card.selecteds ) {
+                              card.selecteds = [];
+                            }
+                            const isDuplicate = ( 
+                                     card.selecteds.findIndex( (num) => num === n ) 
+                                    );
                             if (isDuplicate === -1) {
                               //setNumberList((numberList) => [...numberList, n]);
-                              card.addSelected(n);
+                              //card.addSelected(n);
+                              card.selecteds.push(n);
                             }
                             return true;
                           } else {

@@ -12,17 +12,12 @@ export interface Room {
 }
   
   export interface Vetor {
+      id: string;
       vetor: number[];
       selecteds: number[];
-      addSelected: (num: number) => void;
-      
   }
   
   export interface RoomConfig {
       room: Room;
       vetor: Vetor[];
   }
-
- 
-
-

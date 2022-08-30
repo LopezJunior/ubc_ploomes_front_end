@@ -1,17 +1,17 @@
 import styled, { css } from "styled-components";
 
 export const HistoryContainer = styled.div`
-	${({ theme }) => css`
-		color: ${theme.colors.textColorRed};
-		font-family: ${theme.constants.bodyFontFamily};
-		margin-top: 0.7rem;
-		background-color: white;
-		height: 10%;
-		width: 100%;
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-	`}
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: ${theme.colors.textColorRed};
+    font-family: ${theme.constants.bodyFontFamily};
+    background-color: white;
+    margin-top: 10px;
+    height: 60px;
+    width: 90%;
+  `}
 `;
 
 export const BallDraw = styled.span`

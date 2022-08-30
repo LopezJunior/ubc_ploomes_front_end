@@ -114,14 +114,6 @@ export const Form = styled.form`
 		background-color: white;
 		border: 0px solid blue;
 		gap: 25px;
-		label {
-			font-family: ${theme.constants.bodyFontFamily};  
-			color: ${theme.colors.textColorRed};  
-			font-size: 16px;
-		}
-		input {
-			${theme.mixins.input()};
-		}
 	`}
 `;
 
@@ -150,7 +142,6 @@ export const FormGroup = styled.div`
 			::placeholder {
 				color: ${theme.colors.textColorRed};  
 			}
-			${theme.mixins.input()};
 		}
 	`}
 `;
