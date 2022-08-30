@@ -25,7 +25,7 @@ const LineButtons = () => {
   let nome = "Ranatinho alexandro vascaino";
   let profileUser = () => {
     Swal.fire({
-      title: `Nome: ${nome}`,
+      title: `Nome: ${nome} Carteira: R$ 100.00 `,
       width: 600,
       // padding: "1em",
       color: "rgb(158,56,40)",
