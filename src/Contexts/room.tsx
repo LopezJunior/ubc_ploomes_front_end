@@ -24,7 +24,7 @@ export const RoomContext = createContext<RoomContextType | null>({
                 limitPrizeDraw: 75,
                 limitRecord: 3,
                 limitUsers: 0,
-                prizeOrders: [],
+                prizeOrder: [],
                 price: 2,
                 frequency: 7,
                 historic: []
@@ -50,7 +50,9 @@ function RoomProvider ({children}: Props) {
 	function getStatePrizeOrders() {
 		let roomParams = status.state as RoomConfig;
 
-		return roomParams.room.prizeOrders;
+        console.log('roomParams:', roomParams);
+
+		return roomParams.room.prizeOrder;
 	}
 
 	function getStateCards() {

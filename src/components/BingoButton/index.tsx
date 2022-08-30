@@ -24,6 +24,8 @@ const BingoButton = () => {
         postCards.push( _card );
       })
 
+      console.log( 'getPrizeOrders:', context?.getPrizeOrders() );
+
       const resp = await RoomServices.checkBingo( room?.id!, postCards );
       console.log('resp', resp);
 

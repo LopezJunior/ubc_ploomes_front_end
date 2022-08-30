@@ -5,7 +5,7 @@ export interface Room {
     limitPrizeDraw: number;
     limitRecord: number;
     limitUsers: number;
-    prizeOrders: number[];
+    prizeOrder: number[];
     price: number;
     frequency: number;
     historic: [];
