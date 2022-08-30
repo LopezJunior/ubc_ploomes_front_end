@@ -1,61 +1,75 @@
 import React, { useEffect, useState, useContext } from "react";
-import { RoomContext } from "Contexts/room";
-import Api from "../../services/api";
+import { RoomContext  } from "Contexts/room";
+import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-import ButtonRedLarge from "components/ButtonRedLarge";
+import * as S  from "./style"
+import { RoomServices, RoomServicesCheckBingoParams } from "services/roomServices";
+
 
 const BingoButton = () => {
-  const context = useContext(RoomContext);
+    const context = useContext( RoomContext );
+    const navigate =useNavigate();
 
-    const handleClick = async () => {
-        const card = context?.getCards()[0];
-        
-        const card01 ={
-            id: '01',
-            'numeros': card?.vetor,
-            'marcacao': card?.selecteds,
-        }
-        console.log('card 01:', card01 );
+    async function handleBingoClick() {
+      const room =context?.room();
+      const cards = context?.getCards();
+      const postCards: RoomServicesCheckBingoParams[] = [];
+
+      cards?.map( ( card, index ) => {
+        let _card ={
+            'id': card.id,
+            'vetor': card.vetor,
+            'markings': card.selecteds,
+        };
+        postCards.push( _card );
+      })
+
+      const resp = await RoomServices.checkBingo( room?.id!, postCards );
+      console.log('resp', resp);
+
+      return;
+    }
+
+    const handleGetoutClick = () => {
+        swal({
+          title: "Sair Do Jogo",
+          text: "Você realmente quer sair do jogo?",
+          icon: "warning",
+          buttons: ["Não", "Sim"] }
+        )
+        .then((resp) => {
+          if(resp) {
+            navigate('/');}
+          }
+        )
+    }
     
-    // const card01 = {
-    //   id: "01",
-    //   marcacao: context?.selecteds,
-    //   numeros: context?.getNumbers(),
-    // };
-    // console.log("card 01:", context);
-    // try {
-    //   const res = await Api.patch(
-    //     `/Room/room/:${card01.id}}/checkBingo`,
-    //     card01
-    //   );
-    //   return res.data;
-    // } catch (error: any) {
-    //   swal({
-    //     title: "Error",
-    //     text: `${error.message}`,
-    //     icon: "error",
-    //     timer: 6000,
-    //   });
-    //   return error;
-    window.location.replace("http://localhost:3000/vitoria");
+    return (
+      <>
+        <S.Content>
+          <S.ActionButton>
+            <S.ImageBox>
+              <S.Image 
+                  src="assets/img/bingo.png"
+                  onClick={handleBingoClick}
+                  title={"Clique para verificar o bingo"} />
+            </S.ImageBox>
+            <S.ButtonTitle>{"Bingo"}</S.ButtonTitle>
+          </S.ActionButton>
+
+          <S.ActionButton>
+            <S.ImageBox>
+              <S.Image 
+                src="assets/img/desistir.png"
+                onClick={handleGetoutClick}
+                title={"Clique para terminar o jogo"} />
+            </S.ImageBox>
+            <S.ButtonTitle>{"Desistir"}</S.ButtonTitle>
+          </S.ActionButton>
+        </S.Content>
+      </>
+    );
   };
 
-  // return res.data;
-
-  // useEffect( () => {
-  // }, []);
-
-  return (
-    <>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <ButtonRedLarge
-          onClick={handleClick}
-          value={"Vitoria!"}
-          type={"button"}
-        ></ButtonRedLarge>
-      </div>
-    </>
-  );
-};
-
-export default BingoButton;
+  export default BingoButton;
+  

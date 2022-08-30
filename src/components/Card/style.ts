@@ -5,11 +5,13 @@ export const Content = styled.div`
 		display: flex;
 		flex-direction: row;
 		justify-content:center;
-		align-items: center;
-		width: 90%;
+		align-items: flex-end;
+		width: 80%;
 		height: 80%;
 		gap: 25px;
 		margin: 0 auto;
+		border: 0px solid blue;
+
 	`}
 `;
 
@@ -18,8 +20,8 @@ export const Parent = styled.div`
 		color: ${theme.colors.textColorRed};
 		font-family: ${theme.constants.bodyFontFamily};
 		background-color: white;
-		width: 26%;
-		height: 70%;
+		width: 30%;
+		height: 90%;
 		border-radius: 10px;
 	`}
 `;
@@ -33,6 +35,7 @@ export const Ball = styled.div`
 	grid-row-gap: 1px;
 	font-size: 45px;
 	text-align: center;
+	cursor: pointer;
 
 	@media (min-height: 700px) {
 		grid-column-gap: 1px;
@@ -148,7 +151,6 @@ export const Ball = styled.div`
 		border-radius: 50%;
 	}
 `;
-
 
 export const Title = styled.div`
 	${({ theme }) => css`

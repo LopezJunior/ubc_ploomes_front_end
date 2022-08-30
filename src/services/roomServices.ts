@@ -1,7 +1,6 @@
 import Api from "./api";
 import swal from "sweetalert";
-import { ProfilesTypes } from "types/interfaces";
-import { StringLiteralType } from "typescript";
+import { Vetor } from "components/StartButton/type";
 
 export interface RoomServicesStartParams {
     maxCards: number, 
@@ -10,6 +9,12 @@ export interface RoomServicesStartParams {
     limitUsers?: number, 
     price?: number, 
     frequency: number, 
+}
+
+export interface RoomServicesCheckBingoParams {
+  'id': string,
+  'vetor': number[],
+  'markings': number[],
 }
 
 export const RoomServices = {
@@ -40,6 +45,24 @@ export const RoomServices = {
     }
   },
 
+  checkBingo: async (idRoom: string, data: RoomServicesCheckBingoParams[] )  => {
+    try {
+
+      const res = await Api.patch( `/room/${idRoom}/checkBingo`, data,  );
+
+      return res.data;
+
+    } catch (error: any) {
+      swal({
+        title: "Error",
+        text: `${error.message}`,
+        icon: "error",
+        timer: 6000,
+      });
+      return error;
+    }
+  },  
+
   getRoom: async (id: string) => {
     try {
       const res = await Api.get(`/room/${id}`, { method: "GET" });
@@ -56,5 +79,5 @@ export const RoomServices = {
       return error;
     }
   },
-};
 
+};

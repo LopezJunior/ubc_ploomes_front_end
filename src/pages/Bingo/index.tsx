@@ -1,5 +1,6 @@
 import { useState, createContext, useContext } from "react";
 import BallHistory from "components/BallHistory";
+import BingoButton from "components/BingoButton";
 import Card from "components/Card";
 import FooterBingo from "components/FooterBingo";
 import RoomProvider from "Contexts/room";
@@ -8,14 +9,16 @@ import BingoButton from "components/BingoButton";
 
 const MyBingo = () => {
   return (
-    <S.myBingo>
-      <RoomProvider>
-          <FooterBingo />
-          <BallHistory />
+    <RoomProvider>
+      <S.myBingo>
+        <FooterBingo />
+        <BallHistory />
+        <S.Desk>
           <Card />
           <BingoButton />
-      </RoomProvider>
-    </S.myBingo>
+        </S.Desk>
+      </S.myBingo>
+    </RoomProvider>
   );
 };
 
