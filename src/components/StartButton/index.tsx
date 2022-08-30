@@ -1,7 +1,7 @@
 import * as S from "./style";
 import logo from "../../assets/img/cinturao_iniciar.png";
-import { useEffect, useState } from 'react';
-import Buttons from 'components/ButtonRedLarge';
+import { useEffect, useState } from "react";
+import Buttons from "components/ButtonRedLarge";
 import { Room } from "./type";
 import { useLocation, useNavigate } from "react-router-dom";
 import { RoomServices, RoomServicesStartParams } from "services/roomServices";
@@ -181,7 +181,6 @@ const StartButton = ( ) => {
 				</S.Content>
 			</S.StyledModal>
 		</>
-
 	);
 };
 
