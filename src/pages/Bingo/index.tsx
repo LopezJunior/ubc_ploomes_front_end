@@ -4,8 +4,7 @@ import BallHistory from "components/BallHistory";
 import Card from "components/Card";
 import FooterBingo from "components/FooterBingo";
 import RoomProvider from "Contexts/room";
-import * as S from "./style";
-import BingoButton from "components/BingoButton";
+import * as S from './style';
 
 const MyBingo = () => {
   return (
