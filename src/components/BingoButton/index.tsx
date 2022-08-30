@@ -24,6 +24,7 @@ const BingoButton = () => {
         id: card.id,
         vetor: card.vetor,
         markings: card.selecteds,
+        historic: context?.getPrizeOrder()!
       };
       postCards.push(_card);
     });
