@@ -1,6 +1,6 @@
 import { useState, createContext, useContext } from "react";
 import BallHistory from "components/BallHistory";
-import BingoButton from "components/BingoButton";
+// import BingoButton from "components/BingoButton";
 import Card from "components/Card";
 import FooterBingo from "components/FooterBingo";
 import RoomProvider from "Contexts/room";

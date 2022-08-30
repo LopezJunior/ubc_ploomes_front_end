@@ -3,10 +3,6 @@ import * as S from "./style";
 import { RoomContext } from "Contexts/room";
 import { Vetor } from "components/StartButton/type";
 
-
-import { RoomContext } from "Contexts/room";
-import { useContext, useState } from "react";
-
 const Card = () => {
   const [cards, setCards] = useState<Vetor[]>();
   const [numbersSort, setNumberSort] = useState<number[]>([
@@ -27,10 +23,10 @@ const Card = () => {
   }, []);
   */
 
-return (
+  return (
     <>
       <S.Content>
-        {context?.getCards()!.map<React.ReactNode>( (card, cardIndex) => (
+        {context?.getCards()!.map<React.ReactNode>((card, cardIndex) => (
           <S.Parent key={cardIndex}>
             <S.Title>
               <S.TitleB>b</S.TitleB>
@@ -50,12 +46,12 @@ return (
                         isSelect.map((bool, j) => {
                           if (j === index) {
                             // array de numeros selecionados ainda não inicializado
-                            if ( !card.selecteds ) {
+                            if (!card.selecteds) {
                               card.selecteds = [];
                             }
-                            const isDuplicate = ( 
-                                     card.selecteds.findIndex( (num) => num === n ) 
-                                    );
+                            const isDuplicate = card.selecteds.findIndex(
+                              (num) => num === n
+                            );
                             if (isDuplicate === -1) {
                               //setNumberList((numberList) => [...numberList, n]);
                               //card.addSelected(n);
@@ -76,10 +72,9 @@ return (
                   </div>
                 );
               })}
-            </S.Ball>            
+            </S.Ball>
           </S.Parent>
-          ))
-        }
+        ))}
       </S.Content>
     </>
   );
