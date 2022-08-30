@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./style"
 import { RoomServices } from 'services/roomServices'
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "types/routes";
 
 interface DefeatParams  {
   drawn_numbers: number;
@@ -10,9 +12,10 @@ interface DefeatParams  {
 }
 
 
-const Defeat = ( {drawn_numbers, game_time, callRestart, callGetout} : DefeatParams) => {
+const Defeat = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [opacity, setOpacity] = useState(0);
+  const navigate = useNavigate();
 
   function toggleModal() {
     setOpacity(0);
@@ -40,13 +43,13 @@ const Defeat = ( {drawn_numbers, game_time, callRestart, callGetout} : DefeatPar
   function restart() {
     setIsOpen(false);
 
-    callRestart();
+    navigate(RoutePath.HOMEPAGE, { state: { begin: false } } );
   }
 
   function sair() {
     setIsOpen(false);
 
-    callGetout();
+    navigate(RoutePath.HOMEPAGE );
   }
 
 
@@ -73,7 +76,7 @@ const Defeat = ( {drawn_numbers, game_time, callRestart, callGetout} : DefeatPar
           <S.Header>
 
             <S.WhiteSmallBox> 
-                <S.Text> {drawn_numbers} </S.Text> 
+                <S.Text> {1} </S.Text> 
                 <S.Text> número  </S.Text> 
                 <S.Text> sorteados </S.Text> 
             </S.WhiteSmallBox> 
@@ -83,7 +86,7 @@ const Defeat = ( {drawn_numbers, game_time, callRestart, callGetout} : DefeatPar
             </S.WhiteLargeBox>
 
             <S.WhiteSmallBox> 
-              <S.Text> {game_time} </S.Text> 
+              <S.Text> {1000} </S.Text> 
               <S.Text> tempo  </S.Text> 
               <S.Text> partida </S.Text> 
             </S.WhiteSmallBox> 
