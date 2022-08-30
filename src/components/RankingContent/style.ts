@@ -2,15 +2,13 @@ import styled, { css } from "styled-components";
 
 export const FullRanking = styled.div`
   width: 50%;
-  height: 95%;
+  height: 100%;
   background-color: white;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  flex-wrap: wrap;
-  flex-direction: row;
-  overflow-y: hidden;
+  overflow: hidden;
 `;
 
 export const RankingFrame = styled.div`
