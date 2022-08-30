@@ -16,7 +16,8 @@ const BingoButton = () => {
     const room = context?.room();
     const cards = context?.getCards();
     const postCards: RoomServicesCheckBingoParams[] = [];
-    console.log("AAAAAAAAA", room?.prizeOrder);
+    
+    console.log("getPrizeOrder():", context?.getPrizeOrder());
 
     cards?.map((card, index) => {
       let _card = {
