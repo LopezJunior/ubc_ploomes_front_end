@@ -1,15 +1,15 @@
 export interface Room {
-    id?: string;
-    number: null;
-    maxCards: string;
-    limitPrizeDraw: string;
-    limitRecord: string;
-    limitUsers: string;
-    prizeOrders: number[];
-    price: string;
-    frequency: string;
-    historic: [];
-  }
+	id?: string;
+	number: null;
+	maxCards: number;
+	limitPrizeDraw: number;
+	limitRecord: number;
+	limitUsers: number;
+	prizeOrder: [];
+	price: number;
+	frequency: number;
+	historic: [];
+}
   
   export interface Vetor {
       vetor: number[];

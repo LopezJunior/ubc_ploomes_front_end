@@ -13,16 +13,16 @@ const StartButton = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [opacity, setOpacity] = useState(0);
 	const [values, setValues] = useState<Room>({
-						id: '',
-						number: null,
-						maxCards: '3',
-						limitPrizeDraw: '75',
-						limitRecord: '',
-						limitUsers: '2',
-						prizeOrders: [],
-						price: '10',
-						frequency: '10',
-						historic: [],
+		id: '',
+		number: null,
+		maxCards: 3,
+		limitPrizeDraw: 75,
+		limitRecord: 0,
+		limitUsers: 2,
+		prizeOrder: [],
+		price: 10,
+		frequency: 10,
+		historic: [],
 	});
 	const navigate = useNavigate();
 

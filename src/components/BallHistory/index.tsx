@@ -3,40 +3,35 @@ import * as S from "./style";
 import { useLocation } from "react-router-dom";
 import { Room, RoomConfig } from "components/StartButton/type";
 
+
 const BallHistory = () => {
-	const maxSort = 30;
-	let [lastNumberHistory, setLastNumberHistory] = useState<number[]>([
-		0, 0, 0, 0, 0, 0,
-	]);
+	const status = useLocation();
+	const [maxSort, setMaxSort] = useState(1);
+	let [lastNumberHistory, setLastNumberHistory] = useState<any[]>([0]);
 	const [numberHistory, setNumberHistory] = useState<number[]>([]);
-	const backSort: number[] = [
-		75, 62, 13, 64, 5, 46, 7, 18, 29, 10, 21, 52, 73, 14, 16, 18, 25, 34, 45,
-		65,
-	];
-	const tempBackEnd = 2;
-	const [time, setTime] = useState(tempBackEnd);
+	const [time, setTime] = useState(2);
 	const [control, setControl] = useState<number>(0);
+	const [room, setRoom] = useState<Room>();
+	let backSort: any[] = [];
+	backSort.push(room?.prizeOrder.map((e) => e));
 
+	console.log(backSort[0]?.splice(0, 5));
 
-  const [room, setRoom] = useState<Room>();
-
-  const status = useLocation();
-
-  async function getState() {
-    let roomParams = status.state as RoomConfig;
-    setTime(+roomParams.room.frequency);
-    setRoom(roomParams.room);
-  }
-  useEffect(() => {
+	async function getState() {
+		let roomParams = status.state as RoomConfig;
+		setTime(+roomParams.room.frequency);
+		setRoom(roomParams.room);
+		setMaxSort(Number(roomParams.room.limitPrizeDraw));
+	}
+	useEffect(() => {
 		setNumberHistory(() => [...numberHistory, result[control]]);
 		for (let i = 0; i < 6; i++) {
 			lastNumberHistory[i] = numberHistory[numberHistory.length - (i + 1)];
 		}
-    getState();
-  }, [control]);
+		getState();
+	}, [control]);
 
-	let result = backSort.splice(0, maxSort);
-  /*  console.log(result); */
+	let result = backSort[0]?.splice(0, maxSort);
 
 	setTimeout(() => {
 		if (control < result.length) {
@@ -44,16 +39,16 @@ const BallHistory = () => {
 		}
 	}, time * 1000);
 
-  return (
-    <S.HistoryContainer>
-      <>
-			<S.Ball>{result[control]}</S.Ball>
+	return (
+		<S.HistoryContainer>
+			<>
+				<S.Ball>{result[control]}</S.Ball>
 				{lastNumberHistory.map<React.ReactNode>((n, index) => {
 					return <S.BallDraw key={index}>{n}</S.BallDraw>;
 				})}
-      </>
-    </S.HistoryContainer>
-  );
-};
+			</>
+		</S.HistoryContainer>
+	);
+};;
 
 export default BallHistory;

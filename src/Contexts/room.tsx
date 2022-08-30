@@ -46,7 +46,7 @@ function RoomProvider ({children}: Props) {
 	function getStatePrizeorders() {
 		let roomParams = status.state as RoomConfig;
 
-		return roomParams.room.prizeOrders;
+		return roomParams.room.prizeOrder;
 	}
 
 	function getStateCards() {
