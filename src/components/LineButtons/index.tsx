@@ -17,7 +17,6 @@ const LineButtons = () => {
       confirmButtonText: "Sim, deslogar!",
     }).then((result) => {
       if (result.isConfirmed) {
-        // Swal.fire("Desconectado!", "Você acabou de deslogar!", "success");
         localStorage.clear();
         window.location.href = "/";
       }
@@ -26,8 +25,9 @@ const LineButtons = () => {
   return (
     <S.LineButtons>
       <ButtonWhite value={"perfil"} type={"button"} />
-      <ButtonWhite value={"ranking"} type={"button"} />
-      {/* <ButtonWhite value={"loja"} type={"button"} /> */}
+      <a onClick={() => navigation("/ranking")}>
+        <ButtonWhite value={"ranking"} type={"button"} />
+      </a>
       <a onClick={teste}>
         <ButtonWhite value={"log out"} type={"button"} />
       </a>

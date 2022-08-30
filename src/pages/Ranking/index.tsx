@@ -1,7 +1,12 @@
-import React from "react";
+import RankingContent from "components/RankingContent";
+import * as S from "./style";
 
 const Ranking = () => {
-  return <div>Ranking</div>;
+  return (
+    <S.ContainerList>
+      <RankingContent />
+    </S.ContainerList>
+  );
 };
 
 export default Ranking;
