@@ -17,10 +17,9 @@ const BallHistory = () => {
 	const [time, setTime] = useState(tempBackEnd);
 	const [control, setControl] = useState<number>(0);
 
+  	const [room, setRoom] = useState<Room>();
 
-  const [room, setRoom] = useState<Room>();
-
-  const status = useLocation();
+  	const status = useLocation();
 
   async function getState() {
     let roomParams = status.state as RoomConfig;

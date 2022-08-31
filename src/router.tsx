@@ -13,7 +13,8 @@ import StartButton from "components/StartButton";
 const Router = () => {
   return (
     <Routes>
-      {/* <Route path={'/teste'} element={<VictoryModal />} /> */}
+      {/*<Route path={'/teste'} element={<Datetime />} /> */}
+      
       <Route path={RoutePath.HOMEPAGE} element={<HomePage />} />
       <Route path={RoutePath.TESTE} element={<Teste />} />
       <Route path={RoutePath.AUTHLOGIN} element={<AuthLogin />} />

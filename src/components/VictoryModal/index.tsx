@@ -1,20 +1,31 @@
 import * as S from './style';
 import fighter from '../../assets/img/fighter.png';
 import { RoutePath } from 'types/routes';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+interface DefeatStateParams  {
+	gameTime: string;
+	drawnNumbers: string;
+}
+
 
 const VictoryModal = () => {
 	const navigate = useNavigate();
+	const status = useLocation()
 
 	function restart() {
-	
 		navigate(RoutePath.HOMEPAGE, { state: { begin: false } } );
-	  }
+	}
 	
-	  function sair() {
-	
+	function sair() {
 		navigate(RoutePath.HOMEPAGE );
-	  }
+	}
+
+	function geGameTime() {
+		let params =status.state as DefeatStateParams;
+
+		return params.gameTime;
+  	}	
 
 	return (
 		<S.VictoryModal>
@@ -29,7 +40,7 @@ const VictoryModal = () => {
 					</article>
 				</S.Vitoria>
 				<S.Tempo>
-					<h2>12:30</h2>
+					<h2>{geGameTime()}</h2>
 					<h3>Tempo da partita</h3>
 				</S.Tempo>
 			</S.Top>
