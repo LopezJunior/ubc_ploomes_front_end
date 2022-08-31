@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import moment from 'moment';
 
 type Props = {
-    children: JSX.Element,
+  children: JSX.Element;
 };
 
 type RoomContextType ={
@@ -37,25 +37,23 @@ function RoomProvider ({children}: Props) {
 	const status = useLocation();
     const [time, setTime] =useState(new Date);
 
-    function getRoom() {
-		let roomParams = status.state as RoomConfig;
+  function getRoom() {
+    let roomParams = status.state as RoomConfig;
 
-		return roomParams.room;
-    }
+    return roomParams.room;
+  }
+
+  function getStatePrizeOrder() {
+    let roomParams = status.state as RoomConfig;
+
+    return roomParams.room.prizeOrder;
+  }
+
+  function getStateCards() {
+    let roomParams = status.state as RoomConfig;
     
-	function getStatePrizeOrder() {
-		let roomParams = status.state as RoomConfig;
-
-        //console.log('roomParams:', roomParams);
-
-		return roomParams.room.prizeOrder;
-	}
-
-	function getStateCards() {
-		let roomParams = status.state as RoomConfig;
-
-		return roomParams.vetor;
-	}
+    return roomParams.vetor;
+  }
     
     function getTime() {
 

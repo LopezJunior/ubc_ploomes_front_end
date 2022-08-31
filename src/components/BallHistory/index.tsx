@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 import { Room, RoomConfig } from "components/StartButton/type";
 
 const BallHistory = () => {
-	const maxSort = 30;
 	let [lastNumberHistory, setLastNumberHistory] = useState<number[]>([
 		0, 0, 0, 0, 0, 0,
 	]);
@@ -20,36 +19,44 @@ const BallHistory = () => {
   	const [room, setRoom] = useState<Room>();
 
   	const status = useLocation();
+    const [maxSort,setMaxSort] = useState(1);
 
   async function getState() {
     let roomParams = status.state as RoomConfig;
     setTime(+roomParams.room.frequency);
     setRoom(roomParams.room);
+		setMaxSort(roomParams.room.limitPrizeDraw)
   }
+
   useEffect(() => {
 		setNumberHistory(() => [...numberHistory, result[control]]);
-		for (let i = 0; i < 6; i++) {
-			lastNumberHistory[i] = numberHistory[numberHistory.length - (i + 1)];
-		}
+    for (let i = 0; i < 6; i++) {
+      lastNumberHistory[i] = numberHistory[numberHistory.length - (i + 1)];
+    }
     getState();
   }, [control]);
 
-	let result = backSort.splice(0, maxSort);
-  /*  console.log(result); */
+	for(let i = 0; i < Number(room?.prizeOrder.length); i++){
+		let temp:any = room?.prizeOrder.map((e)=>e)
+		backSort.push(Number(temp[i]))
+	}
 
-	setTimeout(() => {
-		if (control < result.length) {
-			setControl(control + 1);
-		}
-	}, time * 1000);
+  let result = backSort.splice(0, maxSort);
+  /* console.log(result); */
+
+  setTimeout(() => {
+    if (control < result.length) {
+      setControl(control + 1);
+    }
+  }, time * 1000);
 
   return (
     <S.HistoryContainer>
       <>
-			<S.Ball>{result[control]}</S.Ball>
-				{lastNumberHistory.map<React.ReactNode>((n, index) => {
-					return <S.BallDraw key={index}>{n}</S.BallDraw>;
-				})}
+        <S.Ball>{result[control]}</S.Ball>
+        {lastNumberHistory.map<React.ReactNode>((n, index) => {
+          return <S.BallDraw key={index}>{n}</S.BallDraw>;
+        })}
       </>
     </S.HistoryContainer>
   );
