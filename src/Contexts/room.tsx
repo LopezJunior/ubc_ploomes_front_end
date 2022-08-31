@@ -8,10 +8,12 @@ type Props = {
 };
 
 type RoomContextType ={
-    room: () => Room;
-    getPrizeOrder: () => number[],
-    getCards: () => Vetor[],
-    getGameTime: () => string,
+    room: () => Room;               // container para as configurações da sala
+    getPrizeOrder: () => number[],  // numeros a sortear q vieram do backend
+    getCards: () => Vetor[],        // cartelas do jogo
+    getGameTime: () => string,      // tempo da partida
+    getDrawNumbers: () => number,   // quantidade números sorteados na partida
+    addDrawNumbers: () => void,     // add números sorteados a um array
 }
 
 export const RoomContext = createContext<RoomContextType | null>({ 
@@ -29,13 +31,16 @@ export const RoomContext = createContext<RoomContextType | null>({
             } },
         getPrizeOrder:() => {return []}, 
         getCards: () => {return []},
-        getGameTime: () => {return '2020-01-01T10:10:10Z' } 
-    } 
+        getGameTime: () => {return '2020-01-01T10:10:10Z'},
+        getDrawNumbers: () => {return 0}, 
+        addDrawNumbers: () => {return}, 
+      } 
 );
 
 function RoomProvider ({children}: Props) {
 	const status = useLocation();
-    const [time, setTime] =useState(new Date);
+  const [time, setTime] =useState(new Date);
+  const [drawNumbers, setDrawNumbers] =useState<number>(0);
 
   function getRoom() {
     let roomParams = status.state as RoomConfig;
@@ -55,20 +60,27 @@ function RoomProvider ({children}: Props) {
     return roomParams.vetor;
   }
     
-    function getTime() {
+  function getTime() {
 
-        const endTime = moment(new Date()); // agora        
-        const beginTime = moment(time);    // inicio do jogo
+      const endTime = moment(new Date()); // agora        
+      const beginTime = moment(time);    // inicio do jogo
 
-        // diferença
-        const duration = moment.duration(endTime.diff(beginTime));        
+      // diferença
+      const duration = moment.duration(endTime.diff(beginTime));        
 
-        const seconds = duration.seconds();
-        const minutes = duration.minutes();
+      const seconds = duration.seconds();
+      const minutes = duration.minutes();
 
-        return (minutes < 10 ? '0'+minutes : minutes) +':'+( seconds < 10 ? '0'+seconds : seconds);
+      return (minutes < 10 ? '0'+minutes : minutes) +':'+( seconds < 10 ? '0'+seconds : seconds);
+  }
 
-    }
+  function _getDrawNumbers() {
+    return drawNumbers;
+  }
+
+  function _addDrawNumbers() {
+    setDrawNumbers( drawNumbers + 1 )
+  }
 
     return (
         <RoomContext.Provider value={ { 
@@ -76,6 +88,8 @@ function RoomProvider ({children}: Props) {
             getPrizeOrder: getStatePrizeOrder, 
             getCards: getStateCards,
             getGameTime: getTime,
+            getDrawNumbers: _getDrawNumbers,
+            addDrawNumbers: _addDrawNumbers,
             } }>
             {children}
         </RoomContext.Provider> 

@@ -7,8 +7,8 @@ import { MdClose } from 'react-icons/md'
 export const StyledModal = Modal.styled`
 	${({}) => css`
 		position: absolute;
-		width: 60%;
-		height: 480px;
+		width: 70%;
+		height: 500px;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -126,6 +126,7 @@ export const buttonWhite = styled.button`
 		height: 90px;
 		border-radius: 3px;
 		background-color: ${theme.colors.textColor};
+		cursor: pointer;
 		border: none;
 		border-radius: 3px;
 		font-size: 28px;

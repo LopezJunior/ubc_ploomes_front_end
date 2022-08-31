@@ -25,14 +25,17 @@ const BingoButton = () => {
         postCards.push(_card);
       });
 
+      // envia dados da sala e das cartelas para o backend
       const resp = await RoomServices.checkBingo( room, postCards );
 
+      //
+      let drawNumbers =context?.getDrawNumbers();
       let gameTime =context?.getGameTime();
 
       if( resp.ko ) {
-        navigate( RoutePath.VICTORYMODAL, { state: { gameTime: gameTime, drawNumber:'' } } );
+        navigate( RoutePath.VICTORYMODAL, { state: { gameTime: gameTime, drawNumber: drawNumbers } } );
       } else {
-        navigate( RoutePath.DEFEATMODAL, { state: { gameTime: gameTime, drawNumber:'' } } );
+        navigate( RoutePath.DEFEATMODAL, { state: { gameTime: gameTime, drawNumber: drawNumbers } } );
       }
       return;
   }
