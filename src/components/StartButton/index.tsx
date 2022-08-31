@@ -28,7 +28,7 @@ const StartButton = () => {
 						historic: [],
 	});
 	const navigate = useNavigate();
-  const status = useLocation()
+  	const status = useLocation()
 
 	function toggleModal() {
 		//setOpacity(0);
@@ -97,7 +97,7 @@ const StartButton = () => {
 		}
 	}
 
-  function isBegin() {
+  	function isBegin() {
 		let StartParams = status.state as StartButtonParams;
 
 		if( ! status.state )  {

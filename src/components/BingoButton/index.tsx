@@ -25,15 +25,14 @@ const BingoButton = () => {
         postCards.push(_card);
       });
 
-      //console.log( 'getPrizeOrders:', context?.getPrizeOrder() );
-
       const resp = await RoomServices.checkBingo( room, postCards );
-      console.log('resp', resp);
+
+      let gameTime =context?.getGameTime();
 
       if( resp.ko ) {
-        navigate( RoutePath.VICTORYMODAL );
+        navigate( RoutePath.VICTORYMODAL, { state: { gameTime: gameTime, drawNumber:'' } } );
       } else {
-        navigate( RoutePath.DEFEATMODAL );
+        navigate( RoutePath.DEFEATMODAL, { state: { gameTime: gameTime, drawNumber:'' } } );
       }
       return;
   }

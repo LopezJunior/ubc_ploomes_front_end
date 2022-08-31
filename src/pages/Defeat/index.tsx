@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import * as S from "./style"
 import { RoomServices } from 'services/roomServices'
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { RoutePath } from "types/routes";
+import { RoomContext } from "Contexts/room";
 
-interface DefeatParams  {
-  drawn_numbers: number;
-  game_time: number;
-  callRestart: () => void;
-  callGetout: () => void;
+interface DefeatStateParams  {
+  gameTime: string;
+  drawnNumbers: string;
 }
-
 
 const Defeat = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [opacity, setOpacity] = useState(0);
   const navigate = useNavigate();
+  const status = useLocation()
 
   function toggleModal() {
     setOpacity(0);
@@ -32,13 +31,9 @@ const Defeat = () => {
     return new Promise((resolve) => {
       setOpacity(0);
       setTimeout(resolve, 300);
+      navigate(RoutePath.HOMEPAGE);
     });
   }
-
-  async function roomLoad() {
-    //const response = await RoomServices.getRoom( game.roomId );
-    //setGame( response );
-  };
 
   function restart() {
     setIsOpen(false);
@@ -52,11 +47,11 @@ const Defeat = () => {
     navigate(RoutePath.HOMEPAGE );
   }
 
+  function geGameTime() {
+		let params =status.state as DefeatStateParams;
 
-  useEffect( () => {
-    // room entity load
-    //roomLoad();
-  }, [] );
+		return params.gameTime;
+  }	
 
   return (
     <div>
@@ -74,7 +69,7 @@ const Defeat = () => {
         <S.ModalContent>
 
           <S.Header>
-
+            
             <S.WhiteSmallBox> 
                 <S.Text> {1} </S.Text> 
                 <S.Text> número  </S.Text> 
@@ -86,7 +81,7 @@ const Defeat = () => {
             </S.WhiteLargeBox>
 
             <S.WhiteSmallBox> 
-              <S.Text> {1000} </S.Text> 
+              <S.Text> {geGameTime()} </S.Text> 
               <S.Text> tempo  </S.Text> 
               <S.Text> partida </S.Text> 
             </S.WhiteSmallBox> 
