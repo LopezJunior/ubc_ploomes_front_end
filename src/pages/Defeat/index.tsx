@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import * as S from "./style"
 import { RoomServices } from 'services/roomServices'
 import { useNavigate } from "react-router-dom";
 import { RoutePath } from "types/routes";
+import { RoomContext } from "Contexts/room";
+import moment from "moment";
 
 interface DefeatParams  {
   drawn_numbers: number;
@@ -15,7 +17,9 @@ interface DefeatParams  {
 const Defeat = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [opacity, setOpacity] = useState(0);
+  const context = useContext( RoomContext );
   const navigate = useNavigate();
+  let t = context?.getTime()! ;
 
   function toggleModal() {
     setOpacity(0);
@@ -54,8 +58,13 @@ const Defeat = () => {
 
 
   useEffect( () => {
-    // room entity load
-    //roomLoad();
+
+    var ms = moment(new Date,"DD/MM/YYYY HH:mm:ss").diff(moment(t,"DD/MM/YYYY HH:mm:ss"));
+
+    console.log( 'ms:', ms);
+    console.log( 'ms:', moment(ms).format("h:mm:ss") );
+    
+
   }, [] );
 
   return (
@@ -86,7 +95,7 @@ const Defeat = () => {
             </S.WhiteLargeBox>
 
             <S.WhiteSmallBox> 
-              <S.Text> {1000} </S.Text> 
+              <S.Text> { moment( t ).format("mm:ss") } </S.Text>
               <S.Text> tempo  </S.Text> 
               <S.Text> partida </S.Text> 
             </S.WhiteSmallBox> 

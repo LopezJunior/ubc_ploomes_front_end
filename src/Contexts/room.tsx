@@ -10,6 +10,7 @@ type RoomContextType ={
     room: () => Room;
     getPrizeOrder: () => number[],
     getCards: () => Vetor[],
+    getTime: () => Date,
 }
 
 export const RoomContext = createContext<RoomContextType | null>({ 
@@ -27,6 +28,7 @@ export const RoomContext = createContext<RoomContextType | null>({
             } },
         getPrizeOrder:() => {return []}, 
         getCards: () => {return []},
+        getTime: () =>{return new Date},
         /*
         selectedNumbers: [], 
         setSelecteds:() => {}
@@ -35,6 +37,7 @@ export const RoomContext = createContext<RoomContextType | null>({
 );
 
 function RoomProvider ({children}: Props) {
+    const [gameTime, setGameTime] =useState<Date>(new Date);
 	const status = useLocation();
 
     function getRoom() {
@@ -46,7 +49,7 @@ function RoomProvider ({children}: Props) {
 	function getStatePrizeOrder() {
 		let roomParams = status.state as RoomConfig;
 
-        console.log('roomParams:', roomParams);
+        //console.log('roomParams:', roomParams);
 
 		return roomParams.room.prizeOrder;
 	}
@@ -55,6 +58,13 @@ function RoomProvider ({children}: Props) {
 		let roomParams = status.state as RoomConfig;
 
 		return roomParams.vetor;
+	}
+
+	function getGameTime() {
+		
+        console.log( 'time:' );
+
+		return gameTime;
 	}
     
     /*
@@ -68,6 +78,7 @@ function RoomProvider ({children}: Props) {
             room: getRoom,
             getPrizeOrder: getStatePrizeOrder, 
             getCards: getStateCards,
+            getTime: () => gameTime,
             } }>
             {children}
         </RoomContext.Provider> 
