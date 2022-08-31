@@ -2,11 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { RoomContext } from "Contexts/room";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-import * as S from "./style";
-import {
-  RoomServices,
-  RoomServicesCheckBingoParams,
-} from "services/roomServices";
+import * as S  from "./style"
+import { RoomServices, RoomServicesCheckBingoParams } from "services/roomServices";
+import { RoutePath } from "types/routes";
+
 
 const BingoButton = () => {
   const context = useContext(RoomContext);
@@ -28,10 +27,15 @@ const BingoButton = () => {
       };
       postCards.push(_card);
     });
-
+    
     const resp = await RoomServices.checkBingo(room?.id!, postCards);
-    console.log("resp", context?.room());
+    console.log("resp", context?.room());    
 
+    if( !resp ) {
+      navigate( RoutePath.VICTORYMODAL );
+    } else {
+      navigate( RoutePath.DEFEATMODAL );
+    }
     return;
   }
 
