@@ -1,6 +1,6 @@
 import Api from "./api";
 import swal from "sweetalert";
-import { Vetor } from "components/StartButton/type";
+import { Room, Vetor } from "components/StartButton/type";
 
 export interface RoomServicesStartParams {
     maxCards: number, 
@@ -15,7 +15,6 @@ export interface RoomServicesCheckBingoParams {
   'id': string,
   'vetor': number[],
   'markings': number[],
-  'historic': number[],
 }
 
 export const RoomServices = {
@@ -46,10 +45,22 @@ export const RoomServices = {
     }
   },
 
-  checkBingo: async (idRoom: string, data: RoomServicesCheckBingoParams[] )  => {
+  checkBingo: async (room: Room, data: RoomServicesCheckBingoParams[] )  => {
     try {
 
-      const res = await Api.patch( `/room/${idRoom}/checkBingo`, data,  );
+      const _room = {
+        id: room.id,
+        number: room.number,
+        maxCards: room.maxCards,
+        limitPrizeDraw: room.limitPrizeDraw,
+        limitRecord: room.limitRecord,
+        limitUsers: room.limitUsers,
+        price: room.price,
+        frequency: room.frequency,
+        historic: room.prizeOrder,
+      }
+
+      const res = await Api.patch( `/room/${room.id}/checkBingo`, { "room": _room, "cards": data, } );
 
       return res.data;
 

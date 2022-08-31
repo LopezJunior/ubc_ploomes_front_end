@@ -12,7 +12,7 @@ const BingoButton = () => {
     const navigate =useNavigate();
 
     async function handleBingoClick() {
-      const room =context?.room();
+      const room =context?.room()!;
       const cards = context?.getCards();
       const postCards: RoomServicesCheckBingoParams[] = [];
 
@@ -21,17 +21,16 @@ const BingoButton = () => {
           id: card.id,
           vetor: card.vetor,
           markings: card.selecteds,
-          historic: context?.getPrizeOrder()!,
         };
         postCards.push(_card);
       });
 
       //console.log( 'getPrizeOrders:', context?.getPrizeOrder() );
 
-      const resp = await RoomServices.checkBingo( room?.id!, postCards );
+      const resp = await RoomServices.checkBingo( room, postCards );
       console.log('resp', resp);
 
-      if( resp ) {
+      if( !resp ) {
 
         navigate( RoutePath.VICTORYMODAL );
 
