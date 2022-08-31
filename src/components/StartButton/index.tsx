@@ -12,7 +12,7 @@ interface StartButtonParams  {
 	begin: boolean;
 }
 
-const StartButton = ( ) => {
+const StartButton = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [opacity, setOpacity] = useState(0);
 	const [values, setValues] = useState<Room>({
@@ -28,8 +28,8 @@ const StartButton = ( ) => {
 						historic: [],
 	});
 	const navigate = useNavigate();
-	const status = useLocation();
-	
+  const status = useLocation()
+
 	function toggleModal() {
 		//setOpacity(0);
 		setIsOpen(!isOpen);
@@ -45,7 +45,7 @@ const StartButton = ( ) => {
 		return new Promise((resolve) => {
 			setOpacity(0);
 			setTimeout(resolve, 300);
-			navigate( RoutePath.HOMEPAGE );
+      navigate( RoutePath.HOMEPAGE );
 		});
 	}
 
@@ -97,7 +97,7 @@ const StartButton = ( ) => {
 		}
 	}
 
-    function isBegin() {
+  function isBegin() {
 		let StartParams = status.state as StartButtonParams;
 
 		if( ! status.state )  {

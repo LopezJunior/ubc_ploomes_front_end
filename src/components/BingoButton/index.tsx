@@ -11,32 +11,31 @@ const BingoButton = () => {
   const context = useContext(RoomContext);
   const navigate = useNavigate();
 
-  async function handleBingoClick() {
-    const room = context?.room();
-    const cards = context?.getCards();
-    const postCards: RoomServicesCheckBingoParams[] = [];
-    
-    console.log("getPrizeOrder():", context?.getPrizeOrder());
+    async function handleBingoClick() {
+      const room =context?.room()!;
+      const cards = context?.getCards();
+      const postCards: RoomServicesCheckBingoParams[] = [];
 
-    cards?.map((card, index) => {
-      let _card = {
-        id: card.id,
-        vetor: card.vetor,
-        markings: card.selecteds,
-        historic: context?.getPrizeOrder()!
-      };
-      postCards.push(_card);
-    });
-    
-    const resp = await RoomServices.checkBingo(room?.id!, postCards);
-    console.log("resp", context?.room());    
+      cards?.map((card, index) => {
+        let _card = {
+          id: card.id,
+          vetor: card.vetor,
+          markings: card.selecteds,
+        };
+        postCards.push(_card);
+      });
 
-    if( !resp ) {
-      navigate( RoutePath.VICTORYMODAL );
-    } else {
-      navigate( RoutePath.DEFEATMODAL );
-    }
-    return;
+      //console.log( 'getPrizeOrders:', context?.getPrizeOrder() );
+
+      const resp = await RoomServices.checkBingo( room, postCards );
+      console.log('resp', resp);
+
+      if( resp.ko ) {
+        navigate( RoutePath.VICTORYMODAL );
+      } else {
+        navigate( RoutePath.DEFEATMODAL );
+      }
+      return;
   }
 
   const handleGetoutClick = () => {
@@ -48,6 +47,7 @@ const BingoButton = () => {
     }).then((resp) => {
       if (resp) {
         navigate("/");
+
       }
     });
   };
