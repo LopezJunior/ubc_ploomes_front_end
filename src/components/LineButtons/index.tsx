@@ -1,9 +1,11 @@
 import ButtonWhite from "components/ButtonWhite";
 import * as S from "./style";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 const LineButtons = () => {
+  const navigation = useNavigate();
   let teste = () => {
     Swal.fire({
       title: "Você Tem certeza?",
@@ -15,7 +17,6 @@ const LineButtons = () => {
       confirmButtonText: "Sim, deslogar!",
     }).then((result) => {
       if (result.isConfirmed) {
-        // Swal.fire("Desconectado!", "Você acabou de deslogar!", "success");
         localStorage.clear();
         window.location.href = "/";
       }
@@ -24,8 +25,9 @@ const LineButtons = () => {
   return (
     <S.LineButtons>
       <ButtonWhite value={"perfil"} type={"button"} />
-      <ButtonWhite value={"ranking"} type={"button"} />
-      {/* <ButtonWhite value={"loja"} type={"button"} /> */}
+      <a onClick={() => navigation("/ranking")}>
+        <ButtonWhite value={"ranking"} type={"button"} />
+      </a>
       <a onClick={teste}>
         <ButtonWhite value={"log out"} type={"button"} />
       </a>
