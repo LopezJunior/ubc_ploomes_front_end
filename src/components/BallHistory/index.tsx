@@ -4,22 +4,14 @@ import { useLocation } from "react-router-dom";
 import { Room, RoomConfig } from "components/StartButton/type";
 
 const BallHistory = () => {
-	let [lastNumberHistory, setLastNumberHistory] = useState<number[]>([
-		0, 0, 0, 0, 0, 0,
-	]);
-	const [numberHistory, setNumberHistory] = useState<number[]>([]);
-	const backSort: number[] = [
-		75, 62, 13, 64, 5, 46, 7, 18, 29, 10, 21, 52, 73, 14, 16, 18, 25, 34, 45,
-		65,
-	];
-	const tempBackEnd = 2;
-	const [time, setTime] = useState(tempBackEnd);
-	const [control, setControl] = useState<number>(0);
-
-  	const [room, setRoom] = useState<Room>();
-
-  	const status = useLocation();
-    const [maxSort,setMaxSort] = useState(1);
+  const status = useLocation();
+  const [maxSort,setMaxSort] = useState(1);
+  let [lastNumberHistory, setLastNumberHistory] = useState<any[]>([0]);
+  const [numberHistory, setNumberHistory] = useState<number[]>([]);
+  const [time, setTime] = useState(2);
+  const [control, setControl] = useState<number>(0);
+  const [room, setRoom] = useState<Room>();
+  let backSort: any[] = [];
 
   async function getState() {
     let roomParams = status.state as RoomConfig;
