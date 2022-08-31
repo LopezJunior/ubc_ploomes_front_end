@@ -32,10 +32,12 @@ const BingoButton = () => {
       let drawNumbers =context?.getDrawNumbers();
       let gameTime =context?.getGameTime();
 
+      //console.log('draw numbers:', drawNumbers );
+
       if( resp.ko ) {
-        navigate( RoutePath.VICTORYMODAL, { state: { gameTime: gameTime, drawNumber: drawNumbers } } );
+        navigate( RoutePath.VICTORYMODAL, { state: { gameTime: gameTime, drawNumbers: drawNumbers } } );
       } else {
-        navigate( RoutePath.DEFEATMODAL, { state: { gameTime: gameTime, drawNumber: drawNumbers } } );
+        navigate( RoutePath.DEFEATMODAL, { state: { gameTime: gameTime, drawNumbers: drawNumbers } } );
       }
       return;
   }

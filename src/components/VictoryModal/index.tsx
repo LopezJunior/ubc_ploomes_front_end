@@ -5,9 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 interface DefeatStateParams  {
 	gameTime: string;
-	drawnNumbers: string;
+	drawNumbers: string;
 }
-
 
 const VictoryModal = () => {
 	const navigate = useNavigate();
@@ -20,6 +19,12 @@ const VictoryModal = () => {
 	function sair() {
 		navigate(RoutePath.HOMEPAGE );
 	}
+
+	function geDrawNumber() {
+		let params =status.state as DefeatStateParams;
+
+		return params.drawNumbers;
+  	}		
 
 	function geGameTime() {
 		let params =status.state as DefeatStateParams;
@@ -46,7 +51,7 @@ const VictoryModal = () => {
 			</S.Top>
 			<S.Content>
 				<S.Numeros>
-					<h2>33</h2>
+					<h2>{geDrawNumber()}</h2>
 					<h3>Numeros Sorteados</h3>
 				</S.Numeros>
 				<S.Image src={fighter} alt="" />

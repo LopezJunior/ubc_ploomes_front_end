@@ -8,7 +8,7 @@ export const StyledModal = Modal.styled`
 	${({}) => css`
 		position: absolute;
 		width: 70%;
-		height: 500px;
+		height: 550px;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
