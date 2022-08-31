@@ -22,8 +22,19 @@ const BingoButton = () => {
           vetor: card.vetor,
           markings: card.selecteds,
         };
-        postCards.push(_card);
+        if( card.selecteds ) {
+          postCards.push(_card);
+        }
       });
+
+      if( postCards.length === 0 ) {
+        swal({
+          title: "Marcar Cartelas",
+          text: "Marque alguma cartela primeiro !",
+          icon: "warning",
+        });
+        return;
+      }
 
       // envia dados da sala e das cartelas para o backend
       const resp = await RoomServices.checkBingo( room, postCards );
@@ -51,7 +62,6 @@ const BingoButton = () => {
     }).then((resp) => {
       if (resp) {
         navigate("/");
-
       }
     });
   };
