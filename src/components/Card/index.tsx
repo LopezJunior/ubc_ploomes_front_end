@@ -5,23 +5,27 @@ import { Vetor } from "components/StartButton/type";
 
 const Card = () => {
   /* const [cards, setCards] = useState<Vetor[]>(); */
-  const numbersSort: number[] = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25,
-  ];
-  const [isSelect, setIsSelect] = useState(() => numbersSort.map(() => false));
-  //const [numberList, setNumberList] = useState<any[]>([]);
   const context = useContext(RoomContext);
+  const cardNumbers = Number(context?.getCards()!.length);
+  let isSelect: any = [[]];
 
+  //const [numberList, setNumberList] = useState<any[]>([]);
+  
+  console.log(isSelect)
+  
   /*
   async function initialize() {
     setCards(context?.getCards()!);
   }
-
+*/
   useEffect(() => {
-    initialize();
+    for(let i = 0; i < cardNumbers; i++){
+      isSelect[i] = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,]
+    }
+
+   /*  initialize(); */
   }, []);
-  */
+  
 
   return (
     <>
@@ -42,6 +46,31 @@ const Card = () => {
                     key={index}
                     className={`Number${index + 1}`}
                     onClick={() => {
+                      
+                        isSelect[cardIndex][index] = true
+                      
+                          console.log( isSelect[cardIndex][index])
+                    }}
+                  >
+                    <div className={`${()=>isSelect[cardIndex][index] ? "selected" : ""}`}>
+                      {n}
+                      {/*console.log(numberList)*/}
+                    </div>
+                  </div>
+                );
+              })}
+            </S.Ball>
+          </S.Parent>
+        ))}
+      </S.Content>
+    </>
+  );
+};
+
+export default Card;
+
+
+/* () => {
                       setIsSelect(
                         isSelect.map((bool, j) => {
                           if (j === index) {
@@ -63,21 +92,4 @@ const Card = () => {
                           }
                         })
                       );
-                    }}
-                  >
-                    <div className={`${isSelect[index] ? "selected" : ""}`}>
-                      {n}
-                      {/*console.log(numberList)*/}
-                    </div>
-                  </div>
-                );
-              })}
-            </S.Ball>
-          </S.Parent>
-        ))}
-      </S.Content>
-    </>
-  );
-};
-
-export default Card;
+                    } */
