@@ -1,9 +1,9 @@
-import { Room, Vetor, RoomConfig } from 'components/StartButton/type';
-import React , { useState, useEffect, createContext, } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Room, Vetor, RoomConfig } from "components/StartButton/type";
+import React, { useState, useEffect, createContext } from "react";
+import { useLocation } from "react-router-dom";
 
 type Props = {
-    children: JSX.Element,
+  children: JSX.Element;
 };
 
 type RoomContextType ={
@@ -27,37 +27,30 @@ export const RoomContext = createContext<RoomContextType | null>({
             } },
         getPrizeOrder:() => {return []}, 
         getCards: () => {return []},
-        /*
-        selectedNumbers: [], 
-        setSelecteds:() => {}
-        */
-    } 
-);
+});
 
-function RoomProvider ({children}: Props) {
-	const status = useLocation();
+function RoomProvider({ children }: Props) {
+  const status = useLocation();
 
-    function getRoom() {
-		let roomParams = status.state as RoomConfig;
+  function getRoom() {
+    let roomParams = status.state as RoomConfig;
 
-		return roomParams.room;
-    }
+    return roomParams.room;
+  }
+
+  function getStatePrizeOrder() {
+    let roomParams = status.state as RoomConfig;
+
+    return roomParams.room.prizeOrder;
+  }
+
+  function getStateCards() {
+    let roomParams = status.state as RoomConfig;
     
-	function getStatePrizeOrder() {
-		let roomParams = status.state as RoomConfig;
+    return roomParams.vetor;
+  }
 
-        console.log('roomParams:', roomParams);
-
-		return roomParams.room.prizeOrder;
-	}
-
-	function getStateCards() {
-		let roomParams = status.state as RoomConfig;
-
-		return roomParams.vetor;
-	}
-    
-    /*
+  /*
     useEffect( () => {
         getState();
     }, [])
