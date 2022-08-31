@@ -38,17 +38,18 @@ const LineButtons = () => {
     });
   };
   return (
-    <S.LineButtons>
-      <a onClick={profileUser}>
-        <ButtonWhite value={"perfil"} type={"button"} />
-      </a>
-      <ButtonWhite value={"ranking"} type={"button"} />
-      {/* <ButtonWhite value={"loja"} type={"button"} /> */}
-      <a onClick={teste}>
-        <ButtonWhite value={"log out"} type={"button"} />
-      </a>
-    </S.LineButtons>
-  );
+		<S.LineButtons>
+			<a onClick={profileUser}>
+				<ButtonWhite value={'perfil'} type={'button'} />
+			</a>
+			<a onClick={() => navigation('/ranking')}>
+				<ButtonWhite value={'ranking'} type={'button'} />
+			</a>
+			<a onClick={teste}>
+				<ButtonWhite value={'log out'} type={'button'} />
+			</a>
+		</S.LineButtons>
+	);
 };
 
 export default LineButtons;
