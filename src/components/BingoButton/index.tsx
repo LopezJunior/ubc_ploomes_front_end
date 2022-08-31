@@ -29,7 +29,7 @@ const BingoButton = () => {
 
       let gameTime =context?.getGameTime();
 
-      if( !resp.ko ) {
+      if( resp.ko ) {
         navigate( RoutePath.VICTORYMODAL, { state: { gameTime: gameTime, drawNumber:'' } } );
       } else {
         navigate( RoutePath.DEFEATMODAL, { state: { gameTime: gameTime, drawNumber:'' } } );
