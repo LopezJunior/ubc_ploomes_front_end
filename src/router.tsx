@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import { RoutePath } from "types/routes";
-
 import AuthLogin from "pages/Login";
 import CreateUser from "pages/Cadastro";
 import HomePage from "pages/Home";
@@ -9,6 +8,7 @@ import VictoryModal from "components/VictoryModal";
 import Teste from "pages/Teste";
 import Defeat from "pages/Defeat";
 import Ranking from "pages/Ranking";
+import StartButton from "components/StartButton";
 
 const Router = () => {
   return (
@@ -21,8 +21,9 @@ const Router = () => {
       <Route path={RoutePath.MYBINGO} element={<MyBingo />} />
       <Route path={RoutePath.VICTORYMODAL} element={<VictoryModal />} />
       {/* <Route path={RoutePath.DEFEAT} element={<Defeat drawn_numbers:4  game_time, callRestart, callGetout />} /> */}
-
       <Route path={RoutePath.RANKING} element={<Ranking />} />
+      <Route path={RoutePath.DEFEATMODAL} element={<Defeat />} /> 
+      <Route path={RoutePath.STARTBUTTON} element={<StartButton />} /> 
     </Routes>
   );
 };
