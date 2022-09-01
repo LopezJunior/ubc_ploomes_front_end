@@ -40,8 +40,10 @@ const BallHistory = () => {
 
   setTimeout(() => {
     if (control < result.length) {
+      // adiciona novo numero sorteado
+      context?.addDrawNumbers(result[control]);
+      //
       setControl(control + 1);
-      context?.addDrawNumbers();
     }
   }, time * 1000);
 

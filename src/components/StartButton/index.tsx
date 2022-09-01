@@ -143,27 +143,36 @@ const StartButton = () => {
 						<S.Title> CONFIGURACAO </S.Title>
 
 						<S.FormGroup>
-							<label> Número Cartelas: </label>
+							<label> Número Cartelas  (de 1 a 3) </label>
 							<input 
 								name="maxCards" 
 								value={values.maxCards}
+								type="range"
+								min="1" 
+								max="3"
 								required
 								onChange={handleChangesValues} />
 						</S.FormGroup>
 
 						<S.FormGroup>
-							<label> Tempo Próxima Bola (segundos) </label>
+							<label> Tempo Próxima Bola  (de 1 a 10s.) </label>
 							<input
 								name="frequency"
 								value={values.frequency}
+								type="range"
+								min="1" 
+								max="10"
 								onChange={handleChangesValues} />
 						</S.FormGroup>
 
 						<S.FormGroup>
-							<label> Limite Sorteios </label>
+							<label> Limite Sorteios  (de 10 a 75) </label>
 							<input 
 								name="limitPrizeDraw" 
 								value={values.limitPrizeDraw}
+								type="range"
+								min="10" 
+								max="75"
 								onChange={handleChangesValues} />
 						</S.FormGroup>
 

@@ -39,26 +39,47 @@ const BingoButton = () => {
       return;
     }
 
-    // envia dados da sala e das cartelas para o backend
-    const resp = await RoomServices.checkBingo(room, postCards);
-
     //
-    let drawNumbers = context?.getDrawNumbers();
+    let drawNumbers = context?.getDrawNumbers()!;
     let gameTime = context?.getGameTime();
 
-    if (resp.KO == true) {
-      console.log("ganhour", room);
+    //console.log('draw numbers:', drawNumbers );
+
+    // envia dados da sala e das cartelas para o backend
+    const resp = await RoomServices.checkBingo(room, drawNumbers, postCards);
+
+    if (resp.ko) {
       navigate(RoutePath.VICTORYMODAL, {
-        state: { gameTime: gameTime, drawNumbers: drawNumbers },
+        state: { gameTime: gameTime, drawNumbers: drawNumbers.length },
       });
     } else {
-      console.log(resp, "perdeu");
-      // navigate(RoutePath.DEFEATMODAL, {
-      //   state: { gameTime: gameTime, drawNumbers: drawNumbers },
-      // });
+      navigate(RoutePath.DEFEATMODAL, {
+        state: { gameTime: gameTime, drawNumbers: drawNumbers.length },
+      });
     }
     return;
   }
+
+  // envia dados da sala e das cartelas para o backend
+  //   const resp = await RoomServices.checkBingo(room, postCards);
+
+  //   //
+  //   let drawNumbers = context?.getDrawNumbers();
+  //   let gameTime = context?.getGameTime();
+
+  //   if (resp.KO == true) {
+  //     console.log("ganhour", room);
+  //     navigate(RoutePath.VICTORYMODAL, {
+  //       state: { gameTime: gameTime, drawNumbers: drawNumbers },
+  //     });
+  //   } else {
+  //     console.log(resp, "perdeu");
+  //     // navigate(RoutePath.DEFEATMODAL, {
+  //     //   state: { gameTime: gameTime, drawNumbers: drawNumbers },
+  //     // });
+  //   }
+  //   return;
+  // }
 
   const handleGetoutClick = () => {
     swal({

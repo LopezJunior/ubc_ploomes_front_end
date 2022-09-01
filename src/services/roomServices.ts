@@ -45,7 +45,7 @@ export const RoomServices = {
     }
   },
 
-  checkBingo: async (room: Room, data: RoomServicesCheckBingoParams[] )  => {
+  checkBingo: async (room: Room, drawNumbers: number[], data: RoomServicesCheckBingoParams[] )  => {
     try {
 
       const _room = {
@@ -57,7 +57,7 @@ export const RoomServices = {
         limitUsers: room.limitUsers,
         price: room.price,
         frequency: room.frequency,
-        historic: room.prizeOrder,
+        historic: drawNumbers,
       }
 
       const res = await Api.patch( `/room/${room.id}/checkBingo`, { "room": _room, "cards": data, } );
