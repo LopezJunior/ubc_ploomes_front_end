@@ -1,6 +1,5 @@
 import Api from "./api";
 import swal from "sweetalert";
-import { Vetor } from "components/StartButton/type";
 
 export const RankingService = {
   start: async () => {

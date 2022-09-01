@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const myBingo = styled.main`
   width: 100vw;
@@ -18,4 +18,3 @@ export const Desk = styled.div`
   height: 75%;
   border: 0px solid yellow;
 `;
-  

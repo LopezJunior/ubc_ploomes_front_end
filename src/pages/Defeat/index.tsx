@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import * as S from "./style"
-import { RoomServices } from 'services/roomServices'
+import { useState } from "react";
+import * as S from "./style";
 import { useLocation, useNavigate } from "react-router-dom";
 import { RoutePath } from "types/routes";
-import { RoomContext } from "Contexts/room";
 
-interface DefeatStateParams  {
+interface DefeatStateParams {
   gameTime: string;
   drawNumbers: string;
 }
@@ -14,7 +12,7 @@ const Defeat = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [opacity, setOpacity] = useState(0);
   const navigate = useNavigate();
-  const status = useLocation()
+  const status = useLocation();
 
   function toggleModal() {
     setOpacity(0);
@@ -38,66 +36,64 @@ const Defeat = () => {
   function restart() {
     setIsOpen(false);
 
-    navigate(RoutePath.HOMEPAGE, { state: { begin: false } } );
+    navigate(RoutePath.HOMEPAGE, { state: { begin: false } });
   }
 
   function sair() {
     setIsOpen(false);
 
-    navigate(RoutePath.HOMEPAGE );
+    navigate(RoutePath.HOMEPAGE);
   }
 
-	function geDrawNumber() {
-		let params =status.state as DefeatStateParams;
+  function geDrawNumber() {
+    let params = status.state as DefeatStateParams;
 
     return params.drawNumbers;
-  }		
+  }
 
   function geGameTime() {
-		let params =status.state as DefeatStateParams;
+    let params = status.state as DefeatStateParams;
 
-		return params.gameTime;
-  }	
+    return params.gameTime;
+  }
 
   return (
     <div>
-
-      {/* <button onClick={toggleModal}> Open modal </button> */}
-
       <S.StyledModal
         isOpen={isOpen}
         afterOpen={afterOpen}
         beforeClose={beforeClose}
         onBackgroundClick={toggleModal}
         onEscapeKeydown={toggleModal}
-        backgroundProps={{ opacity }} 
-        >
+        backgroundProps={{ opacity }}
+      >
         <S.ModalContent>
-
           <S.Header>
-            
-            <S.WhiteSmallBox> 
-                <S.Text> {geDrawNumber()} </S.Text> 
-                <S.Text> número  </S.Text> 
-                <S.Text> sorteados </S.Text> 
-            </S.WhiteSmallBox> 
+            <S.WhiteSmallBox>
+              <S.Text> {geDrawNumber()} </S.Text>
+              <S.Text> número </S.Text>
+              <S.Text> sorteados </S.Text>
+            </S.WhiteSmallBox>
 
             <S.WhiteLargeBox>
-              <S.Text> infelizemente não foi desta vez, você foi nocauteado, mas pode tentar novamente!! </S.Text> 
+              <S.Text>
+                {" "}
+                infelizemente não foi desta vez, você foi nocauteado, mas pode
+                tentar novamente!!{" "}
+              </S.Text>
             </S.WhiteLargeBox>
 
-            <S.WhiteSmallBox> 
-              <S.Text> {geGameTime()} </S.Text> 
-              <S.Text> tempo  </S.Text> 
-              <S.Text> partida </S.Text> 
-            </S.WhiteSmallBox> 
-
+            <S.WhiteSmallBox>
+              <S.Text> {geGameTime()} </S.Text>
+              <S.Text> tempo </S.Text>
+              <S.Text> partida </S.Text>
+            </S.WhiteSmallBox>
           </S.Header>
 
           <S.CloseModalButton
-              aria-label='Close modal'
-              onClick={() => setIsOpen(false)}
-          />          
+            aria-label="Close modal"
+            onClick={() => setIsOpen(false)}
+          />
 
           <S.ImageBox>
             <S.Image src="assets/img/gloves.png" />
@@ -105,14 +101,12 @@ const Defeat = () => {
 
           <S.Footer>
             <S.buttonWhite onClick={restart}>restart</S.buttonWhite>
-            <S.buttonWhite onClick={sair} >sair</S.buttonWhite>
+            <S.buttonWhite onClick={sair}>sair</S.buttonWhite>
           </S.Footer>
-            
         </S.ModalContent>
-
       </S.StyledModal>
     </div>
   );
-}
+};
 
 export default Defeat;

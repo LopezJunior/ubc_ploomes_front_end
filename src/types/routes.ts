@@ -11,8 +11,7 @@ export enum RoutePath {
   RESETSECTION = "/resetarjogo",
   VICTORYMODAL = "/vitoria",
   PROFILE = "/perfil",
-  //DEFEAT = "/defeat",
   RANKING = "/ranking",
   DEFEATMODAL = "/defeat",
-  STARTBUTTON = '/start'
+  STARTBUTTON = "/start",
 }
