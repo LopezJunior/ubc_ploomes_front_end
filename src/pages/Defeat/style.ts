@@ -1,8 +1,7 @@
 import styled, { css } from "styled-components";
 import Modal from "styled-react-modal";
 import { BaseModalBackground } from "styled-react-modal";
-import { MdClose } from 'react-icons/md'
-
+import { MdClose } from "react-icons/md";
 
 export const Defeat = styled.main`
 	${({}) => css`
@@ -30,36 +29,31 @@ export const Content = styled.div`
 `;
 
 export const Header = styled.div`
-	${({theme}) => css`
-		display: flex;
-		justify-content: space-around;
-		align-items: flex-start;
-		width: calc( 100% - 30px );
-		height: 30%;
-		border: 0px solid red;
-	`}
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: calc(100% - 30px);
+  height: 30%;
+  border: 0px solid red;
 `;
 
 export const ImageBox = styled.div`
-	${() => css`
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 50%;
-  		height: 50%;
-		border: 0px solid red;
-	`}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  border: 0px solid red;
 `;
 
 export const Image = styled.img`
-	${() => css`
-		width: 100%;
-  		height: 100%;
-		object-fit: cover;
-  `}
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const WhiteLargeBox = styled.div`
+
 	${() => css`
 		display: flex;
 		justify-content: center;
@@ -107,14 +101,14 @@ export const Number = styled.span`
 `;
 
 export const CloseModalButton = styled(MdClose)`
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	width: 30px;
-	height: 30px;
-	padding: 0;
-	z-index: 10;
-	cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  z-index: 10;
+  cursor: pointer;
 `;
 
 export const Footer = styled.div`
@@ -152,7 +146,6 @@ const FadingBackground = styled(BaseModalBackground)`
   //opacity: ${(props) => props.opacity};
   transition: all 0.3s ease-in-out;
 `;
-*/
 
 export const Background = styled(BaseModalBackground)`
   transition: all 0.3s ease-in-out;
