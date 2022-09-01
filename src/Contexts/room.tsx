@@ -12,8 +12,8 @@ type RoomContextType ={
     getPrizeOrder: () => number[],  // numeros a sortear q vieram do backend
     getCards: () => Vetor[],        // cartelas do jogo
     getGameTime: () => string,      // tempo da partida
-    getDrawNumbers: () => number,   // quantidade números sorteados na partida
-    addDrawNumbers: () => void,     // add números sorteados a um array
+    getDrawNumbers: () => number[],       // números sorteados na partida
+    addDrawNumbers: (n:number) => void,   // add números sorteados a um array
 }
 
 export const RoomContext = createContext<RoomContextType | null>({ 
@@ -32,15 +32,15 @@ export const RoomContext = createContext<RoomContextType | null>({
         getPrizeOrder:() => {return []}, 
         getCards: () => {return []},
         getGameTime: () => {return '2020-01-01T10:10:10Z'},
-        getDrawNumbers: () => {return 0}, 
-        addDrawNumbers: () => {return}, 
+        getDrawNumbers: () => {return []}, 
+        addDrawNumbers: (n:number) => {return []}, 
       } 
 );
 
 function RoomProvider ({children}: Props) {
 	const status = useLocation();
   const [time, setTime] =useState(new Date);
-  const [drawNumbers, setDrawNumbers] =useState<number>(0);
+  const [drawNumbers, setDrawNumbers] =useState<number[]>([]);
 
   function getRoom() {
     let roomParams = status.state as RoomConfig;
@@ -78,8 +78,8 @@ function RoomProvider ({children}: Props) {
     return drawNumbers;
   }
 
-  function _addDrawNumbers() {
-    setDrawNumbers( drawNumbers + 1 )
+  function _addDrawNumbers(n: number) {
+    setDrawNumbers( [...drawNumbers, n] )
   }
 
     return (

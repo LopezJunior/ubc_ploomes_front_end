@@ -36,19 +36,19 @@ const BingoButton = () => {
         return;
       }
 
-      // envia dados da sala e das cartelas para o backend
-      const resp = await RoomServices.checkBingo( room, postCards );
-
       //
-      let drawNumbers =context?.getDrawNumbers();
+      let drawNumbers =context?.getDrawNumbers()!;
       let gameTime =context?.getGameTime();
 
       //console.log('draw numbers:', drawNumbers );
 
+      // envia dados da sala e das cartelas para o backend
+      const resp = await RoomServices.checkBingo( room, drawNumbers, postCards );
+
       if( resp.ko ) {
-        navigate( RoutePath.VICTORYMODAL, { state: { gameTime: gameTime, drawNumbers: drawNumbers } } );
+        navigate( RoutePath.VICTORYMODAL, { state: { gameTime: gameTime, drawNumbers: drawNumbers.length } } );
       } else {
-        navigate( RoutePath.DEFEATMODAL, { state: { gameTime: gameTime, drawNumbers: drawNumbers } } );
+        navigate( RoutePath.DEFEATMODAL, { state: { gameTime: gameTime, drawNumbers: drawNumbers.length } } );
       }
       return;
   }
