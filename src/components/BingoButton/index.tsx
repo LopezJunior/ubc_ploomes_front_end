@@ -28,7 +28,6 @@ const BingoButton = () => {
         postCards.push(_card);
       }
     });
-    console.log(room);
 
     if (postCards.length === 0) {
       swal({
@@ -46,13 +45,16 @@ const BingoButton = () => {
     //console.log('draw numbers:', drawNumbers );
 
     // envia dados da sala e das cartelas para o backend
+    console.log(drawNumbers);
     const resp = await RoomServices.checkBingo(room, drawNumbers, postCards);
 
-    if (resp.ko) {
+    if (resp.KO) {
+      console.log("vitoria", resp);
       navigate(RoutePath.VICTORYMODAL, {
         state: { gameTime: gameTime, drawNumbers: drawNumbers.length },
       });
     } else {
+      console.log("derrota", resp);
       navigate(RoutePath.DEFEATMODAL, {
         state: { gameTime: gameTime, drawNumbers: drawNumbers.length },
       });
