@@ -59,8 +59,12 @@ const Card = () => {
 											);
 											if (isDuplicate === -1) {
 												card.selecteds.push(n);
+												/* console.log('add', card.selecteds); */
 											} else {
-												card.selecteds.filter((item) => item !== n);
+												let copy = card.selecteds.filter((item) => item !== n);
+												card.selecteds = copy;
+
+												/* console.log('remove', card.selecteds); */
 											}
 										}}
 									>
