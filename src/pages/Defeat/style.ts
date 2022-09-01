@@ -4,28 +4,28 @@ import { BaseModalBackground } from "styled-react-modal";
 import { MdClose } from 'react-icons/md'
 
 
-export const StyledModal = Modal.styled`
+export const Defeat = styled.main`
 	${({}) => css`
-		position: absolute;
-		width: 70%;
-		height: 550px;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		background-color: white;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: nowrap;
+		width: 100vw;
+		height: 100vh;
 	`}
 `;
 
-export const ModalContent = styled.div`
+export const Content = styled.div`
 	${() => css`
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
-  		background-image: url('assets/img/fundo-textura-vermelho.jpg');
-  		width: 100%;
-		height: 100%;
+  		//background-image: url('assets/img/fundo-textura-vermelho.jpg');
+  		width: 90%;
+		height: 90%;
   	`}
 `;
 
@@ -61,13 +61,15 @@ export const Image = styled.img`
 
 export const WhiteLargeBox = styled.div`
 	${() => css`
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		width: 360px;
 		height: calc( 100% - 10px );
 		border-radius: 3px;
 		background-color: white;
 		border: none;
 		text-align: center;
-		padding-top: 16px;
 	`}
 `;
 
@@ -79,7 +81,7 @@ export const WhiteSmallBox = styled.div`
 		align-items: center;
 		gap: 04px;
 		width: 180px;
-		height: 90px;
+		height: 160px;
 		border-radius: 3px;
 		background-color: ${theme.colors.textColor};
 		border: none;
@@ -88,13 +90,21 @@ export const WhiteSmallBox = styled.div`
 
 export const Text = styled.span`
 	${({theme}) => css`
-		font-size: 28px;
+		font-size: 1.8rem;
 		font-weight: 10;
 		font-family: ${theme.constants.bodyFontFamily};
 		color: ${theme.colors.textColorRed};
 	`}
 `;
 
+export const Number = styled.span`
+	${({theme}) => css`
+		font-size: 5rem;
+		font-weight: 10;
+		font-family: ${theme.constants.bodyFontFamily};
+		color: ${theme.colors.textColorRed};
+	`}
+`;
 
 export const CloseModalButton = styled(MdClose)`
 	position: absolute;
@@ -107,23 +117,23 @@ export const CloseModalButton = styled(MdClose)`
 	cursor: pointer;
 `;
 
-
 export const Footer = styled.div`
 	${() => css`
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		align-items: center;
 		width: 100%;
 		height: 20%;
 		padding-left: 25px;
 		padding-right: 25px;
+		gap: calc( 67% - 100px );
 	`}
 `;
 
 export const buttonWhite = styled.button`
 	${({theme}) => css`
 		width: 180px;
-		height: 90px;
+		height: 70px;
 		border-radius: 3px;
 		background-color: ${theme.colors.textColor};
 		cursor: pointer;

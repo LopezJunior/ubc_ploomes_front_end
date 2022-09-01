@@ -28,7 +28,6 @@ export const Content = styled.section`
 		color: ${theme.colors.primaryColor};
 		display: flex;
 		width: 100%;
-
 		position: absolute;
 		bottom: 10px;
 	`}

@@ -155,7 +155,7 @@ const StartButton = () => {
 						</S.FormGroup>
 
 						<S.FormGroup>
-							<label> Tempo Próxima Bola  (de 1 a 10s.) </label>
+							<label> Tempo Próxima Bola  (de 1 a 10 s.) </label>
 							<input
 								name="frequency"
 								value={values.frequency}
