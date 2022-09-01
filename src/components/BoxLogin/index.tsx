@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 import { loginService } from "services/authService";
 import swal from "sweetalert";
 import * as S from "./style";
-
 import music from "../../assets/audios/musiclogin.mp3";
 
 type BoxLoginType = HTMLAttributes<HTMLDivElement>;
@@ -63,27 +62,11 @@ const BoxLogin = () => {
     }
   };
 
-  function init() {
+  let init = () => {
     const audio = new Audio(music);
-
-    Swal.fire({
-      icon: "info",
-      title: "Seja Bem vindo!",
-      showDenyButton: false,
-      showCancelButton: false,
-      confirmButtonText: "Obrigado!!",
-      denyButtonText: `Don't save`,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        audio.play();
-      }
-    });
-    return audio.play;
-  }
-  useEffect(() => {
-    init();
-  });
+    audio.play();
+    audio.play();
+  };
 
   return (
     <>

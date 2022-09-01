@@ -2,10 +2,12 @@ import React, { useEffect, useState, useContext } from "react";
 import { RoomContext } from "Contexts/room";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-import * as S  from "./style"
-import { RoomServices, RoomServicesCheckBingoParams } from "services/roomServices";
+import * as S from "./style";
+import {
+  RoomServices,
+  RoomServicesCheckBingoParams,
+} from "services/roomServices";
 import { RoutePath } from "types/routes";
-
 
 const BingoButton = () => {
   const context = useContext(RoomContext);
@@ -15,26 +17,24 @@ const BingoButton = () => {
     const room = context?.room();
     const cards = context?.getCards();
     const postCards: RoomServicesCheckBingoParams[] = [];
-    
-    console.log("getPrizeOrder():", context?.getPrizeOrder());
 
     cards?.map((card, index) => {
       let _card = {
         id: card.id,
         vetor: card.vetor,
         markings: card.selecteds,
-        historic: context?.getPrizeOrder()!
+        historic: context?.getPrizeOrder()!,
       };
       postCards.push(_card);
     });
-    
-    const resp = await RoomServices.checkBingo(room?.id!, postCards);
-    console.log("resp", context?.room());    
 
-    if( !resp ) {
-      navigate( RoutePath.VICTORYMODAL );
+    const resp = await RoomServices.checkBingo(room?.id!, postCards);
+
+    if (!resp) {
+      navigate(RoutePath.VICTORYMODAL);
     } else {
-      navigate( RoutePath.DEFEATMODAL );
+      console.log(postCards, room?.id);
+      navigate(RoutePath.DEFEATMODAL);
     }
     return;
   }

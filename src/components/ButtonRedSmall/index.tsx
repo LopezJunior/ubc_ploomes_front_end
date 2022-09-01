@@ -1,15 +1,24 @@
-import * as S from './style';
+import sound from "../../assets/audios/sound.mp3";
+import * as S from "./style";
 
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from "react";
 
 type ButtonType = ButtonHTMLAttributes<HTMLButtonElement>;
 
 type ButtonSmallProps = {
-	value: string;
+  value: string;
 } & ButtonType;
 
 const ButtonRedSmall = ({ value, ...props }: ButtonSmallProps) => {
-	return <S.ButtonRedSmall {...props}>{value}</S.ButtonRedSmall>;
+  let play = () => {
+    const audio = new Audio(sound);
+    audio.play();
+  };
+  return (
+    <S.ButtonRedSmall onClick={play} {...props}>
+      {value}
+    </S.ButtonRedSmall>
+  );
 };
 
 export default ButtonRedSmall;
