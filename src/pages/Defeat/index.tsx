@@ -59,21 +59,17 @@ const Defeat = () => {
 
   return (
     <div>
-      <S.StyledModal
-        isOpen={isOpen}
-        afterOpen={afterOpen}
-        beforeClose={beforeClose}
-        onBackgroundClick={toggleModal}
-        onEscapeKeydown={toggleModal}
-        backgroundProps={{ opacity }}
-      >
-        <S.ModalContent>
+      {/* <button onClick={toggleModal}> Open modal </button> */}
+
+      <S.Defeat>
+        <S.Content>
           <S.Header>
-            <S.WhiteSmallBox>
-              <S.Text> {geDrawNumber()} </S.Text>
-              <S.Text> número </S.Text>
-              <S.Text> sorteados </S.Text>
-            </S.WhiteSmallBox>
+            
+            <S.WhiteSmallBox> 
+                <S.Number> {geDrawNumber()} </S.Number> 
+                <S.Text> número  </S.Text> 
+                <S.Text> sorteados </S.Text> 
+            </S.WhiteSmallBox> 
 
             <S.WhiteLargeBox>
               <S.Text>
@@ -83,11 +79,11 @@ const Defeat = () => {
               </S.Text>
             </S.WhiteLargeBox>
 
-            <S.WhiteSmallBox>
-              <S.Text> {geGameTime()} </S.Text>
-              <S.Text> tempo </S.Text>
-              <S.Text> partida </S.Text>
-            </S.WhiteSmallBox>
+            <S.WhiteSmallBox> 
+              <S.Number> {geGameTime()} </S.Number> 
+              <S.Text> tempo  </S.Text> 
+              <S.Text> partida </S.Text> 
+            </S.WhiteSmallBox> 
           </S.Header>
 
           <S.CloseModalButton
@@ -103,8 +99,10 @@ const Defeat = () => {
             <S.buttonWhite onClick={restart}>restart</S.buttonWhite>
             <S.buttonWhite onClick={sair}>sair</S.buttonWhite>
           </S.Footer>
-        </S.ModalContent>
-      </S.StyledModal>
+          
+        </S.Content>
+      </S.Defeat>
+
     </div>
   );
 };

@@ -1,48 +1,37 @@
 
-2- PAINEL BOTÕES Terminar Jogo (Bingo) e Desistir
-
-  -TERMINAR JOGO: 
-  Este botão irá interromper as marcações no(s) card(s) e irá envia-los para o back-end para verificação.
-
-  O client irá enviar alguns dados da room (id, números dos cards e marcações dos cards)
-
-  Como resposta irá receber um booleano informando derrota ou vitória e a respectiva tela para o usuário
-
-
-  -DESISTIR: 
-  Este botão irá interromper o jogo, exibirá a tela de derrota para o usuário e sairá da room , 
- voltando para a tela principal
-
-  Apartir da tela principal ele terá opção de sair do app ou reiniciar uma nova partida
-
-  
-3- RANKING VITÓRIAS (single player)
-
-  Lista dos 4 maiores vitoriosos do jogo
-  
-
-4- FUNCIONAL
-  Estamos cientes q o app não esta plenamente funcional ,mas estaremos finalizando os requisitos em 5 dias
-
-
-
 
 1- Cores , Fundo, Thema
 
-Escolhemos a Cor Vermelha como fundo porque esta associada a luta e guerra
+O sucesso de um jogo depende de algumas variáveis, e uma delas é uma interface gráfica que eleve a experiência de cada uusuário.
 
-E o tema q escolhemos , UFC , também esta relacionado a luta e jogos e estas lutas são também conhecidas como CARDS. 
+A cor é parte integrante da interface do jogo e estimula a sensação visual gerada a partir da incidência de luz na retina ocular e, consequentemente, da estimulação cerebral.
 
-O UFC também possui também as moças com placas informando os número da rodada
+O cérebro , então associa esta estimulação a determinada emoção, e este mecanismo natural dos humnos é estudado pela teoria da psicologia das cores no desenvolvimento de games.
 
-Outro elemento q existe em ambos é o ranking , e no nosso caso os individuos q mais pontuarão no jogo aparecerão listados , uma vez que já
-estão cadastrados no aplicativo como o email.
 
-Então ele possui quase todos elementos de um jogo de bingo e por isso foi escolhido como tema.
 
-Acho q o temma esta muito relacionado ao jogo mesme estando ainda em single player
+Escolhemos a Cor Vermelha como fundo porque esta associada a luta, jogo, é uma cor energizante, esta relacionada a reação, paixão, entusiasmo, impacto, confiança, excitação e projeta uma narrativa 
+consistente para o projeto.
 
-Utilizamos o mesmo fundo em todo applicativo e nas telas de jogo
+Como no caso do cassinos que possuem o design interno com vários elemntos na cor vermelha q faz com que as pessoas esqueçam das horas se mantenham entretidas e estimule o jogo.
+
+Os principais tons usados são os castanhos, os vermelhos e os amarelos
+
+As cores, as luzes e o ambiente por elas criado é sem dúvida emocionante.
+
+O design dos cassinos está se tornando cada vez mais psicológico
+
+
+
+
+Nos escolhemos o tema UFC porque também é um tipo de jogo e da mesma forma q a cor, possuie vários elementos q estão relacioados ao jogo de bingo, por exemplo:
+
+- As lutas do UFC são conhecidas como CARDS
+
+- O UFC possui moças com placas informando os números da cada rodada
+
+- Possui o Ranking dos associados com mais pontos
+
 
 
 2- PLOOMES
