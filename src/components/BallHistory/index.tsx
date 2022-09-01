@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import * as S from "./style";
 import { useLocation } from "react-router-dom";
 import { Room, RoomConfig } from "components/StartButton/type";
+import { RoomContext } from "Contexts/room";
 
 const BallHistory = () => {
   const status = useLocation();
@@ -11,8 +12,9 @@ const BallHistory = () => {
   const [time, setTime] = useState(2);
   const [control, setControl] = useState<number>(0);
   const [room, setRoom] = useState<Room>();
+  const context = useContext(RoomContext);
   let backSort: any[] = [];
-
+  
   async function getState() {
     let roomParams = status.state as RoomConfig;
     setTime(+roomParams.room.frequency);
@@ -39,6 +41,7 @@ const BallHistory = () => {
   setTimeout(() => {
     if (control < result.length) {
       setControl(control + 1);
+      context?.addDrawNumbers();
     }
   }, time * 1000);
 

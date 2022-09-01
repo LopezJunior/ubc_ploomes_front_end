@@ -22,17 +22,33 @@ const BingoButton = () => {
           vetor: card.vetor,
           markings: card.selecteds,
         };
-        postCards.push(_card);
+        if( card.selecteds  && card.selecteds.length > 4 ) {
+          postCards.push(_card);
+        }
       });
 
+      if( postCards.length === 0 ) {
+        swal({
+          title: "Marcar Cartelas",
+          text: "Número insuficiente de marcações na(s) cartela(s) !",
+          icon: "warning",
+        });
+        return;
+      }
+
+      // envia dados da sala e das cartelas para o backend
       const resp = await RoomServices.checkBingo( room, postCards );
 
+      //
+      let drawNumbers =context?.getDrawNumbers();
       let gameTime =context?.getGameTime();
 
+      //console.log('draw numbers:', drawNumbers );
+
       if( resp.ko ) {
-        navigate( RoutePath.VICTORYMODAL, { state: { gameTime: gameTime, drawNumber:'' } } );
+        navigate( RoutePath.VICTORYMODAL, { state: { gameTime: gameTime, drawNumbers: drawNumbers } } );
       } else {
-        navigate( RoutePath.DEFEATMODAL, { state: { gameTime: gameTime, drawNumber:'' } } );
+        navigate( RoutePath.DEFEATMODAL, { state: { gameTime: gameTime, drawNumbers: drawNumbers } } );
       }
       return;
   }
@@ -46,7 +62,6 @@ const BingoButton = () => {
     }).then((resp) => {
       if (resp) {
         navigate("/");
-
       }
     });
   };

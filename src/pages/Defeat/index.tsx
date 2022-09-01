@@ -7,7 +7,7 @@ import { RoomContext } from "Contexts/room";
 
 interface DefeatStateParams  {
   gameTime: string;
-  drawnNumbers: string;
+  drawNumbers: string;
 }
 
 const Defeat = () => {
@@ -47,6 +47,12 @@ const Defeat = () => {
     navigate(RoutePath.HOMEPAGE );
   }
 
+	function geDrawNumber() {
+		let params =status.state as DefeatStateParams;
+
+    return params.drawNumbers;
+  }		
+
   function geGameTime() {
 		let params =status.state as DefeatStateParams;
 
@@ -71,7 +77,7 @@ const Defeat = () => {
           <S.Header>
             
             <S.WhiteSmallBox> 
-                <S.Text> {1} </S.Text> 
+                <S.Text> {geDrawNumber()} </S.Text> 
                 <S.Text> número  </S.Text> 
                 <S.Text> sorteados </S.Text> 
             </S.WhiteSmallBox> 
