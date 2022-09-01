@@ -22,7 +22,7 @@ const BingoButton = () => {
           vetor: card.vetor,
           markings: card.selecteds,
         };
-        if( card.selecteds ) {
+        if( card.selecteds  && card.selecteds.length > 4 ) {
           postCards.push(_card);
         }
       });
@@ -30,7 +30,7 @@ const BingoButton = () => {
       if( postCards.length === 0 ) {
         swal({
           title: "Marcar Cartelas",
-          text: "Marque alguma cartela primeiro !",
+          text: "Número insuficiente de marcações na(s) cartela(s) !",
           icon: "warning",
         });
         return;
