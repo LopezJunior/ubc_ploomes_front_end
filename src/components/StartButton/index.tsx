@@ -61,8 +61,9 @@ const StartButton = () => {
 	async function play() {
 		const _params: RoomServicesStartParams = {
 			limitPrizeDraw: +values.limitPrizeDraw,
-			maxCards : +values.maxCards,
-			frequency: +values.frequency
+			maxCards: +values.maxCards,
+			frequency: +values.frequency,
+			historic: [],
 		};
 		
 		// tenta iniciar uma sala
@@ -80,6 +81,7 @@ const StartButton = () => {
 					prizeOrder: resp.room.prizeOrder,
 					price: resp.room.price,
 					frequency: resp.room.frequency,
+					historic: resp.room.historic,
 				},
 				vetor: resp.cards,
 			};

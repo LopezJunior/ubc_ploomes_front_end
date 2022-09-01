@@ -24,26 +24,30 @@ const BallHistory = () => {
 
   useEffect(() => {
 		setNumberHistory(() => [...numberHistory, result[control]]);
-    for (let i = 0; i < 6; i++) {
-      lastNumberHistory[i] = numberHistory[numberHistory.length - (i + 1)];
-    }
-    getState();
-  }, [control]);
+		room?.historic.push(result[control]);
+		for (let i = 0; i < 6; i++) {
+			lastNumberHistory[i] = numberHistory[numberHistory.length - (i + 1)];
+		}
+		getState();
+	}, [control]);
 
-	for(let i = 0; i < Number(room?.prizeOrder.length); i++){
-		let temp:any = room?.prizeOrder.map((e)=>e)
-		backSort.push(Number(temp[i]))
+	for (let i = 0; i < Number(room?.prizeOrder.length); i++) {
+		let temp: any = room?.prizeOrder.map((e) => e);
+		backSort.push(Number(temp[i]));
 	}
 
-  let result = backSort.splice(0, maxSort);
-  /* console.log(result); */
+	let result = backSort.splice(0, maxSort);
+	/* console.log(result); */
 
-  setTimeout(() => {
-    if (control < result.length) {
-      setControl(control + 1);
-      context?.addDrawNumbers();
-    }
-  }, time * 1000);
+	setTimeout(() => {
+		if (control < result.length) {
+			setControl(control + 1);
+			context?.addDrawNumbers();
+		}
+		console.log(room?.historic);
+	}, time * 1000);
+
+  
 
   return (
     <S.HistoryContainer>
