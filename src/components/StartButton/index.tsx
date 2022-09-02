@@ -7,6 +7,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { RoomServices, RoomServicesStartParams } from "services/roomServices";
 import { RoutePath } from "types/routes";
 import Logo from "components/Logo";
+import time from "../../assets/audio/time.mp3";
+import Swal from "sweetalert2";
+import sound from "../../assets/audio/sound.mp3";
 
 interface StartButtonParams {
   begin: boolean;
@@ -31,6 +34,8 @@ const StartButton = () => {
   const status = useLocation();
 
   function toggleModal() {
+    const audio2 = new Audio(sound);
+    audio2.play();
     //setOpacity(0);
     setIsOpen(!isOpen);
   }
@@ -57,6 +62,7 @@ const StartButton = () => {
     console.log(event.target.value);
   };
 
+  const audio2 = new Audio(sound);
   async function play() {
     const _params: RoomServicesStartParams = {
       limitPrizeDraw: +values.limitPrizeDraw,
