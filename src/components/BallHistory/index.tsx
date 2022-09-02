@@ -6,7 +6,7 @@ import { RoomContext } from "Contexts/room";
 
 const BallHistory = () => {
   const status = useLocation();
-  const [maxSort,setMaxSort] = useState(1);
+  const [maxSort, setMaxSort] = useState(1);
   let [lastNumberHistory, setLastNumberHistory] = useState<any[]>([0]);
   const [numberHistory, setNumberHistory] = useState<number[]>([]);
   const [time, setTime] = useState(2);
@@ -14,26 +14,26 @@ const BallHistory = () => {
   const [room, setRoom] = useState<Room>();
   const context = useContext(RoomContext);
   let backSort: any[] = [];
-  
+
   async function getState() {
     let roomParams = status.state as RoomConfig;
     setTime(+roomParams.room.frequency);
     setRoom(roomParams.room);
-		setMaxSort(roomParams.room.limitPrizeDraw)
+    setMaxSort(roomParams.room.limitPrizeDraw);
   }
 
   useEffect(() => {
-		setNumberHistory(() => [...numberHistory, result[control]]);
+    setNumberHistory(() => [...numberHistory, result[control]]);
     for (let i = 0; i < 6; i++) {
       lastNumberHistory[i] = numberHistory[numberHistory.length - (i + 1)];
     }
     getState();
   }, [control]);
 
-	for(let i = 0; i < Number(room?.prizeOrder.length); i++){
-		let temp:any = room?.prizeOrder.map((e)=>e)
-		backSort.push(Number(temp[i]))
-	}
+  for (let i = 0; i < Number(room?.prizeOrder.length); i++) {
+    let temp: any = room?.prizeOrder.map((e) => e);
+    backSort.push(Number(temp[i]));
+  }
 
   let result = backSort.splice(0, maxSort);
   /* console.log(result); */
@@ -41,7 +41,7 @@ const BallHistory = () => {
   setTimeout(() => {
     if (control < result.length) {
       // adiciona novo numero sorteado
-      context?.addDrawNumbers(result[control]);
+      context?.addDrawNumbers(result[control + 1]);
       //
       setControl(control + 1);
     }
