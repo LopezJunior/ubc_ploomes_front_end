@@ -63,6 +63,18 @@ const StartButton = () => {
       maxCards: +values.maxCards,
       frequency: +values.frequency,
     };
+    const audio = new Audio(time);
+    audio.play();
+    Swal.fire({
+      imageUrl: " https://c.tenor.com/HC_g_9HMXB0AAAAd/its-time-ufc.gif ",
+      imageWidth: 520,
+      imageHeight: 300,
+      timer: 7000,
+      timerProgressBar: true,
+      showConfirmButton: false,
+      background: "rgba(0,0,0,0)",
+      color: "rgba(0,0,0,0)",
+    });
 
     // tenta iniciar uma sala
     const resp = await RoomServices.start(_params);
@@ -73,7 +85,7 @@ const StartButton = () => {
           id: resp.room.id,
           number: resp.room.number,
           maxCards: resp.room.maxCards,
-          limitPrizeDraw: resp.room.limitPrizeDraw + 1,
+          limitPrizeDraw: resp.room.limitPrizeDraw,
           limitRecord: resp.room.limitRecord,
           limitUsers: resp.room.limitUsers,
           prizeOrder: resp.room.prizeOrder,
@@ -82,7 +94,9 @@ const StartButton = () => {
         },
         vetor: resp.cards,
       };
-      navigate("/bingo", { state: postData });
+      setTimeout(() => {
+        navigate("/bingo", { state: postData });
+      }, 3000);
     }
     return;
   }
@@ -182,7 +196,7 @@ const StartButton = () => {
             </S.FormGroup>
 
             <S.ButtonBox>
-              <Buttons value={"compartilhar"} type={"button"} />
+              {/* <Buttons value={"compartilhar"} type={"button"} /> */}
               <Buttons value={"Jogar"} type={"button"} onClick={play} />
             </S.ButtonBox>
           </S.Form>
