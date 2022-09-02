@@ -25,6 +25,7 @@ const BoxLogin = () => {
     email: "",
     password: "",
   });
+  const [quant, setQuant] = useState(1);
 
   const handleChangesValues = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValues((values: UserLogin) => ({
@@ -63,10 +64,18 @@ const BoxLogin = () => {
   };
 
   let init = () => {
-    const audio = new Audio(music);
-    audio.play();
-    audio.play();
+    console.log(quant);
+    if (quant < 2) {
+      setQuant(quant + 1);
+      const audio = new Audio(music);
+      audio.play();
+      audio.loop = true;
+    }
   };
+
+  useEffect(() => {
+    init();
+  });
 
   return (
     <>
