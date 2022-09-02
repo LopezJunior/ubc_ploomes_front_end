@@ -2,7 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { RoomContext } from "Contexts/room";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import Swal from "sweetalert2";
 import * as S from "./style";
+import tool from "../../assets/img/tool.png";
+import sino from "../../assets/img/sino.png";
 import {
   RoomServices,
   RoomServicesCheckBingoParams,
@@ -10,6 +13,7 @@ import {
 import { RoutePath } from "types/routes";
 
 const BingoButton = () => {
+  const [errors, setErrors] = useState(3);
   const context = useContext(RoomContext);
   const navigate = useNavigate();
 
@@ -54,10 +58,27 @@ const BingoButton = () => {
         state: { gameTime: gameTime, drawNumbers: drawNumbers.length },
       });
     } else {
-      console.log("derrota", resp);
-      navigate(RoutePath.DEFEATMODAL, {
-        state: { gameTime: gameTime, drawNumbers: drawNumbers.length },
-      });
+      setErrors(errors - 1);
+      if (errors > 0) {
+        Swal.fire({
+          icon: "error",
+          title: `Numeros incorretos: `,
+          text: ` Você não marcou os numeros corretamente, 
+          e como punição não podera mais acessar estas
+           funções por 3 segundos 
+          Erros restantes: ${errors - 1}`,
+          timer: 5000,
+          showConfirmButton: false,
+        });
+        let div: any = document.querySelector("#full");
+        div.style.display = "none";
+        setTimeout(() => {
+          div.style.display = "flex";
+        }, 30000);
+      } else
+        navigate(RoutePath.DEFEATMODAL, {
+          state: { gameTime: gameTime, drawNumbers: drawNumbers.length },
+        });
     }
     return;
   }
@@ -98,11 +119,11 @@ const BingoButton = () => {
 
   return (
     <>
-      <S.Content>
+      <S.Content id="full">
         <S.ActionButton>
           <S.ImageBox>
             <S.Image
-              src="assets/img/bingo.png"
+              src={sino}
               onClick={handleBingoClick}
               title={"Clique para verificar o bingo"}
             />
@@ -113,7 +134,7 @@ const BingoButton = () => {
         <S.ActionButton>
           <S.ImageBox>
             <S.Image
-              src="assets/img/desistir.png"
+              src={tool}
               onClick={handleGetoutClick}
               title={"Clique para terminar o jogo"}
             />

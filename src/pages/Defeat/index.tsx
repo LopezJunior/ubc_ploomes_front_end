@@ -64,26 +64,25 @@ const Defeat = () => {
       <S.Defeat>
         <S.Content>
           <S.Header>
-            
-            <S.WhiteSmallBox> 
-                <S.Number> {geDrawNumber()} </S.Number> 
-                <S.Text> número  </S.Text> 
-                <S.Text> sorteados </S.Text> 
-            </S.WhiteSmallBox> 
+            <S.WhiteSmallBox>
+              <S.Number> {geDrawNumber()} </S.Number>
+              <S.Text> numero </S.Text>
+              <S.Text> sorteados </S.Text>
+            </S.WhiteSmallBox>
 
             <S.WhiteLargeBox>
               <S.Text>
                 {" "}
-                infelizemente não foi desta vez, você foi nocauteado, mas pode
+                infelizemente nao foi desta vez, voce foi nocauteado, mas pode
                 tentar novamente!!{" "}
               </S.Text>
             </S.WhiteLargeBox>
 
-            <S.WhiteSmallBox> 
-              <S.Number> {geGameTime()} </S.Number> 
-              <S.Text> tempo  </S.Text> 
-              <S.Text> partida </S.Text> 
-            </S.WhiteSmallBox> 
+            <S.WhiteSmallBox>
+              <S.Number> {geGameTime()} </S.Number>
+              <S.Text> tempo </S.Text>
+              <S.Text> partida </S.Text>
+            </S.WhiteSmallBox>
           </S.Header>
 
           <S.CloseModalButton
@@ -99,10 +98,8 @@ const Defeat = () => {
             <S.buttonWhite onClick={restart}>restart</S.buttonWhite>
             <S.buttonWhite onClick={sair}>sair</S.buttonWhite>
           </S.Footer>
-          
         </S.Content>
       </S.Defeat>
-
     </div>
   );
 };

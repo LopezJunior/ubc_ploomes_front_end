@@ -139,7 +139,10 @@ const StartButton = () => {
             <S.Title> CONFIGURACAO </S.Title>
 
             <S.FormGroup>
-              <label> Número Cartelas (de 1 a 3) </label>
+              <label>
+                {" "}
+                Número Cartelas (de 1 a 3) <span id="resultCartela">0</span>
+              </label>
               <input
                 name="maxCards"
                 value={values.maxCards}
@@ -148,6 +151,7 @@ const StartButton = () => {
                 max="3"
                 required
                 onChange={handleChangesValues}
+                id="cartelas"
               />
             </S.FormGroup>
 
@@ -160,6 +164,7 @@ const StartButton = () => {
                 min="1"
                 max="10"
                 onChange={handleChangesValues}
+                id="timer"
               />
             </S.FormGroup>
 
@@ -172,6 +177,7 @@ const StartButton = () => {
                 min="10"
                 max="75"
                 onChange={handleChangesValues}
+                id="sorteio"
               />
             </S.FormGroup>
 
