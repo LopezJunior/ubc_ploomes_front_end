@@ -55,7 +55,11 @@ const BingoButton = () => {
     if (resp.KO) {
       console.log("vitoria", resp);
       navigate(RoutePath.VICTORYMODAL, {
-        state: { gameTime: gameTime, drawNumbers: drawNumbers.length },
+        state: {
+          resp: resp,
+          gameTime: gameTime,
+          drawNumbers: drawNumbers.length,
+        },
       });
     } else {
       setErrors(errors - 1);

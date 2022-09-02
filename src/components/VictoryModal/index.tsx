@@ -39,7 +39,7 @@ const VictoryModal = () => {
         <S.Cartela>
           <p>Premio:</p>
           <S.IMG src={coin} />
-          <p>150 Points!!!</p>
+          <p>40 Points por cartela!!!</p>
         </S.Cartela>
         <S.Vitoria>
           <article>
