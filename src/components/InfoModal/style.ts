@@ -65,11 +65,16 @@ export const Content = styled.div`
 	`}
 
 	h2 {
-		font-size: 36px;
+		font-size: 30px;
+		margin: 10px;
 	}
 
 	article {
 		font-size: 18px;
+	}
+
+	b {
+		font-size: 20px;
 	}
 `;
 
