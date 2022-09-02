@@ -11,6 +11,8 @@ import {
   RoomServicesCheckBingoParams,
 } from "services/roomServices";
 import { RoutePath } from "types/routes";
+import bong from "../../assets/audio/bong.mp3";
+import vaia from "../../assets/audio/vaia.mp3";
 
 const BingoButton = () => {
   const [errors, setErrors] = useState(3);
@@ -18,6 +20,8 @@ const BingoButton = () => {
   const navigate = useNavigate();
 
   async function handleBingoClick() {
+    const audio = new Audio(bong);
+    audio.play();
     const room = context?.room()!;
     const cards = context?.getCards();
     const postCards: RoomServicesCheckBingoParams[] = [];
@@ -108,6 +112,8 @@ const BingoButton = () => {
   // }
 
   const handleGetoutClick = () => {
+    const audio2 = new Audio(vaia);
+    audio2.play();
     swal({
       title: "Sair Do Jogo",
       text: "Você realmente quer sair do jogo?",

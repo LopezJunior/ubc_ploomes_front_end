@@ -3,6 +3,7 @@ import ButtonWhite from "components/ButtonWhite";
 import { AddCoins } from "services/addServices";
 import Swal from "sweetalert2";
 import coin from "../../assets/img/coin.png";
+import ploomes from "../../assets/img/ploomes.png";
 
 const Add = () => {
   async function viewWallet() {
@@ -14,7 +15,7 @@ const Add = () => {
       imageUrl: `${coin}`,
       imageHeight: 200,
       backdrop: `
-          rgba(186,95,95,0.4)
+        rgba(186,95,95,0.4)
         `,
     });
   }

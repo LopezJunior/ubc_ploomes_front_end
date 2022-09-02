@@ -9,6 +9,8 @@ import { UserLogin } from "types/interfaces";
 import { useNavigate } from "react-router-dom";
 import { loginService } from "services/authService";
 import swal from "sweetalert";
+
+import found from "../../assets/audio/found.mp3";
 import * as S from "./style";
 
 type BoxLoginType = HTMLAttributes<HTMLDivElement>;
@@ -18,6 +20,7 @@ type BoxLoginType = HTMLAttributes<HTMLDivElement>;
 // } & BoxLoginType;
 
 const BoxLogin = () => {
+  const [quant, setQuant] = useState(1);
   const navigation = useNavigate();
 
   const [values, setValues] = useState<UserLogin>({
@@ -60,6 +63,19 @@ const BoxLogin = () => {
       navigation("/");
     }
   };
+
+  let init = () => {
+    if (quant < 2) {
+      setQuant(quant + 1);
+      const audio = new Audio(found);
+      audio.play();
+      audio.loop = true;
+    }
+  };
+
+  useEffect(() => {
+    init();
+  });
 
   return (
     <S.BoxLogin>
