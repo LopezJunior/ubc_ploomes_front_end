@@ -4,6 +4,9 @@ import { useLocation } from "react-router-dom";
 import { Room, RoomConfig } from "components/StartButton/type";
 import { RoomContext } from "Contexts/room";
 
+import { RoutePath } from "types/routes";
+import { useNavigate } from "react-router-dom";
+
 const BallHistory = () => {
   const status = useLocation();
   const [maxSort, setMaxSort] = useState(1);
@@ -14,6 +17,8 @@ const BallHistory = () => {
   const [room, setRoom] = useState<Room>();
   const context = useContext(RoomContext);
   let backSort: any[] = [];
+
+  const navigate = useNavigate();
 
   async function getState() {
     let roomParams = status.state as RoomConfig;
@@ -37,13 +42,19 @@ const BallHistory = () => {
 
   let result = backSort.splice(0, maxSort);
   /* console.log(result); */
-
+  let drawNumbers = context?.getDrawNumbers()!;
+  let gameTime = context?.getGameTime();
   setTimeout(() => {
     if (control < result.length) {
       // adiciona novo numero sorteado
       context?.addDrawNumbers(result[control + 1]);
       //
       setControl(control + 1);
+    } else if (control > result.length) {
+      console.log("teste");
+      navigate(RoutePath.DEFEATMODAL, {
+        state: { gameTime: gameTime, drawNumbers: drawNumbers.length },
+      });
     }
   }, time * 1000);
 

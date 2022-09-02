@@ -56,7 +56,6 @@ const BingoButton = () => {
       console.log("vitoria", resp);
       navigate(RoutePath.VICTORYMODAL, {
         state: {
-          resp: resp,
           gameTime: gameTime,
           drawNumbers: drawNumbers.length,
         },
