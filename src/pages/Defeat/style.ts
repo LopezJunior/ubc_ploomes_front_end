@@ -136,5 +136,9 @@ export const buttonWhite = styled.button`
     font-weight: 10;
     font-family: ${theme.constants.bodyFontFamily};
     color: ${theme.colors.textColorRed};
+    transition: all 0.2s;
+    :hover {
+      transform: scale(1.02);
+    }
   `}
 `;

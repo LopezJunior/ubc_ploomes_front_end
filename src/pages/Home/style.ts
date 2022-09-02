@@ -12,3 +12,9 @@ export const HomeContent = styled.section`
   align-items: center;
   justify-content: space-between;
 `;
+
+export const Footer = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+`;

@@ -24,13 +24,13 @@ export const Top = styled.div`
 `;
 
 export const Content = styled.section`
-	${({ theme }) => css`
-		color: ${theme.colors.primaryColor};
-		display: flex;
-		width: 100%;
-		position: absolute;
-		bottom: 10px;
-	`}
+  ${({ theme }) => css`
+    color: ${theme.colors.primaryColor};
+    display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+  `}
 `;
 
 export const Image = styled.img`
@@ -64,6 +64,13 @@ export const Cartela = styled.div`
   width: 15%;
   height: 95%;
   align-items: center;
+  justify-content: space-around;
+  font-size: 40px;
+
+  p {
+    margin: 0px;
+    text-align: center;
+  }
 `;
 
 export const Vitoria = styled.div`
@@ -132,6 +139,11 @@ export const Buttons = styled.button`
     width: 12rem;
     height: 4rem;
     font-size: 3rem;
+    transition: all 0.2s;
+
+    :hover {
+      transform: scale(1.02);
+    }
   `}
 `;
 
@@ -166,4 +178,8 @@ export const StyledModal = Modal.styled`
 
 export const FadingBackground = styled(BaseModalBackground)`
   transition: all 0.3s ease-in-out;
+`;
+
+export const IMG = styled.img`
+  height: 100px;
 `;
