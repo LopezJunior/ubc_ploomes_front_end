@@ -49,3 +49,5 @@ export const ContentRight = styled.span`
   /* display: flex;
   justify-content: right; */
 `;
+
+export const Logo = styled.img``;

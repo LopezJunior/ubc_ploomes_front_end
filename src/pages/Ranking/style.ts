@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const ContainerList = styled.div`
   width: 100vw;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
 `;
 
 export const FullRanking = styled.div`
